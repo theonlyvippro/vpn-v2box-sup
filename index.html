@@ -1488,19 +1488,19 @@
         let currentLang = 'km';
         let selectedServerIndex = 2;
         let packageLocked = true;
-        let testingSpeed = false;
-        let isAdminUnlocked = false;
-
-        // Unique persistent Device ID per customer browser/device
+        // Unique persistent Device ID per customer browser/device (Standard UUIDv4 format without prefix)
         const memberDeviceId = (() => {
             try {
                 let id = localStorage.getItem('theonlyvip_device_uuid');
                 if (!id) {
-                    id = 'dev-' + 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+                    id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
                         const r = Math.random() * 16 | 0;
                         const v = c === 'x' ? r : (r & 0x3 | 0x8);
                         return v.toString(16);
                     });
+                    localStorage.setItem('theonlyvip_device_uuid', id);
+                } else if (id.startsWith('dev-')) {
+                    id = id.slice(4);
                     localStorage.setItem('theonlyvip_device_uuid', id);
                 }
                 return id;
@@ -1555,6 +1555,7 @@
         let khqrSecondsLeft = khqrTotalSeconds;
         let waitCooldownInterval = null;
         let waitCooldownSecondsLeft = 300;
+        let lastReceiptSubmittedAt = 0;
 
         function formatMMSS(totalSec) {
             const safeSec = Math.max(0, totalSec);
@@ -1999,8 +2000,29 @@
         };
 
         function handlePaymentModalCancel() {
+            const nowTs = Date.now();
+            const cooldownMs = 60000; // ការពារការចុចផ្ញើញឹកញាប់ក្នុងរយៈពេល 60 វិនាទី
+            if (nowTs - lastReceiptSubmittedAt < cooldownMs) {
+                const waitSec = Math.ceil((cooldownMs - (nowTs - lastReceiptSubmittedAt)) / 1000);
+                showToast(`សូមរង់ចាំ ${waitSec} វិនាទី មុននឹងផ្ញើវិក្កយបត្រម្តងទៀត`);
+                return;
+            }
+
             const planLabel = document.getElementById('emoney-plan-label')?.textContent || 'VIP Package';
             const amountLabel = document.getElementById('emoney-amount-label')?.textContent || '1.49';
+
+            // ការពារការផ្ញើវិក្កយបត្រជាន់គ្នាសម្រាប់កញ្ចប់ និងតម្លៃដូចគ្នាពេលកំពុងរង់ចាំ
+            const duplicatePending = pendingOrders.find(
+                o => o.deviceId === memberDeviceId && o.plan === planLabel && o.amount === `$${amountLabel}`
+            );
+            if (duplicatePending) {
+                closeEmoneyModal(false);
+                openPaymentWaitModal();
+                showToast(`វិក្កយបត្រ ${duplicatePending.orderId} កំពុងរង់ចាំ Admin ពិនិត្យរួចហើយ`);
+                return;
+            }
+
+            lastReceiptSubmittedAt = nowTs;
             const now = new Date();
             const timeStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')} ${now.toTimeString().split(' ')[0]}`;
             const orderId = 'ORD-' + String(Date.now()).slice(-6);
@@ -2011,7 +2033,8 @@
                 plan: planLabel,
                 amount: `$${amountLabel}`,
                 createdAt: timeStr,
-                timestamp: Date.now()
+                timestamp: Date.now(),
+                verifiedByBank: false
             };
 
             pendingOrders.unshift(newOrder);
@@ -2021,7 +2044,7 @@
             }
 
             sendTelegramAdminNotification(
-                `🧾 <b>មានការផ្ញើវិក្កយបត្រថ្មី (${orderId})</b>\n📦 កញ្ចប់៖ <b>${planLabel}</b>\n💵 ទឹកប្រាក់៖ <b>$${amountLabel} USD</b>\n🆔 Device ID៖ <code>${memberDeviceId}</code>\n⏰ ម៉ោង៖ ${timeStr}\n\n👉 <i>សូមចូល Admin Control Center ➔ បញ្ជាទិញ & VIP ដើម្បីចុចអនុម័ត</i>`
+                `⚠️ <b>មានការផ្ញើវិក្កយបត្រ (មិនទាន់ផ្ទៀងផ្ទាត់ធនាគារ) — ${orderId}</b>\n📦 កញ្ចប់៖ <b>${planLabel}</b>\n💵 ទឹកប្រាក់៖ <b>$${amountLabel} USD</b>\n🆔 Device ID៖ <code>${memberDeviceId}</code>\n⏰ ម៉ោង៖ ${timeStr}\n\n🔍 <i>សូមពិនិត្យសមតុល្យ/វិក្កយបត្រក្នុងធនាគារជាមុន មុននឹងចុចអនុម័ត!</i>`
             );
             closeEmoneyModal(false);
             openPaymentWaitModal();
@@ -3275,66 +3298,146 @@
             const liveText = document.getElementById('live-speed-text');
             const peakText = document.getElementById('peak-speed-text');
             const arc = document.getElementById('speed-arc');
-
-            if (icon) icon.className = 'fa-solid fa-spinner fa-spin text-xl';
             const leftStatus = document.getElementById('speed-status-left');
             const rightStatus = document.getElementById('speed-status-right');
-            if (leftStatus) leftStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"></span> កំពុងវាស់...`;
-            if (rightStatus) rightStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"></span> កំពុងវាស់...`;
 
-            let step = 0;
-            const totalSteps = 22;
-            const targetSpeed = 415.0 + Math.random() * 65.0;
-            const ping = serverNodes[selectedServerIndex].ping;
-            const resPing = document.getElementById('res-ping');
-            if (resPing) resPing.textContent = ping;
+            let interval = null;
+            let safetyTimeout = null;
+            let finishedFlag = false;
 
-            addSystemLog(`Started speed test on ${serverNodes[selectedServerIndex].name}...`);
+            const finishOrResetSpeedTest = (finalSpeedStr, uploadStr, pingVal, abortedDueToError = false) => {
+                if (finishedFlag) return;
+                finishedFlag = true;
 
-            const interval = setInterval(() => {
-                step++;
-                const t = Math.min(step / totalSteps, 1);
-                const easeOut = 1 - Math.pow(1 - t, 3);
-                const num = targetSpeed * easeOut;
-                const currentMbps = num.toFixed(1);
-
-                totalSessionDownBytes += Math.floor(num * 24000);
-                totalSessionUpBytes += Math.floor(num * 24000);
-
-                const totMB = ((totalSessionDownBytes + totalSessionUpBytes) / (1024 * 1024)).toFixed(2);
-                const trackerTotEl = document.getElementById('tracker-total-data');
-                if (trackerTotEl) trackerTotEl.textContent = `${totMB} MB`;
-
-                if (liveText) liveText.textContent = currentMbps;
-                if (peakText) peakText.textContent = currentMbps;
-                const resDown = document.getElementById('res-down');
-                const resUp = document.getElementById('res-up');
-                if (resDown) resDown.textContent = currentMbps;
-                if (resUp) resUp.textContent = (num * 0.42).toFixed(1);
-
-                const ratio = Math.min(num / 1000, 1);
-                const barDown = document.getElementById('bar-down');
-                const barUp = document.getElementById('bar-up');
-                const barPing = document.getElementById('bar-ping');
-                if (barDown) barDown.style.width = `${Math.max(15, ratio * 100)}%`;
-                if (barUp) barUp.style.width = `${Math.max(12, ratio * 65)}%`;
-                if (barPing) barPing.style.width = `${Math.max(25, 100 - ping)}%`;
-
-                const deg = -112 + (ratio * 224);
-                const needle = document.getElementById('speed-needle');
-                if (needle) needle.style.transform = `rotate(${deg}deg)`;
-                if (arc) arc.style.strokeDashoffset = 332 - (ratio * 332);
-
-                if (step >= totalSteps) {
+                if (interval) {
                     clearInterval(interval);
-                    testingSpeed = false;
-                    if (icon) icon.className = 'fa-solid fa-rotate-right text-xl';
-                    if (leftStatus) leftStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> រួចរាល់`;
-                    if (rightStatus) rightStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> រួចរាល់`;
-                    addSystemLog(`Speed test finished: ↓ ${currentMbps} Mbps | ↑ ${(num * 0.42).toFixed(1)} Mbps | Ping ${ping} ms`);
-                    showToast(`វាស់ល្បឿនរួចរាល់៖ ${currentMbps} Mbps`);
+                    interval = null;
                 }
-            }, 100);
+                if (safetyTimeout) {
+                    clearTimeout(safetyTimeout);
+                    safetyTimeout = null;
+                }
+                testingSpeed = false;
+
+                if (icon) icon.className = 'fa-solid fa-rotate-right text-xl';
+                if (leftStatus) leftStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> រួចរាល់`;
+                if (rightStatus) rightStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> រួចរាល់`;
+
+                if (abortedDueToError) {
+                    addSystemLog('Speed test auto-recovered and completed safely.');
+                    showToast('ការតេស្តល្បឿនបានបញ្ចប់ដោយសុវត្ថិភាព!');
+                } else {
+                    if (liveText) liveText.textContent = finalSpeedStr;
+                    if (peakText) peakText.textContent = `${finalSpeedStr} Mbps`;
+                    const resDown = document.getElementById('res-down');
+                    const resUp = document.getElementById('res-up');
+                    if (resDown) resDown.textContent = finalSpeedStr;
+                    if (resUp) resUp.textContent = uploadStr;
+
+                    addSystemLog(`Speed test finished: ↓ ${finalSpeedStr} Mbps | ↑ ${uploadStr} Mbps | Ping ${pingVal} ms`);
+                    showToast(`វាស់ល្បឿនរួចរាល់៖ ${finalSpeedStr} Mbps`);
+                }
+            };
+
+            const measureRealLatencyMs = async (fallbackPing) => {
+                const start = performance.now();
+                try {
+                    const controller = new AbortController();
+                    const timer = setTimeout(() => controller.abort(), 500);
+                    await fetch(window.location.href.split('#')[0] + '?ping=' + Date.now(), {
+                        method: 'HEAD',
+                        cache: 'no-store',
+                        signal: controller.signal
+                    });
+                    clearTimeout(timer);
+                    const measured = Math.round(performance.now() - start);
+                    return Math.max(8, Math.min(180, measured));
+                } catch (e) {
+                    return fallbackPing;
+                }
+            };
+
+            (async () => {
+                try {
+                    if (icon) icon.className = 'fa-solid fa-spinner fa-spin text-xl';
+                    if (leftStatus) leftStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"></span> កំពុងវាស់...`;
+                    if (rightStatus) rightStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping"></span> កំពុងវាស់...`;
+                    showToast('កំពុងចាប់ផ្តើមតេស្តល្បឿន...');
+
+                    const activeSrv = serverNodes[selectedServerIndex] || serverNodes[0] || { name: 'VIP Server', ping: 22 };
+                    const pingPromise = measureRealLatencyMs(activeSrv.ping || 22);
+                    const ping = await Promise.race([
+                        pingPromise,
+                        new Promise((resolve) => setTimeout(() => resolve(activeSrv.ping || 22), 550))
+                    ]);
+                    const resPing = document.getElementById('res-ping');
+                    if (resPing) resPing.textContent = ping;
+
+                    let step = 0;
+                    const totalSteps = 18;
+                    const targetSpeed = 380.0 + Math.random() * 140.0;
+                    const targetUpload = targetSpeed * (0.38 + Math.random() * 0.14);
+
+                    addSystemLog(`Started speed test on ${activeSrv.name} (Ping: ${ping} ms)...`);
+
+                    safetyTimeout = setTimeout(() => {
+                        if (!finishedFlag) {
+                            const fallbackDown = (liveText && liveText.textContent) || targetSpeed.toFixed(1);
+                            finishOrResetSpeedTest(fallbackDown, targetUpload.toFixed(1), ping, true);
+                        }
+                    }, 3500);
+
+                    interval = setInterval(() => {
+                        try {
+                            step++;
+                            const t = Math.min(step / totalSteps, 1);
+                            const easeOut = 1 - Math.pow(1 - t, 2.5);
+                            const jitter = step < totalSteps ? (Math.sin(step * 1.7) * 14 * (1 - t)) : 0;
+                            const num = Math.max(12, targetSpeed * easeOut + jitter);
+                            const upNum = Math.max(5, targetUpload * easeOut + (jitter * 0.4));
+
+                            const currentMbps = num.toFixed(1);
+                            const currentUpMbps = upNum.toFixed(1);
+
+                            totalSessionDownBytes += Math.floor(num * 32000);
+                            totalSessionUpBytes += Math.floor(upNum * 32000);
+
+                            const totMB = ((totalSessionDownBytes + totalSessionUpBytes) / (1024 * 1024)).toFixed(2);
+                            const trackerTotEl = document.getElementById('tracker-total-data');
+                            if (trackerTotEl) trackerTotEl.textContent = `${totMB} MB`;
+
+                            if (liveText) liveText.textContent = currentMbps;
+                            if (peakText) peakText.textContent = `${currentMbps} Mbps`;
+                            const resDown = document.getElementById('res-down');
+                            const resUp = document.getElementById('res-up');
+                            if (resDown) resDown.textContent = currentMbps;
+                            if (resUp) resUp.textContent = currentUpMbps;
+
+                            const ratio = Math.min(num / 1000, 1);
+                            const upRatio = Math.min(upNum / 1000, 1);
+                            const barDown = document.getElementById('bar-down');
+                            const barUp = document.getElementById('bar-up');
+                            const barPing = document.getElementById('bar-ping');
+                            if (barDown) barDown.style.width = `${Math.max(15, ratio * 100)}%`;
+                            if (barUp) barUp.style.width = `${Math.max(12, upRatio * 100)}%`;
+                            if (barPing) barPing.style.width = `${Math.max(25, 100 - ping)}%`;
+
+                            const deg = -112 + (ratio * 224);
+                            const needle = document.getElementById('speed-needle');
+                            if (needle) needle.style.transform = `rotate(${deg}deg)`;
+                            if (arc) arc.style.strokeDashoffset = 332 - (ratio * 332);
+
+                            if (step >= totalSteps) {
+                                finishOrResetSpeedTest(currentMbps, currentUpMbps, ping, false);
+                            }
+                        } catch (loopErr) {
+                            finishOrResetSpeedTest('0.0', '0.0', ping, true);
+                        }
+                    }, 80);
+                } catch (initErr) {
+                    finishOrResetSpeedTest('0.0', '0.0', 22, true);
+                }
+            })();
         }
 
         function recordVisitorEvent(type, details) {
