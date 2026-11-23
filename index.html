@@ -106,6 +106,31 @@
             animation-play-state: paused;
         }
 
+        /* Festival Animated Logo & Glow */
+        @keyframes festivalBoatBob {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-4px) rotate(2deg); }
+        }
+        @keyframes festivalMoonPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 12px rgba(251, 191, 36, 0.45); }
+            50% { transform: scale(1.08) rotate(8deg); box-shadow: 0 0 22px rgba(251, 191, 36, 0.85); }
+        }
+        @keyframes festivalShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-festival-boat {
+            animation: festivalBoatBob 2.4s ease-in-out infinite;
+        }
+        .animate-festival-moon {
+            animation: festivalMoonPulse 3.2s ease-in-out infinite;
+        }
+        .animate-festival-gradient {
+            background-size: 200% 200%;
+            animation: festivalShimmer 5s ease infinite;
+        }
+
         /* Smooth Slow Reveal for KHQR Modal & QR Code */
         @keyframes modalSmoothPopIn {
             0% {
@@ -223,33 +248,57 @@
             ============================================================== -->
             <section id="tab-home" class="space-y-3">
                 <!-- Top Brand Header Card -->
-                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-3.5 flex items-center justify-between shadow-sm">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-full border-2 border-amber-500/80 bg-zinc-900 flex items-center justify-center shadow-inner shrink-0">
-                            <i class="fa-solid fa-fire text-amber-500 text-lg"></i>
+                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-3 flex items-center justify-between gap-2 shadow-sm">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-10 h-10 rounded-full border-2 border-amber-500/80 bg-zinc-900 flex items-center justify-center shadow-inner shrink-0">
+                            <i class="fa-solid fa-fire text-amber-500 text-sm"></i>
                         </div>
-                        <div>
+                        <div class="min-w-0">
                             <div class="flex items-center gap-1.5 flex-wrap">
-                                <h1 class="text-base font-extrabold tracking-tight text-zinc-900 dark:text-white">TheOnlyVIP</h1>
-                                <span class="px-2 py-0.5 rounded-full text-[9.5px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">
-                                    V2Box VIP
+                                <h1 class="text-sm font-extrabold tracking-tight text-zinc-900 dark:text-white leading-tight">TheOnlyVIP</h1>
+                                <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30 leading-none">
+                                    VIP
                                 </span>
                             </div>
-                            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">ប្រព័ន្ធគ្រប់គ្រងគណនី V2Box ល្បឿនលឿន</p>
+                            <p class="text-[10px] text-zinc-500 dark:text-zinc-400 mt-0.5 truncate">គ្រប់គ្រងគណនី V2Box ល្បឿនលឿន</p>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-1.5">
-                        <button onclick="toggleTheme()" class="px-2.5 py-2 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 flex items-center gap-1.5 text-xs font-bold hover:border-amber-500/50 transition-colors cursor-pointer" title="ប្តូរពន្លឺ">
-                            <i id="theme-sun-icon" class="fa-solid fa-sun text-amber-400 text-xs"></i>
-                            <span id="theme-short-label" class="text-[11px]">ស</span>
+                    <div class="flex items-center gap-1 shrink-0">
+                        <button onclick="toggleTheme()" class="px-2 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 flex items-center gap-1 text-[10.5px] font-bold hover:border-amber-500/50 transition-colors cursor-pointer" title="ប្តូរពន្លឺ">
+                            <i id="theme-sun-icon" class="fa-solid fa-sun text-amber-400 text-[10.5px]"></i>
+                            <span id="theme-short-label" class="text-[10px]">ស</span>
                         </button>
-                        <button onclick="toggleLangHint()" id="btn-lang-pill" class="px-2.5 py-2 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-xs font-extrabold hover:border-amber-500/50 transition-colors cursor-pointer">
+                        <button onclick="toggleLangHint()" id="btn-lang-pill" class="px-2 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-[10.5px] font-extrabold hover:border-amber-500/50 transition-colors cursor-pointer">
                             EN
                         </button>
-                        <button onclick="openAdminModal()" class="w-9 h-9 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-amber-500 hover:border-amber-500/50 transition-colors cursor-pointer" title="Admin Settings">
-                            <i class="fa-solid fa-gear text-xs"></i>
+                        <button onclick="openAdminModal()" class="w-8 h-8 rounded-xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-amber-500 hover:border-amber-500/50 transition-colors cursor-pointer" title="Admin Settings">
+                            <i class="fa-solid fa-gear text-[11px]"></i>
                         </button>
+                    </div>
+                </div>
+
+                <!-- Animated Festival Logo Banner -->
+                <div class="relative overflow-hidden rounded-[24px] bg-gradient-to-r from-amber-500/20 via-orange-500/15 to-amber-500/20 dark:from-amber-500/20 dark:via-orange-950/35 dark:to-amber-500/20 border border-amber-500/40 px-3.5 py-2.5 flex items-center justify-between gap-2.5 shadow-sm animate-festival-gradient">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 text-black flex items-center justify-center shrink-0 shadow-md animate-festival-boat">
+                            <i class="fa-solid fa-dharmachakra text-lg"></i>
+                            <span class="w-4 h-4 rounded-full bg-amber-200 text-amber-900 text-[9px] flex items-center justify-center absolute -top-1 -right-1 border border-amber-500 animate-festival-moon">
+                                <i class="fa-solid fa-moon"></i>
+                            </span>
+                        </div>
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping shrink-0"></span>
+                                <span class="text-[9.5px] font-extrabold uppercase tracking-wider text-amber-500 dark:text-amber-300">បុណ្យប្រពៃណីជាតិខ្មែរ</span>
+                            </div>
+                            <h2 class="text-xs sm:text-[13px] font-extrabold text-zinc-900 dark:text-white truncate leading-snug">
+                                ពិធីបុណ្យអុំទូក អកអំបុក សំពះព្រះខែ
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="px-2 py-1 rounded-xl bg-amber-500/20 border border-amber-500/35 text-[10px] font-extrabold text-amber-500 dark:text-amber-300 shrink-0">
+                        🇰🇭
                     </div>
                 </div>
 
@@ -322,67 +371,114 @@
                     <div class="grid grid-cols-3 gap-2">
                         <button onclick="openEmoneyTopup(adminConfig.prices[0], '15 ថ្ងៃ (អ្នកប្រើ VIP)')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">15 ថ្ងៃ</div>
-                            <div id="pkg-price-0" class="text-sm font-extrabold text-amber-400 mt-0.5">0.89$</div>
-                            <div class="text-[10px] text-zinc-500 mt-0.5">អ្នកប្រើ VIP</div>
+                            <div id="pkg-price-0" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">0.89$</div>
+                            <div class="text-[10px] text-zinc-500">អ្នកប្រើ VIP</div>
                         </button>
 
-                        <button onclick="openEmoneyTopup(adminConfig.prices[1], '30 ថ្ងៃ (កញ្ចប់ពេញនិយម)')" class="relative rounded-2xl bg-gradient-to-b from-amber-500/15 to-orange-500/10 dark:from-amber-500/20 dark:to-orange-950/30 border-2 border-orange-500/80 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer animate-hot-burn">
-                            <span class="px-2 py-0.5 rounded-full text-[8.5px] font-extrabold bg-gradient-to-r from-orange-500 to-amber-500 text-black inline-flex items-center gap-0.5 shadow animate-badge-move">
+                        <button onclick="openEmoneyTopup(adminConfig.prices[1], '30 ថ្ងៃ (ពេញនិយម)')" class="relative rounded-2xl bg-zinc-50 dark:bg-[#1a1612] border-2 border-amber-500 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer animate-hot-burn">
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500 text-black text-[9px] font-black uppercase tracking-wide mb-0.5 animate-badge-move">
                                 <i class="fa-solid fa-fire text-[8px]"></i> HOT
                             </span>
-                            <div class="text-xs font-extrabold text-zinc-900 dark:text-white mt-0.5">30 ថ្ងៃ</div>
-                            <div id="pkg-price-1" class="text-sm font-extrabold text-amber-400">1.49$</div>
-                            <div class="text-[10px] text-amber-300/80">ពេញនិយម</div>
+                            <div class="text-xs font-extrabold text-zinc-900 dark:text-white">30 ថ្ងៃ</div>
+                            <div id="pkg-price-1" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">1.49$</div>
+                            <div class="text-[10px] font-bold text-amber-400">ពេញនិយម</div>
                         </button>
 
                         <button onclick="openEmoneyTopup(adminConfig.prices[2], '60 ថ្ងៃ (អ្នកប្រើ VIP)')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">60 ថ្ងៃ</div>
-                            <div id="pkg-price-2" class="text-sm font-extrabold text-amber-400 mt-0.5">2.79$</div>
-                            <div class="text-[10px] text-zinc-500 mt-0.5">អ្នកប្រើ VIP</div>
+                            <div id="pkg-price-2" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">2.79$</div>
+                            <div class="text-[10px] text-zinc-500">អ្នកប្រើ VIP</div>
                         </button>
 
                         <button onclick="openEmoneyTopup(adminConfig.prices[3], '90 ថ្ងៃ (អ្នកប្រើ VIP)')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">90 ថ្ងៃ</div>
-                            <div id="pkg-price-3" class="text-sm font-extrabold text-amber-400 mt-0.5">3.99$</div>
-                            <div class="text-[10px] text-zinc-500 mt-0.5">អ្នកប្រើ VIP</div>
+                            <div id="pkg-price-3" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">3.99$</div>
+                            <div class="text-[10px] text-zinc-500">អ្នកប្រើ VIP</div>
                         </button>
 
                         <button onclick="openEmoneyTopup(adminConfig.prices[4], '180 ថ្ងៃ (អ្នកប្រើ VIP)')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">180 ថ្ងៃ</div>
-                            <div id="pkg-price-4" class="text-sm font-extrabold text-amber-400 mt-0.5">7.49$</div>
-                            <div class="text-[10px] text-zinc-500 mt-0.5">អ្នកប្រើ VIP</div>
+                            <div id="pkg-price-4" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">7.49$</div>
+                            <div class="text-[10px] text-zinc-500">អ្នកប្រើ VIP</div>
                         </button>
 
-                        <button onclick="openEmoneyTopup(adminConfig.prices[5], '365 ថ្ងៃ (សន្សំសំចៃបំផុត)')" class="relative overflow-hidden rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-amber-500/40 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
-                            <span class="px-1.5 py-0.5 rounded-full text-[8px] font-extrabold bg-amber-500/20 text-amber-300 border border-amber-500/30 inline-block animate-corner-ribbon">
+                        <button onclick="openEmoneyTopup(adminConfig.prices[5], '365 ថ្ងៃ (សន្សំសំចៃ)')" class="relative rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-amber-500/50 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer overflow-hidden">
+                            <span class="inline-block px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[8.5px] font-black uppercase tracking-wide mb-0.5 animate-corner-ribbon">
                                 SAVE 20%
                             </span>
-                            <div class="text-xs font-extrabold text-zinc-900 dark:text-white mt-0.5">365 ថ្ងៃ</div>
-                            <div id="pkg-price-5" class="text-sm font-extrabold text-amber-400">14.99$</div>
+                            <div class="text-xs font-extrabold text-zinc-900 dark:text-white">365 ថ្ងៃ</div>
+                            <div id="pkg-price-5" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">14.99$</div>
                             <div class="text-[10px] text-zinc-500">សន្សំសំចៃ</div>
                         </button>
                     </div>
 
-                    <p class="text-[10.5px] text-center text-zinc-500">
-                        បង់ប្រាក់តាម <span class="text-zinc-800 dark:text-zinc-200 font-bold">KHQR</span> (ABA, ACLEDA, Wing, Bakong...) រួចចុចបញ្ជាក់ការទូទាត់
+                    <p class="text-[10.5px] text-center text-zinc-500 leading-relaxed">
+                        បង់ប្រាក់តាម <strong class="text-zinc-800 dark:text-zinc-200">KHQR</strong> (ABA, ACLEDA, Wing, Bakong...) រួចចុចបញ្ជាក់ការទូទាត់
                     </p>
+                </div>
 
-                    <!-- VIP Dashboard Button (Shown ONLY after confirming purchase) -->
-                    <div id="vip-dashboard-btn-wrapper" class="hidden pt-1">
-                        <button onclick="openUserDashboardModal()" class="w-full py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all active:scale-[0.98] cursor-pointer">
-                            <i class="fa-solid fa-crown"></i>
-                            <span>ចូលទៅកាន់ផ្ទាំងគ្រប់គ្រង VIP (VIP Dashboard)</span>
+                <!-- SIM Carrier System Card (M / C / S) -->
+                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3 shadow-sm">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-amber-400 text-xs"></i>
+                            <h3 class="text-xs font-extrabold text-zinc-900 dark:text-white" data-i18n="includedPackageTitle">ប្រព័ន្ធប្រតិបត្តិការស៊ីម</h3>
+                        </div>
+                        <button id="package-lock-badge" type="button" onclick="togglePackageLock()" class="inline-flex items-center gap-1.5 text-[11px] font-bold text-rose-500 cursor-pointer">
+                            <i id="package-lock-icon" class="fa-solid fa-lock text-[10px]"></i>
+                            <span id="package-lock-text">Locked</span>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2.5">
+                        <button type="button" onclick="selectCarrierNode('Metfone')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-rose-500/10 border border-rose-500/40 p-3 flex flex-col items-center justify-center gap-1.5 transition-all active:scale-[0.98] cursor-pointer">
+                            <span class="w-9 h-9 rounded-full bg-rose-500/15 border border-rose-500/40 text-rose-400 font-black text-xs flex items-center justify-center">M</span>
+                            <span class="text-xs font-extrabold text-zinc-900 dark:text-white">Free</span>
+                            <span class="text-[11px] font-extrabold text-rose-400">Metfone</span>
+                        </button>
+
+                        <button type="button" onclick="selectCarrierNode('Cellcard')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-amber-500/10 border border-amber-500/40 p-3 flex flex-col items-center justify-center gap-1.5 transition-all active:scale-[0.98] cursor-pointer">
+                            <span class="w-9 h-9 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-400 font-black text-xs flex items-center justify-center">C</span>
+                            <span class="text-xs font-extrabold text-zinc-900 dark:text-white">Free</span>
+                            <span class="text-[11px] font-extrabold text-amber-400">Cellcard</span>
+                        </button>
+
+                        <button type="button" onclick="selectCarrierNode('Smart')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-emerald-500/10 border border-emerald-500/40 p-3 flex flex-col items-center justify-center gap-1.5 transition-all active:scale-[0.98] cursor-pointer">
+                            <span class="w-9 h-9 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-black text-xs flex items-center justify-center">S</span>
+                            <span class="text-xs font-extrabold text-zinc-900 dark:text-white truncate max-w-full">Service (S...</span>
+                            <span class="text-[11px] font-extrabold text-emerald-400">Smart</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Holiday & Calendar Strip -->
-                <div class="rounded-[22px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-3 flex items-center gap-3 overflow-hidden">
-                    <div class="w-12 h-12 rounded-2xl bg-zinc-100 dark:bg-[#1a1a1f] border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center shrink-0">
-                        <span id="holiday-day-short" class="text-[9.5px] font-bold text-rose-400 leading-none">ចន្ទ</span>
-                        <span id="holiday-day-num" class="text-base font-extrabold text-zinc-900 dark:text-white leading-tight">23</span>
+                <!-- Download V2Box Client Card -->
+                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-3.5 flex items-center justify-between gap-2.5 shadow-sm">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-10 h-10 rounded-full bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 shrink-0">
+                            <i class="fa-solid fa-cloud-arrow-down text-sm"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="text-xs font-extrabold text-zinc-900 dark:text-white truncate" data-i18n="noAppTitle">មិនទាន់មានកម្មវិធី...</h3>
+                            <p class="text-[10.5px] text-zinc-500 truncate mt-0.5" data-i18n="noAppSub">ទាញយក V2Box ដោ...</p>
+                        </div>
                     </div>
-                    <div class="flex-1 overflow-hidden">
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        <button type="button" onclick="openV2BoxStoreOrApp('ios')" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-[11px] font-extrabold hover:border-sky-500/50 transition-colors cursor-pointer">
+                            iOS
+                        </button>
+                        <button type="button" onclick="openV2BoxStoreOrApp('android')" class="px-2.5 py-1.5 rounded-xl bg-white text-black border border-zinc-300 text-[11px] font-extrabold hover:bg-zinc-100 transition-colors cursor-pointer">
+                            Android
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bottom Calendar Badge & Running Marquee Card -->
+                <div class="rounded-[22px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-2.5 flex items-center gap-3 overflow-hidden shadow-sm">
+                    <div class="w-11 h-12 rounded-2xl bg-zinc-100 dark:bg-[#1a1a1f] border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center shrink-0">
+                        <span id="holiday-day-short" class="text-[9.5px] font-extrabold text-amber-400 leading-none">ចន្ទ</span>
+                        <span id="holiday-day-num" class="text-sm font-black font-mono text-zinc-900 dark:text-white leading-tight mt-0.5">23</span>
+                    </div>
+                    <div class="min-w-0 flex-1 overflow-hidden">
                         <div class="animate-holiday-marquee flex items-center gap-6 text-xs font-bold text-zinc-700 dark:text-zinc-200 whitespace-nowrap">
                             <span>🇰🇭 សួស្តី! រីករាយប្រើប្រាស់សេវាកម្ម V2Box VIP ល្បឿនលឿន និងមានស្ថិរភាពខ្ពស់</span>
                             <span>⚡ ជំនួយបច្ចេកទេស 24/7 • សូមគោរពលក្ខខណ្ឌប្រើប្រាស់គណនី</span>
@@ -391,324 +487,184 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Account Validity & Remaining Countdown Card -->
-                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 flex items-center justify-between gap-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-11 h-11 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                            <i class="fa-solid fa-crown text-base"></i>
-                        </div>
-                        <div>
-                            <p class="text-[11px] text-zinc-500 dark:text-zinc-400" data-i18n="validityLabel">សុពលភាពគណនី</p>
-                            <p class="text-sm font-extrabold text-emerald-400 mt-0.5">កំពុងដំណើរការ</p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-[10px] text-zinc-500">ពេលនៅសល់</p>
-                        <p id="validity-countdown-text" class="text-xs font-extrabold text-zinc-900 dark:text-white font-mono mt-0.5 leading-snug">
-                            39 ថ្ងៃ 14 ម៉ោង 22 នាទី 10<br>វិនាទី
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Included Server Package (3 Nodes) -->
-                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-layer-group text-amber-400 text-xs"></i>
-                            <h3 class="text-xs font-extrabold text-zinc-900 dark:text-white" data-i18n="includedPackageTitle">កញ្ចប់ Server រួមបញ្ចូល (3 Nodes)</h3>
-                        </div>
-                        <button id="package-lock-badge" onclick="togglePackageLock()" class="inline-flex items-center gap-1.5 text-[11px] font-bold text-rose-500 cursor-pointer">
-                            <i id="package-lock-icon" class="fa-solid fa-lock text-[10px]"></i>
-                            <span id="package-lock-text">Locked</span>
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="selectCarrierNode('Smart')" class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] hover:bg-zinc-100 dark:hover:bg-[#222229] border border-zinc-200 dark:border-zinc-800 p-3 flex flex-col items-center justify-center gap-1.5 transition-all active:scale-[0.97] cursor-pointer">
-                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                            <span class="text-xs font-extrabold text-zinc-900 dark:text-white">Smart</span>
-                            <span class="text-[10px] text-zinc-500">VIP Node</span>
-                        </button>
-
-                        <button onclick="selectCarrierNode('Cellcard')" class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] hover:bg-zinc-100 dark:hover:bg-[#222229] border border-zinc-200 dark:border-zinc-800 p-3 flex flex-col items-center justify-center gap-1.5 transition-all active:scale-[0.97] cursor-pointer">
-                            <span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>
-                            <span class="text-xs font-extrabold text-zinc-900 dark:text-white">Cellcard</span>
-                            <span class="text-[10px] text-zinc-500">VIP Node</span>
-                        </button>
-
-                        <button onclick="selectCarrierNode('Metfone')" class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] hover:bg-zinc-100 dark:hover:bg-[#222229] border border-zinc-200 dark:border-zinc-800 p-3 flex flex-col items-center justify-center gap-1.5 transition-all active:scale-[0.97] cursor-pointer">
-                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                            <span class="text-xs font-extrabold text-zinc-900 dark:text-white">Metfone</span>
-                            <span class="text-[10px] text-zinc-500">VIP Node</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Download V2Box App Helper Card -->
-                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-3.5 flex items-center justify-between gap-2.5">
-                    <div class="flex items-center gap-3 min-w-0">
-                        <div class="w-10 h-10 rounded-2xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 shrink-0">
-                            <i class="fa-solid fa-cloud-arrow-down text-sm"></i>
-                        </div>
-                        <div class="min-w-0">
-                            <p class="text-xs font-extrabold text-zinc-900 dark:text-white truncate" data-i18n="noAppTitle">មិនទាន់មានកម្មវិធី...</p>
-                            <p class="text-[10.5px] text-zinc-500 truncate" data-i18n="noAppSub">ទាញយក V2Box ដោ...</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-1.5 shrink-0">
-                        <a href="https://apps.apple.com/app/v2box-v2ray-client/id6446814690" target="_blank" rel="noopener" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#1d1d22] border border-zinc-200 dark:border-zinc-800 text-[10.5px] font-bold hover:border-sky-500/50 transition-colors">
-                            iOS
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=dev.hexasoft.v2box" target="_blank" rel="noopener" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#1d1d22] border border-zinc-200 dark:border-zinc-800 text-[10.5px] font-bold hover:border-emerald-500/50 transition-colors">
-                            Android
-                        </a>
-                    </div>
-                </div>
             </section>
 
             <!-- =============================================================
-                 TAB 2: SERVERS (ម៉ាស៊ីនមេ)
+                 TAB 2: SERVERS (ម៉ាស៊ីនមេ VIP)
             ============================================================== -->
             <section id="tab-servers" class="hidden space-y-3">
-                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 flex items-center justify-between">
-                    <div>
-                        <h2 class="text-base font-extrabold text-zinc-900 dark:text-white">បញ្ជីម៉ាស៊ីនមេ VIP</h2>
-                        <p class="text-[11px] text-zinc-500 mt-0.5">ជ្រើសរើស Node ដែលមាន Ping ទាបបំផុត</p>
-                    </div>
-                    <button id="btn-ping-all" onclick="pingAllServers()" class="px-3 py-2 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-xs font-bold flex items-center gap-1.5 hover:border-emerald-500/50 transition-colors cursor-pointer">
-                        <i class="fa-solid fa-signal text-emerald-500"></i>
-                        <span>តេស្ត Ping</span>
-                    </button>
-                </div>
-
-                <!-- Selected Server Banner -->
-                <div class="rounded-[22px] bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-transparent border border-amber-500/30 p-3.5 flex items-center justify-between">
-                    <div class="flex items-center gap-2.5 min-w-0">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0"></span>
-                        <div class="min-w-0">
-                            <p class="text-[10px] font-bold uppercase tracking-wider text-amber-400">Server កំពុងជ្រើសរើស</p>
-                            <p id="banner-selected-server" class="text-xs font-extrabold text-zinc-900 dark:text-white truncate">
-                                Vietnam Ho Chi Minh • VLESS gRPC + TLS
-                            </p>
+                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3 shadow-sm">
+                    <div class="flex items-center justify-between gap-2">
+                        <div>
+                            <h2 class="text-sm font-extrabold text-zinc-900 dark:text-white">ម៉ាស៊ីនមេ VIP</h2>
+                            <p id="banner-selected-server" class="text-[11px] text-zinc-500 mt-0.5">Vietnam Ho Chi Minh • VLESS gRPC + TLS</p>
                         </div>
+                        <button id="btn-ping-all" onclick="pingAllServers()" class="px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-[11px] font-extrabold flex items-center gap-1.5 hover:border-emerald-500/50 transition-colors cursor-pointer">
+                            <i class="fa-solid fa-signal text-emerald-500"></i>
+                            <span>តេស្ត Ping</span>
+                        </button>
                     </div>
-                    <button onclick="importToV2Box()" class="px-3 py-1.5 rounded-xl bg-amber-500 text-black text-[11px] font-extrabold shrink-0 cursor-pointer">
-                        ភ្ជាប់
-                    </button>
-                </div>
 
-                <!-- Server List Container (Populated by JS) -->
-                <div id="server-list-container" class="space-y-2.5"></div>
+                    <div id="server-list-container" class="space-y-2.5"></div>
+                </div>
             </section>
 
             <!-- =============================================================
-                 TAB 3: SPEED TEST (តេស្តល្បឿន)
+                 TAB 3: SPEED TEST (តេស្តល្បឿន Server VIP)
             ============================================================== -->
             <section id="tab-speed" class="hidden space-y-3">
-                <!-- Top Client & IP Info Bar -->
-                <div class="rounded-[22px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 px-3.5 py-2.5 flex items-center justify-between text-[11px]">
-                    <div class="flex items-center gap-2 min-w-0">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
-                        <span id="client-os-label" class="font-bold text-zinc-700 dark:text-zinc-200 truncate">ប្រព័ន្ធ៖ Android</span>
-                        <span class="text-zinc-400">•</span>
-                        <span id="client-country-label" class="text-zinc-500 truncate">Vietnam (VN)</span>
-                    </div>
-                    <span id="client-ip-label" class="font-mono text-[10.5px] text-zinc-500 shrink-0">36.37.133.245 • VIETTEL</span>
-                </div>
-
-                <!-- Speedometer Gauge Card -->
-                <div class="rounded-[26px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3">
-                    <div class="flex items-center justify-between text-[11px] font-bold">
-                        <span id="speed-status-left" class="inline-flex items-center gap-1.5 text-zinc-500">
-                            <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span> រួចរាល់
-                        </span>
-                        <span class="px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-[#1c1c21] text-[10px] font-mono text-zinc-500">
-                            MAX 1000 Mbps
-                        </span>
-                        <span id="speed-status-right" class="inline-flex items-center gap-1.5 text-zinc-500">
-                            <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span> រួចរាល់
-                        </span>
+                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3.5 shadow-sm">
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <h2 class="text-sm font-extrabold text-zinc-900 dark:text-white">តេស្តល្បឿន Server VIP</h2>
+                            <p class="text-[11px] text-zinc-500 mt-0.5">វាស់ល្បឿនទាញយក បង្ហោះ និង Ping ផ្ទាល់</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-zinc-500 block">ល្បឿនខ្ពស់បំផុត</span>
+                            <span id="peak-speed-text" class="text-xs font-extrabold font-mono text-amber-400">436.8 Mbps</span>
+                        </div>
                     </div>
 
-                    <!-- SVG Arc Gauge -->
-                    <div class="relative flex flex-col items-center justify-center pt-1">
-                        <svg viewBox="0 0 220 125" class="w-56 h-32 overflow-visible">
-                            <defs>
-                                <linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#38bdf8" />
-                                    <stop offset="50%" stop-color="#a855f7" />
-                                    <stop offset="100%" stop-color="#f59e0b" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M 25 105 A 85 85 0 1 1 195 105" fill="none" stroke="currentColor" class="text-zinc-200 dark:text-zinc-800" stroke-width="12" stroke-linecap="round" stroke-dasharray="332" stroke-dashoffset="0" />
-                            <path id="speed-arc" d="M 25 105 A 85 85 0 1 1 195 105" fill="none" stroke="url(#speedGrad)" stroke-width="12" stroke-linecap="round" stroke-dasharray="332" stroke-dashoffset="332" />
-                            <g id="speed-needle" style="transform: rotate(-112deg);">
-                                <line x1="110" y1="74" x2="110" y2="24" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" />
-                                <circle cx="110" cy="74" r="5" fill="#f59e0b" />
+                    <!-- Speedometer Gauge SVG -->
+                    <div class="flex flex-col items-center justify-center pt-1">
+                        <svg viewBox="0 0 220 120" class="w-52 h-28 overflow-visible">
+                            <path d="M 28 96 A 82 82 0 1 1 192 96" fill="none" stroke="rgba(161,161,170,0.22)" stroke-width="14" stroke-linecap="round" pathLength="332"></path>
+                            <path id="speed-arc" d="M 28 96 A 82 82 0 1 1 192 96" fill="none" stroke="#f59e0b" stroke-width="14" stroke-linecap="round" pathLength="332" stroke-dasharray="332" stroke-dashoffset="186"></path>
+                            <g id="speed-needle" style="transform: rotate(-18deg);">
+                                <line x1="110" y1="82" x2="110" y2="24" stroke="#f59e0b" stroke-width="3.5" stroke-linecap="round"></line>
+                                <circle cx="110" cy="74" r="6" fill="#fbbf24" stroke="#18181b" stroke-width="2"></circle>
                             </g>
                         </svg>
+                        <div class="text-center -mt-2">
+                            <div id="live-speed-text" class="text-3xl font-extrabold font-mono tracking-tight text-zinc-900 dark:text-white">436.8</div>
+                            <div class="text-[11px] text-zinc-500 font-semibold">Mbps</div>
+                        </div>
 
-                        <div class="-mt-10 text-center">
-                            <div id="live-speed-text" class="text-4xl font-extrabold font-mono tracking-tight text-zinc-900 dark:text-white">0.0</div>
-                            <div class="text-[11px] font-bold text-zinc-500 mt-0.5">Mbps</div>
-                            <div class="mt-1 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-[#1c1c21] text-[10px] text-zinc-500">
-                                <span>កំពូល៖</span>
-                                <span id="peak-speed-text" class="font-mono font-bold text-amber-400">0.0</span>
-                                <span>Mbps</span>
+                        <button onclick="startSpeedTest()" class="mt-3 w-14 h-14 rounded-full bg-amber-500 hover:bg-amber-400 active:scale-95 text-black flex items-center justify-center shadow-lg shadow-amber-500/30 transition-all cursor-pointer" title="ចាប់ផ្តើមតេស្តល្បឿន">
+                            <i id="speed-btn-icon" class="fa-solid fa-rotate-right text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- 3 Metric Cards (Download, Upload, Ping) -->
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191d] border border-zinc-200 dark:border-zinc-800/80 p-2.5 text-center space-y-1">
+                            <div id="speed-status-left" class="inline-flex items-center justify-center gap-1 text-[10px] font-bold text-emerald-400">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> រួចរាល់
+                            </div>
+                            <div id="res-down" class="text-sm font-extrabold font-mono text-zinc-900 dark:text-white">436.8</div>
+                            <div class="text-[10px] text-zinc-500">Mbps</div>
+                            <div class="w-full h-1 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden mt-1">
+                                <div id="bar-down" class="h-full bg-emerald-400 rounded-full" style="width: 44%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191d] border border-zinc-200 dark:border-zinc-800/80 p-2.5 text-center space-y-1">
+                            <div id="speed-status-right" class="inline-flex items-center justify-center gap-1 text-[10px] font-bold text-emerald-400">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> រួចរាល់
+                            </div>
+                            <div id="res-up" class="text-sm font-extrabold font-mono text-zinc-900 dark:text-white">183.4</div>
+                            <div class="text-[10px] text-zinc-500">Mbps</div>
+                            <div class="w-full h-1 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden mt-1">
+                                <div id="bar-up" class="h-full bg-sky-400 rounded-full" style="width: 24%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191d] border border-zinc-200 dark:border-zinc-800/80 p-2.5 text-center space-y-1">
+                            <div class="text-[10px] font-bold text-zinc-400">Ping</div>
+                            <div id="res-ping" class="text-sm font-extrabold font-mono text-amber-400">22</div>
+                            <div class="text-[10px] text-zinc-500">ms</div>
+                            <div class="w-full h-1 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden mt-1">
+                                <div id="bar-ping" class="h-full bg-amber-400 rounded-full" style="width: 78%;"></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Start / Retry Speed Test Button -->
-                    <div class="flex flex-col items-center pt-1">
-                        <button onclick="startSpeedTest()" class="w-14 h-14 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black flex items-center justify-center shadow-lg shadow-amber-500/25 active:scale-95 transition-all cursor-pointer">
-                            <i id="speed-btn-icon" class="fa-solid fa-play text-lg ml-0.5"></i>
-                        </button>
-                        <span class="text-[11px] font-bold text-zinc-500 mt-2">ចុចដើម្បីចាប់ផ្តើមតេស្តល្បឿន</span>
-                    </div>
-                </div>
-
-                <!-- 3 Metrics Cards (Download, Upload, Ping) -->
-                <div class="grid grid-cols-3 gap-2">
-                    <div class="rounded-[20px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-3">
-                        <div class="flex items-center justify-between text-[10px] text-zinc-500 font-bold">
-                            <span>DOWNLOAD</span>
-                            <i class="fa-solid fa-arrow-down text-sky-400"></i>
+                    <!-- Country ID & Active IP Box Below Grid -->
+                    <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191d] border border-zinc-200 dark:border-zinc-800/80 px-3.5 py-2.5 flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            <span id="speed-country-flag" class="text-lg shrink-0">🇻🇳</span>
+                            <div class="min-w-0">
+                                <span class="text-[10px] text-zinc-500 block">ID ប្រទេស (Country ID)</span>
+                                <span id="speed-country-id" class="text-xs font-extrabold font-mono text-zinc-900 dark:text-white">VN</span>
+                            </div>
                         </div>
-                        <div id="res-down" class="text-lg font-extrabold font-mono text-zinc-900 dark:text-white mt-1">0.0</div>
-                        <div class="text-[9.5px] text-zinc-500">Mbps</div>
-                        <div class="w-full h-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 mt-2 overflow-hidden">
-                            <div id="bar-down" class="h-full w-[15%] rounded-full bg-sky-400 transition-all duration-300"></div>
+                        <div class="text-right min-w-0">
+                            <span class="text-[10px] text-zinc-500 block">IP ដែលកំពុងប្រើ</span>
+                            <span id="speed-active-ip" class="text-xs font-extrabold font-mono text-amber-400 truncate block">36.37.133.245</span>
                         </div>
                     </div>
-
-                    <div class="rounded-[20px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-3">
-                        <div class="flex items-center justify-between text-[10px] text-zinc-500 font-bold">
-                            <span>UPLOAD</span>
-                            <i class="fa-solid fa-arrow-up text-purple-400"></i>
-                        </div>
-                        <div id="res-up" class="text-lg font-extrabold font-mono text-zinc-900 dark:text-white mt-1">0.0</div>
-                        <div class="text-[9.5px] text-zinc-500">Mbps</div>
-                        <div class="w-full h-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 mt-2 overflow-hidden">
-                            <div id="bar-up" class="h-full w-[12%] rounded-full bg-purple-400 transition-all duration-300"></div>
-                        </div>
-                    </div>
-
-                    <div class="rounded-[20px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-3">
-                        <div class="flex items-center justify-between text-[10px] text-zinc-500 font-bold">
-                            <span>PING</span>
-                            <i class="fa-solid fa-bolt text-amber-400"></i>
-                        </div>
-                        <div id="res-ping" class="text-lg font-extrabold font-mono text-zinc-900 dark:text-white mt-1">24</div>
-                        <div class="text-[9.5px] text-zinc-500">ms</div>
-                        <div class="w-full h-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800 mt-2 overflow-hidden">
-                            <div id="bar-ping" class="h-full w-[76%] rounded-full bg-amber-400 transition-all duration-300"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Session Data Usage Bar -->
-                <div class="rounded-[20px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 px-4 py-3 flex items-center justify-between text-xs">
-                    <span class="text-zinc-500 font-bold">ទិន្នន័យប្រើប្រាស់វគ្គនេះ</span>
-                    <span id="tunnel-session-bytes" class="font-mono font-extrabold text-emerald-400">↓ 0.15 MB • ↑ 0.15 MB</span>
                 </div>
             </section>
 
             <!-- =============================================================
-                 TAB 4: TRACKER & SYSTEM LOGS (កំណត់ត្រា)
+                 TAB 4: TRACKER & LOGS (កំណត់ត្រា — System Logs Only)
             ============================================================== -->
             <section id="tab-tracker" class="hidden space-y-3">
-                <div id="visitor-tracker-card" class="hidden rounded-[24px] bg-white dark:bg-[#131316] border border-indigo-500/30 p-4 space-y-3">
+                <!-- System Logs Card -->
+                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-2.5 shadow-sm">
                     <div class="flex items-center justify-between">
-                        <div>
-                            <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">កំណត់ត្រាអ្នកចូលប្រើប្រាស់ (Admin)</h3>
-                            <p class="text-[10.5px] text-zinc-500">តាមដានការចូលមើល និងការ Import V2Box</p>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <button onclick="copyTrackerLogs()" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#1c1c21] text-[10.5px] font-bold cursor-pointer">ចម្លង</button>
-                            <button onclick="clearVisitorTracker()" class="px-2.5 py-1.5 rounded-xl bg-rose-500/15 text-rose-400 text-[10.5px] font-bold cursor-pointer">សម្អាត</button>
-                        </div>
+                        <h3 class="text-xs font-extrabold text-zinc-900 dark:text-white">កំណត់ត្រាប្រព័ន្ធ (System Logs)</h3>
+                        <button onclick="clearSystemLogs()" class="text-[11px] font-bold text-rose-400 hover:underline cursor-pointer">សម្អាត</button>
                     </div>
-
-                    <div class="grid grid-cols-3 gap-2 text-center">
-                        <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] p-2.5 border border-zinc-200 dark:border-zinc-800">
-                            <div class="text-[10px] text-zinc-500">ចូលមើល</div>
-                            <div id="tracker-visit-count" class="text-sm font-extrabold font-mono text-indigo-400 mt-0.5">11</div>
-                        </div>
-                        <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] p-2.5 border border-zinc-200 dark:border-zinc-800">
-                            <div class="text-[10px] text-zinc-500">Import</div>
-                            <div id="tracker-import-count" class="text-sm font-extrabold font-mono text-emerald-400 mt-0.5">3</div>
-                        </div>
-                        <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] p-2.5 border border-zinc-200 dark:border-zinc-800">
-                            <div class="text-[10px] text-zinc-500">ទិន្នន័យសរុប</div>
-                            <div id="tracker-total-data" class="text-sm font-extrabold font-mono text-amber-400 mt-0.5">0.30 MB</div>
-                        </div>
-                    </div>
-
-                    <div id="visitor-tracker-list" class="space-y-2 max-h-48 overflow-y-auto"></div>
-                </div>
-
-                <!-- System Logs Console Card -->
-                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-terminal text-emerald-400 text-xs"></i>
-                            <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">កំណត់ត្រាប្រព័ន្ធ (System Logs)</h3>
-                        </div>
-                        <button onclick="clearSystemLogs()" class="px-2.5 py-1 rounded-xl bg-zinc-100 dark:bg-[#1c1c21] text-[10.5px] font-bold text-zinc-500 hover:text-zinc-900 dark:hover:text-white cursor-pointer">
-                            សម្អាត Log
-                        </button>
-                    </div>
-                    <div id="system-logs-box" class="rounded-2xl bg-[#0b0b0e] border border-zinc-800 p-3 font-mono text-[11px] space-y-1 max-h-64 overflow-y-auto">
-                        <div class="leading-relaxed text-emerald-400">[SYSTEM] Portal ready.</div>
-                    </div>
+                    <div id="system-logs-box" class="rounded-2xl bg-zinc-950 border border-zinc-800 p-3 font-mono text-[10.5px] space-y-1 max-h-72 overflow-y-auto"></div>
                 </div>
             </section>
 
             <!-- =============================================================
-                 TAB 5: SETTINGS & QR IMPORT (កំណត់)
+                 TAB 5: SETTINGS & V2BOX IMPORT (កំណត់)
             ============================================================== -->
             <section id="tab-settings" class="hidden space-y-3">
-                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 flex flex-col items-center text-center space-y-3">
-                    <div class="w-full flex items-center justify-between">
-                        <span class="text-xs font-extrabold text-zinc-900 dark:text-white">QR ភ្ជាប់ V2Box រហ័ស</span>
-                        <span id="qr-server-label" class="text-[10.5px] font-bold text-amber-400">Vietnam Ho Chi Minh</span>
+                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3.5 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-sm font-extrabold text-zinc-900 dark:text-white">QR ភ្ជាប់ V2Box រហ័ស</h2>
+                        <span id="qr-server-label" class="text-xs font-extrabold text-amber-400">Vietnam Ho Chi Minh</span>
                     </div>
 
-                    <button onclick="toggleQRModal()" class="p-3 rounded-2xl bg-white border border-zinc-200 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer">
-                        <div class="w-28 h-28 bg-zinc-900 rounded-xl flex flex-col items-center justify-center text-white gap-1.5">
-                            <i class="fa-solid fa-qrcode text-3xl text-amber-400"></i>
-                            <span class="text-[10px] font-bold text-zinc-300">ចុចពង្រីក QR</span>
-                        </div>
-                    </button>
-
-                    <div class="grid grid-cols-2 gap-2 w-full">
-                        <button id="btn-import-v2box" onclick="importToV2Box()" class="py-2.5 px-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs flex items-center justify-center gap-1.5 cursor-pointer">
-                            <i class="fa-solid fa-bolt"></i>
-                            <span>Import V2Box</span>
+                    <div class="flex justify-center py-2">
+                        <button onclick="toggleQRModal()" class="w-36 h-36 rounded-3xl bg-white p-3 flex items-center justify-center shadow-lg cursor-pointer active:scale-95 transition-transform">
+                            <div class="w-full h-full rounded-2xl bg-[#141418] flex flex-col items-center justify-center gap-1.5 text-amber-400">
+                                <i class="fa-solid fa-qrcode text-3xl"></i>
+                                <span class="text-[11px] font-extrabold text-white">ចុចពង្រីក QR</span>
+                            </div>
                         </button>
-                        <button id="btn-copy-vless" onclick="copyVlessLinkGuarded()" class="py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer">
-                            <i class="fa-regular fa-copy"></i>
-                            <span>ចម្លង Link</span>
+                    </div>
+
+                    <p id="vip-lock-status-note" class="text-center text-[10.5px] text-rose-400 font-bold">
+                        🔒 មិនទាន់បង់ប្រាក់៖ មិនអាចចម្លង Link ឬ Import V2Box បានទេ
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <button id="btn-import-v2box" onclick="importToV2Box()" class="py-2.5 px-3 rounded-2xl bg-zinc-200 dark:bg-zinc-800/80 text-zinc-500 font-extrabold text-xs flex items-center justify-center gap-1.5 cursor-not-allowed opacity-75">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span id="label-import-v2box">Locked (ទិញ VIP)</span>
+                        </button>
+                        <button id="btn-copy-vless" onclick="copyVlessLinkGuarded()" class="py-2.5 px-3 rounded-2xl bg-zinc-200/70 dark:bg-zinc-800/60 border border-zinc-300 dark:border-zinc-800 text-zinc-500 font-bold text-xs flex items-center justify-center gap-1.5 cursor-not-allowed opacity-75">
+                            <i id="icon-copy-vless" class="fa-solid fa-lock text-[10px]"></i>
+                            <span id="label-copy-vless">ចាក់សោ Link</span>
                         </button>
                     </div>
                 </div>
 
+                <!-- Device & Network Info Card -->
                 <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3">
                     <div>
-                        <p class="text-[10.5px] text-zinc-500">ព័ត៌មានឧបករណ៍</p>
-                        <p id="settings-device-meta" class="text-xs font-mono font-bold text-zinc-800 dark:text-zinc-200 mt-0.5">
+                        <span class="text-[10.5px] text-zinc-500 block">ព័ត៌មានឧបករណ៍</span>
+                        <p id="settings-device-meta" class="text-xs font-mono font-bold text-zinc-900 dark:text-white mt-0.5">
                             V2Box UUID • Android • 393x895@2.75x • Asia/Phnom_Penh
                         </p>
+                        <div class="flex items-center justify-between text-[10.5px] text-zinc-500 mt-1.5">
+                            <span id="client-os-label">ប្រព័ន្ធ៖ Android</span>
+                            <span id="client-country-label">Vietnam (VN)</span>
+                        </div>
+                        <p id="client-ip-label" class="text-[10.5px] font-mono text-zinc-500 mt-0.5">36.37.133.245 • VIETTEL</p>
                     </div>
 
-                    <div class="pt-2 border-t border-zinc-200 dark:border-zinc-800/80 flex items-center justify-between gap-2">
-                        <button onclick="openNoticeModal()" class="flex-1 py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-xs font-bold flex items-center justify-center gap-1.5 hover:border-amber-500/50 cursor-pointer">
+                    <div class="flex items-center gap-2">
+                        <button onclick="openNoticeModal()" class="flex-1 py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-xs font-extrabold flex items-center justify-center gap-1.5 cursor-pointer">
                             <i class="fa-solid fa-shield-halved text-amber-400"></i>
                             <span>មើលការណែនាំ</span>
                         </button>
-                        <button onclick="openAdminModal()" class="py-2.5 px-3.5 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-xs font-bold text-zinc-500 hover:text-amber-400 cursor-pointer">
+                        <button onclick="openAdminModal()" class="px-4 py-2.5 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 text-xs font-extrabold cursor-pointer">
                             Admin
                         </button>
                     </div>
@@ -718,9 +674,24 @@
         </main>
 
         <!-- =====================================================================
-             FLOATING BOTTOM NAVIGATION BAR (5 TABS)
+             FLOATING BOTTOM NAVIGATION BAR (5 TABS + FLOATING MENU PILL)
         ====================================================================== -->
         <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 px-3 pb-3 pt-1 bg-gradient-to-t from-zinc-100 via-zinc-100/95 to-transparent dark:from-[#09090b] dark:via-[#09090b]/95 dark:to-transparent pointer-events-none">
+            <!-- Floating Quick Menu Pill (Bottom-Left above Nav Bar) -->
+            <div class="pointer-events-auto flex items-center gap-2 mb-2 px-0.5">
+                <button id="floating-vip-menu-btn" type="button" onclick="openUserDashboardModal()" class="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-extrabold text-xs shadow-lg shadow-amber-500/30 active:scale-95 transition-all cursor-pointer">
+                    <span class="w-5 h-5 rounded-full bg-black text-amber-400 flex items-center justify-center text-[10px]">
+                        <i class="fa-solid fa-crown"></i>
+                    </span>
+                    <span>គណនី VIP</span>
+                </button>
+
+                <button type="button" onclick="openHowToBuyModal()" class="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs shadow-lg shadow-blue-600/30 active:scale-95 transition-all cursor-pointer">
+                    <span class="w-5 h-5 rounded-full bg-amber-400 text-black flex items-center justify-center text-[11px] font-black">?</span>
+                    <span>របៀបទិញ</span>
+                </button>
+            </div>
+
             <div class="pointer-events-auto rounded-[26px] bg-white/95 dark:bg-[#141418]/95 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/90 px-1.5 py-1.5 grid grid-cols-5 shadow-2xl">
                 <button id="nav-btn-home" onclick="switchTab('home')" class="flex flex-col items-center justify-center py-1.5 rounded-2xl text-amber-500 transition-colors cursor-pointer">
                     <div id="nav-icon-bg-home" class="w-9 h-7 rounded-xl bg-amber-500/15 flex items-center justify-center mb-0.5">
@@ -761,159 +732,152 @@
     </div>
 
     <!-- =====================================================================
-         KHQR PAYMENT MODAL
+         USER VIP / PERSONAL DASHBOARD MODAL (FULL PORTAL VIEW)
     ====================================================================== -->
-    <div id="emoney-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-3">
-        <div id="emoney-modal-card" class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-4 shadow-2xl space-y-3 max-h-[94vh] overflow-y-auto animate-khqr-modal-in">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-xl bg-rose-600 text-white font-extrabold text-[10px] flex items-center justify-center">KHQR</span>
-                    <div>
-                        <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">បញ្ចប់ការទូទាត់របស់អ្នក</h3>
-                        <p id="emoney-plan-label" class="text-[10.5px] text-zinc-500">30 ថ្ងៃ • អ្នកប្រើ VIP (1 Dev)</p>
-                    </div>
-                </div>
-                <button onclick="handlePaymentModalCancel()" class="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-500 hover:text-rose-500 cursor-pointer">
-                    <i class="fa-solid fa-xmark text-xs"></i>
-                </button>
-            </div>
-
-            <!-- Selected Package Price Pill -->
-            <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 px-3.5 py-2.5 flex items-center justify-between">
-                <span class="text-xs font-bold text-zinc-600 dark:text-zinc-300"><i class="fa-solid fa-crown text-amber-400 mr-1.5"></i>កញ្ចប់ VIP បានជ្រើសរើស</span>
-                <span id="emoney-package-price-tag" class="text-sm font-extrabold font-mono text-emerald-400">$1.49</span>
-            </div>
-
-            <!-- Promo Code Input -->
-            <div class="flex items-center gap-1.5">
-                <input id="khqr-promo-input" type="text" placeholder="បញ្ចូលកូដបញ្ចុះតម្លៃ (ឧ. VIP10)..." class="flex-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono uppercase">
-                <button onclick="applyKhqrPromoCode()" class="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-extrabold cursor-pointer">
-                    ប្រើ
-                </button>
-            </div>
-
-            <!-- KHQR Card -->
-            <div class="rounded-3xl bg-zinc-100 p-3 text-zinc-900 shadow-inner space-y-2.5">
-                <div class="rounded-2xl bg-white overflow-hidden shadow">
-                    <div class="bg-[#e1232e] text-white text-center py-2 font-extrabold tracking-wider text-sm">
-                        KHQR
-                    </div>
-                    <div class="p-3 space-y-2">
-                        <div class="flex items-baseline justify-between border-b border-dashed border-zinc-200 pb-2">
-                            <div>
-                                <p id="khqr-merchant-title" class="text-xs font-extrabold text-zinc-900">THEONLYVIP</p>
-                                <p class="text-[10px] text-zinc-500">សរុបត្រូវបង់</p>
-                            </div>
-                            <div class="text-right">
-                                <span id="emoney-amount-label" class="text-2xl font-extrabold font-mono text-zinc-900">1.49</span>
-                                <span class="text-xs font-extrabold text-[#e1232e] ml-1">USD</span>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center justify-center py-2 min-h-[192px]">
-                            <div id="khqr-generating-loader" class="flex flex-col items-center justify-center gap-2 py-8 text-zinc-500">
-                                <i class="fa-solid fa-circle-notch fa-spin text-xl text-[#e1232e]"></i>
-                                <span class="text-[11px] font-bold">កំពុងបង្កើត KHQR...</span>
-                            </div>
-                            <div id="aba-khqr-canvas" class="hidden flex-col items-center justify-center relative">
-                                <div class="relative p-1.5 bg-white rounded-xl border border-zinc-200">
-                                    <div id="khqr-qr-matrix"></div>
-                                    <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
-                                        <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow">
-                                            <span class="w-6 h-6 rounded-full bg-[#e1232e] text-white text-[8px] font-black flex items-center justify-center">KHQR</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between px-1 text-[11px] font-bold text-zinc-700">
-                    <span>គណនី USD:</span>
-                    <button onclick="copyEmoneyPhone()" class="font-mono font-extrabold text-zinc-900 flex items-center gap-1 cursor-pointer">
-                        <span id="khqr-account-display">013 053 348</span>
-                        <i class="fa-regular fa-copy text-xs text-zinc-500"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Countdown Timer -->
-            <div class="space-y-1.5">
-                <div class="text-center text-xs font-bold text-zinc-600 dark:text-zinc-300">
-                    ពេលវេលានៅសល់ <span id="khqr-countdown-timer" class="font-mono font-extrabold text-amber-400">05:00</span>
-                </div>
-                <div class="w-full h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
-                    <div id="khqr-countdown-bar" class="h-full w-full bg-gradient-to-r from-purple-500 to-emerald-400 transition-all duration-1000"></div>
-                </div>
-                <p class="text-center text-[10.5px] text-zinc-500">កំពុងរង់ចាំការទូទាត់...</p>
-            </div>
-
-            <!-- Action Buttons -->
-            <button onclick="confirmVipPurchaseSuccess()" class="w-full py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg cursor-pointer">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>ខ្ញុំបានបង់ប្រាក់រួចរាល់ (បើក VIP Dashboard)</span>
-            </button>
-
-            <div class="grid grid-cols-2 gap-2">
-                <button onclick="downloadKHQRImage()" class="py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1d1d22] border border-zinc-200 dark:border-zinc-800 text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
-                    <i class="fa-solid fa-download"></i>
-                    <span>Download QR code</span>
-                </button>
-                <button onclick="handlePaymentModalCancel()" class="py-2.5 px-3 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold cursor-pointer">
-                    ផ្ញើវិក្កយបត្រ
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- =====================================================================
-         PAYMENT WAIT / COOLDOWN MODAL
-    ====================================================================== -->
-    <div id="payment-wait-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4">
-        <div class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 text-center space-y-3.5 shadow-2xl">
-            <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center mx-auto text-xl">
-                <i class="fa-solid fa-hourglass-half"></i>
-            </div>
-            <h3 class="text-base font-extrabold text-zinc-900 dark:text-white">កំពុងផ្ទៀងផ្ទាត់ការទូទាត់</h3>
-            <p class="text-xs text-zinc-500">ប្រសិនបើអ្នកបានផ្ទេរប្រាក់រួចរាល់ សូមរង់ចាំ ឬចុចបញ្ជាក់ការទូទាត់ដើម្បីបើកប្រើ VIP។</p>
-            <div class="text-lg font-extrabold font-mono text-amber-400" id="wait-cooldown-timer">05:00</div>
-            <div class="w-full h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
-                <div id="wait-cooldown-bar" class="h-full w-full bg-amber-400 transition-all duration-1000"></div>
-            </div>
-            <div class="grid grid-cols-2 gap-2 pt-1">
-                <button onclick="closePaymentWaitModal()" class="py-2.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-xs font-bold cursor-pointer">បិទ</button>
-                <button onclick="closePaymentWaitModal(); confirmVipPurchaseSuccess();" class="py-2.5 rounded-2xl bg-emerald-500 text-black text-xs font-extrabold cursor-pointer">បញ្ជាក់រួចរាល់</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- =====================================================================
-         USER VIP DASHBOARD MODAL
-    ====================================================================== -->
-    <div id="user-dashboard-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4">
-        <div class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 space-y-3.5 shadow-2xl">
+    <div id="user-dashboard-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-3">
+        <div class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-4 space-y-3 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-crown text-amber-400"></i>
-                    <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">VIP Member Dashboard</h3>
+                    <div>
+                        <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white leading-tight">Personal • The Only VIP</h3>
+                        <p class="text-[10px] text-zinc-500">ព័ត៌មានផ្ទាល់ខ្លួន ទិន្នន័យ និងការតាមដានសមាជិក</p>
+                    </div>
                 </div>
                 <button onclick="closeUserDashboardModal()" class="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-xs cursor-pointer">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3.5 space-y-1.5">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs text-zinc-500">សុពលភាពនៅសល់</span>
-                    <span id="dash-days-left" class="text-sm font-extrabold text-emerald-400">39 ថ្ងៃ</span>
+            <!-- Personal Activity Stats (Moved from Tracker Tab) -->
+            <div class="grid grid-cols-3 gap-2">
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center">
+                    <span class="text-[10px] text-zinc-500 block">ចូលមើល</span>
+                    <span id="tracker-visit-count" class="text-sm font-extrabold font-mono text-zinc-900 dark:text-white mt-0.5 block">11</span>
                 </div>
-                <p id="dash-expiry-date" class="text-[11px] text-zinc-500 font-mono">ផុតកំណត់៖ 31/12/2026</p>
-                <p id="dash-device-quota" class="text-[11px] text-indigo-400 font-bold">ឧបករណ៍៖ 1 / 1 Device</p>
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center">
+                    <span class="text-[10px] text-zinc-500 block">Import</span>
+                    <span id="tracker-import-count" class="text-sm font-extrabold font-mono text-emerald-400 mt-0.5 block">3</span>
+                </div>
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center">
+                    <span class="text-[10px] text-zinc-500 block">ទិន្នន័យសរុប</span>
+                    <span id="tracker-total-data" class="text-sm font-extrabold font-mono text-amber-400 mt-0.5 block">0.30 MB</span>
+                </div>
             </div>
 
-            <button onclick="closeUserDashboardModal(); importToV2Box();" class="w-full py-3 rounded-2xl bg-amber-500 text-black font-extrabold text-xs cursor-pointer">
-                Import Subscription ចូល V2Box
+            <!-- Balance & Promo Box -->
+            <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
+                <div class="flex items-center justify-between gap-2">
+                    <div>
+                        <span class="text-[10px] text-zinc-500 block">សមតុល្យ (Balance)</span>
+                        <span id="dash-balance-amount" class="text-lg font-extrabold font-mono text-zinc-900 dark:text-white">$0.00</span>
+                    </div>
+                    <button onclick="closeUserDashboardModal(); topUpVipBalance();" class="px-3 py-1.5 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-extrabold cursor-pointer">
+                        + Top Up
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                    <input id="portal-promo-input" type="text" placeholder="បញ្ចូលប្រូម៉ូកូដ" class="flex-1 px-3 py-1.5 rounded-xl bg-white dark:bg-[#111115] border border-zinc-200 dark:border-zinc-800 text-xs font-mono uppercase">
+                    <button onclick="applyPortalPromoCode()" class="px-3 py-1.5 rounded-xl bg-zinc-200 dark:bg-[#24242b] text-xs font-extrabold cursor-pointer">
+                        ប្រើ Code
+                    </button>
+                </div>
+
+                <button onclick="claimPortalBonus()" class="w-full py-2 rounded-xl bg-zinc-100 dark:bg-[#222229] hover:bg-zinc-200 dark:hover:bg-[#2a2a33] border border-zinc-200 dark:border-zinc-800 text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+                    <span>🎁</span>
+                    <span>ទទួលយក $5.00 បន្ថែម</span>
+                </button>
+            </div>
+
+            <!-- 2x2 Status Tiles -->
+            <div class="grid grid-cols-2 gap-2">
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3">
+                    <span class="text-[10px] text-zinc-500">ស្ថានភាព</span>
+                    <div class="text-sm font-extrabold text-emerald-400 mt-0.5">● សកម្ម</div>
+                    <span id="dash-device-quota" class="text-[10px] text-indigo-400 font-bold block mt-0.5">1 / 1 Device</span>
+                </div>
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3">
+                    <span class="text-[10px] text-zinc-500">ទិន្នន័យ (Quota)</span>
+                    <div id="dash-data-quota" class="text-sm font-extrabold font-mono text-zinc-900 dark:text-white mt-0.5">70 GB</div>
+                    <span class="text-[10px] text-zinc-500 block mt-0.5">ប្រើរួមគ្នាគ្រប់ Server</span>
+                </div>
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3">
+                    <span class="text-[10px] text-zinc-500">ផុតកំណត់</span>
+                    <div id="dash-expiry-date" class="text-xs font-extrabold font-mono text-zinc-900 dark:text-white mt-0.5">31/12/2026</div>
+                    <span id="dash-days-left" class="text-[10px] text-emerald-400 font-bold block mt-0.5">● 39 ថ្ងៃ</span>
+                </div>
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3">
+                    <span class="text-[10px] text-zinc-500">ទិន្នន័យនៅសល់</span>
+                    <div id="dash-remaining-data" class="text-sm font-extrabold font-mono text-zinc-900 dark:text-white mt-0.5">140.3 GB</div>
+                    <span id="dash-vip-package-name" class="text-[10px] text-amber-400 font-bold truncate block mt-0.5">VIP Active</span>
+                </div>
+            </div>
+
+            <!-- VIP Key / UUID Box -->
+            <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 px-3 py-2.5 flex items-center justify-between gap-2">
+                <div class="min-w-0">
+                    <span class="text-[9.5px] text-zinc-500 block">VIP Key / UUID</span>
+                    <span id="home-vip-key-text" class="text-[11px] font-mono font-bold text-amber-400 truncate block">3c73a362-e289-40ac-9174-5de6c31d551e</span>
+                </div>
+                <button onclick="copyVipKeyGuarded()" class="px-2.5 py-1.5 rounded-xl bg-amber-500 text-black text-[10.5px] font-extrabold shrink-0 cursor-pointer">
+                    ចម្លង Key
+                </button>
+            </div>
+
+            <!-- Member Activity Tracker Feed in Personal View -->
+            <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-extrabold text-zinc-900 dark:text-white">តាមដានសកម្មភាពសមាជិក</span>
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="copyTrackerLogs()" class="px-2 py-0.5 rounded-lg bg-zinc-200 dark:bg-zinc-800 text-[10px] font-bold cursor-pointer">ចម្លង</button>
+                        <button onclick="clearVisitorTracker()" class="px-2 py-0.5 rounded-lg bg-rose-500/15 text-rose-400 text-[10px] font-bold cursor-pointer">សម្អាត</button>
+                    </div>
+                </div>
+                <div id="visitor-tracker-list" class="space-y-1.5 max-h-36 overflow-y-auto">
+                    <div class="rounded-xl bg-white dark:bg-[#121216] border border-zinc-200 dark:border-zinc-800/80 p-2.5 flex items-center justify-between gap-2">
+                        <div class="min-w-0">
+                            <p class="text-[11px] font-extrabold font-mono text-zinc-900 dark:text-white truncate">ID: 5b18efac-c0e7-4013...</p>
+                            <p class="text-[10px] text-zinc-500 font-mono truncate mt-0.5">36.37.133.245 • Vietnam (VN) • Android</p>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 text-[9.5px] font-bold shrink-0">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Usage Donut Chart -->
+            <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2.5">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-extrabold text-zinc-900 dark:text-white">ការប្រើទិន្នន័យ</span>
+                    <span id="home-vip-usage-pct-label" class="text-xs font-extrabold font-mono text-zinc-900 dark:text-white">32%</span>
+                </div>
+                <div class="flex items-center justify-center py-1">
+                    <div id="vip-usage-donut" class="w-24 h-24 rounded-full flex items-center justify-center" style="background: conic-gradient(#ffffff 0% 32%, #2e2e36 32% 100%);">
+                        <div class="w-16 h-16 rounded-full bg-zinc-50 dark:bg-[#1b1b20] flex flex-col items-center justify-center">
+                            <span id="vip-usage-donut-pct" class="text-sm font-extrabold font-mono text-zinc-900 dark:text-white leading-none">32%</span>
+                            <span class="text-[9px] text-zinc-500 mt-0.5">បានប្រើ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-1 text-[11px]">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-1.5 text-zinc-600 dark:text-zinc-300">
+                            <span class="w-2 h-2 rounded-full bg-zinc-900 dark:bg-white"></span> បានប្រើ
+                        </span>
+                        <span id="vip-used-data-text" class="font-extrabold font-mono text-zinc-900 dark:text-white">64.7 GB</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-1.5 text-zinc-500">
+                            <span class="w-2 h-2 rounded-full bg-zinc-500"></span> នៅសល់
+                        </span>
+                        <span id="vip-rem-data-text" class="font-extrabold font-mono text-zinc-900 dark:text-white">140.3 GB</span>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeUserDashboardModal(); importToV2Box();" class="w-full py-2.5 px-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fa-solid fa-download"></i>
+                <span>Import Sub ចូល V2Box</span>
             </button>
         </div>
     </div>
@@ -922,142 +886,278 @@
          HOW TO BUY MODAL
     ====================================================================== -->
     <div id="howtobuy-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4">
-        <div class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 space-y-3 shadow-2xl">
+        <div class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 space-y-3.5 shadow-2xl">
             <div class="flex items-center justify-between">
                 <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">របៀបទិញកញ្ចប់ VIP</h3>
                 <button onclick="closeHowToBuyModal()" class="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-xs cursor-pointer">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <ol class="text-xs text-zinc-600 dark:text-zinc-300 space-y-2 list-decimal list-inside">
-                <li>ជ្រើសរើសរយៈពេលកញ្ចប់ VIP ដែលអ្នកចង់បាន។</li>
-                <li>ស្កេន KHQR តាមធនាគារ (ABA, ACLEDA, Wing...) ឬទាញយករូបភាព QR។</li>
-                <li>ចុចប៊ូតុង «ខ្ញុំបានបង់ប្រាក់រួចរាល់» ដើម្បីបើកប្រើគណនី VIP និង Import ចូល V2Box។</li>
-            </ol>
-            <button onclick="closeHowToBuyModal()" class="w-full py-2.5 rounded-2xl bg-amber-500 text-black font-extrabold text-xs cursor-pointer">យល់ព្រម</button>
-        </div>
-    </div>
-
-    <!-- =====================================================================
-         QR CODE ZOOM MODAL
-    ====================================================================== -->
-    <div id="qr-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm items-center justify-center p-4">
-        <div class="w-full max-w-xs bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 text-center space-y-3.5 shadow-2xl">
-            <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">ស្កេន QR ចូល V2Box</h3>
-            <div class="flex justify-center">
-                <div id="qrcode-container" class="p-3 bg-white rounded-2xl border border-zinc-200"></div>
+            <div class="space-y-2 text-xs text-zinc-600 dark:text-zinc-300">
+                <p>១. ជ្រើសរើសកញ្ចប់ថ្ងៃដែលអ្នកត្រូវការ (15 ដល់ 365 ថ្ងៃ)។</p>
+                <p>២. ស្កេន KHQR តាមធនាគារ (ABA, ACLEDA, Wing, Bakong) ឬបញ្ចូលកូដបញ្ចុះតម្លៃ។</p>
+                <p>៣. ចុចប៊ូតុង «ខ្ញុំបានបង់ប្រាក់រួចរាល់» ដើម្បីបើកប្រើ VIP Dashboard, Copy និង Import V2Box។</p>
             </div>
-            <button onclick="toggleQRModal()" class="w-full py-2.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-xs font-bold cursor-pointer">បិទ</button>
+            <button onclick="closeHowToBuyModal()" class="w-full py-2.5 rounded-2xl bg-amber-500 text-black font-extrabold text-xs cursor-pointer">
+                យល់ព្រម
+            </button>
         </div>
     </div>
 
     <!-- =====================================================================
-         ADMIN CONTROL PANEL MODAL
+         QR EXPAND MODAL
     ====================================================================== -->
-    <div id="admin-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm items-center justify-center p-3">
-        <div class="w-full max-w-md bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 space-y-3.5 shadow-2xl max-h-[92vh] overflow-y-auto">
+    <div id="qr-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4">
+        <div class="w-full max-w-xs bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 text-center space-y-3.5 shadow-2xl">
             <div class="flex items-center justify-between">
-                <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">ផ្ទាំងគ្រប់គ្រង Admin</h3>
+                <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">QR ភ្ជាប់ V2Box</h3>
+                <button onclick="toggleQRModal()" class="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-xs cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="flex justify-center p-3 bg-white rounded-2xl">
+                <div id="qrcode-container"></div>
+            </div>
+            <button onclick="copyVlessLinkGuarded()" class="w-full py-2.5 rounded-2xl bg-amber-500 text-black font-extrabold text-xs cursor-pointer">
+                ចម្លង VLESS Link
+            </button>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         ADMIN PANEL MODAL
+    ====================================================================== -->
+    <div id="admin-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-3">
+        <div class="w-full max-w-md bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-4 shadow-2xl space-y-3.5 max-h-[92vh] overflow-y-auto">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield text-amber-400"></i>
+                    <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">Admin Control Panel</h3>
+                </div>
                 <button onclick="closeAdminModal()" class="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-xs cursor-pointer">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <!-- Lock View -->
-            <div id="admin-lock-view" class="space-y-3">
-                <p class="text-xs text-zinc-500">បញ្ចូលលេខសម្ងាត់ PIN ដើម្បីចូលគ្រប់គ្រងប្រព័ន្ធ។</p>
-                <input id="admin-pin-input" type="password" inputmode="numeric" placeholder="••••" class="w-full px-3.5 py-2.5 rounded-2xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-center font-mono text-base font-extrabold tracking-widest">
-                <button onclick="unlockAdminPanel()" class="w-full py-3 rounded-2xl bg-amber-500 text-black font-extrabold text-xs cursor-pointer">ដោះសោ</button>
+            <div id="admin-lock-view" class="space-y-3 py-2">
+                <p class="text-xs text-zinc-500">បញ្ចូល PIN សម្ងាត់ Admin (លំនាំដើម៖ <span class="font-mono font-bold">8888</span>)</p>
+                <input id="admin-pin-input" type="password" inputmode="numeric" placeholder="បញ្ចូលលេខ PIN..." class="w-full px-3.5 py-2.5 rounded-2xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-sm font-mono">
+                <button onclick="unlockAdminPanel()" class="w-full py-2.5 rounded-2xl bg-amber-500 text-black font-extrabold text-xs cursor-pointer">
+                    ដោះសោ Admin
+                </button>
             </div>
 
-            <!-- Controls View -->
-            <div id="admin-controls-view" class="hidden space-y-3 text-xs">
-                <div class="flex items-center justify-between">
-                    <span class="font-bold text-emerald-400">បានដោះសោ</span>
-                    <button onclick="lockAdminPanel()" class="px-2.5 py-1 rounded-xl bg-rose-500/15 text-rose-400 font-bold cursor-pointer">ចាក់សោវិញ</button>
+            <!-- Unlocked Controls View -->
+            <div id="admin-controls-view" class="hidden space-y-3.5">
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="text-[10.5px] font-bold text-zinc-500 block mb-1">គណនី KHQR / ទូរស័ព្ទ</label>
+                        <input id="admin-emoney-input" type="text" class="w-full px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                    </div>
+                    <div>
+                        <label class="text-[10.5px] font-bold text-zinc-500 block mb-1">PIN ថ្មី</label>
+                        <input id="admin-newpin-input" type="text" class="w-full px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10.5px] font-bold text-zinc-500 block mb-1">KHQR Payload String ផ្ទាល់ខ្លួន (Optional)</label>
+                    <input id="admin-khqr-raw-input" type="text" placeholder="000201010212..." class="w-full px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
                 </div>
 
                 <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="text-[10.5px] text-zinc-500">លេខគណនី USD</label>
-                        <input id="admin-emoney-input" type="text" class="w-full mt-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono font-bold">
+                        <label class="text-[10.5px] font-bold text-zinc-500 block mb-1">ថ្ងៃនៅសល់</label>
+                        <input id="admin-days-input" type="number" class="w-full px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
                     </div>
                     <div>
-                        <label class="text-[10.5px] text-zinc-500">ប្តូរលេខសម្ងាត់ PIN</label>
-                        <input id="admin-newpin-input" type="text" class="w-full mt-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono font-bold">
+                        <label class="text-[10.5px] font-bold text-zinc-500 block mb-1">ថ្ងៃផុតកំណត់</label>
+                        <input id="admin-expiry-input" type="text" class="w-full px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
                     </div>
                 </div>
 
-                <div>
-                    <label class="text-[10.5px] text-zinc-500">KHQR Payload String ពិតប្រាកដ (ស្រេចចិត្ត — ដាក់កូដ KHQR ពិតពីធនាគារបើមាន)</label>
-                    <input id="admin-khqr-raw-input" type="text" placeholder="00020101021229..." class="w-full mt-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-[11px]">
-                </div>
-
-                <div>
-                    <label class="text-[10.5px] text-zinc-500">តម្លៃកញ្ចប់ទាំង ៦ (15d, 30d, 60d, 90d, 180d, 365d)</label>
-                    <div class="grid grid-cols-3 gap-1.5 mt-1">
-                        <input id="admin-p0" type="text" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold">
-                        <input id="admin-p1" type="text" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold">
-                        <input id="admin-p2" type="text" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold">
-                        <input id="admin-p3" type="text" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold">
-                        <input id="admin-p4" type="text" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold">
-                        <input id="admin-p5" type="text" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="text-[10.5px] text-zinc-500">កំណត់ចំនួន Device តាមកញ្ចប់ទាំង ៦</label>
-                    <div class="grid grid-cols-3 gap-1.5 mt-1">
-                        <input id="admin-d0" type="number" min="1" max="50" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold text-indigo-400">
-                        <input id="admin-d1" type="number" min="1" max="50" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold text-indigo-400">
-                        <input id="admin-d2" type="number" min="1" max="50" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold text-indigo-400">
-                        <input id="admin-d3" type="number" min="1" max="50" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold text-indigo-400">
-                        <input id="admin-d4" type="number" min="1" max="50" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold text-indigo-400">
-                        <input id="admin-d5" type="number" min="1" max="50" class="px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-center font-bold text-indigo-400">
-                    </div>
-                </div>
-
-                <!-- Promo Code Manager -->
-                <div class="space-y-2 pt-1">
+                <!-- Telegram Bot & Admin Chat ID Configuration -->
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-sky-500/30 p-3 space-y-2">
                     <div class="flex items-center justify-between">
-                        <label class="text-[11px] font-extrabold text-purple-400">គ្រប់គ្រងកូដបញ្ចុះតម្លៃ (Promo Codes)</label>
-                        <span id="admin-promo-count" class="text-[10px] font-bold text-zinc-500">0 កូដ</span>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <input id="admin-promo-code-input" type="text" placeholder="កូដ (ឧ. VIP20)" class="flex-1 px-2.5 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-xs uppercase font-bold">
-                        <input id="admin-promo-discount-input" type="number" min="1" max="90" placeholder="%" class="w-16 px-2 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono text-xs text-center font-bold text-purple-400">
-                        <button type="button" onclick="addAdminPromoCode()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-extrabold text-xs cursor-pointer shrink-0">
-                            + បន្ថែម
+                        <span class="text-xs font-extrabold text-sky-400"><i class="fa-brands fa-telegram mr-1.5"></i>Telegram Bot អ្នកគ្រប់គ្រង</span>
+                        <button type="button" onclick="testTelegramAdminBot()" class="px-2.5 py-1 rounded-lg bg-sky-500/15 text-sky-400 border border-sky-500/30 text-[10px] font-bold cursor-pointer">
+                            តេស្តផ្ញើសារ
                         </button>
                     </div>
-                    <div id="admin-promo-list" class="space-y-1.5 max-h-32 overflow-y-auto pr-0.5"></div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="text-[10.5px] text-zinc-500">ថ្ងៃនៅសល់ (Days)</label>
-                        <input id="admin-days-input" type="number" class="w-full mt-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono font-bold">
+                        <label class="text-[10px] font-bold text-zinc-500 block mb-1">Bot Token</label>
+                        <input id="admin-tg-token-input" type="text" class="w-full px-3 py-2 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
                     </div>
                     <div>
-                        <label class="text-[10.5px] text-zinc-500">ថ្ងៃផុតកំណត់</label>
-                        <input id="admin-expiry-input" type="text" class="w-full mt-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 font-mono font-bold">
+                        <label class="text-[10px] font-bold text-zinc-500 block mb-1">Admin User ID</label>
+                        <input id="admin-tg-chatid-input" type="text" class="w-full px-3 py-2 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
                     </div>
                 </div>
 
-                <!-- Member Device ID Management List -->
-                <div class="space-y-2 pt-1">
+                <div>
+                    <label class="text-[10.5px] font-bold text-zinc-500 block mb-1">តម្លៃកញ្ចប់ទាំង 6 (15d, 30d, 60d, 90d, 180d, 365d)</label>
+                    <div class="grid grid-cols-3 gap-1.5">
+                        <input id="admin-p0" type="text" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                        <input id="admin-p1" type="text" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                        <input id="admin-p2" type="text" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                        <input id="admin-p3" type="text" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                        <input id="admin-p4" type="text" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                        <input id="admin-p5" type="text" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10.5px] font-bold text-zinc-500 block mb-1">កំណត់ចំនួនឧបករណ៍ (Device Limit)</label>
+                    <div class="grid grid-cols-6 gap-1">
+                        <input id="admin-d0" type="number" min="1" class="px-2 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-center">
+                        <input id="admin-d1" type="number" min="1" class="px-2 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-center">
+                        <input id="admin-d2" type="number" min="1" class="px-2 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-center">
+                        <input id="admin-d3" type="number" min="1" class="px-2 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-center">
+                        <input id="admin-d4" type="number" min="1" class="px-2 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-center">
+                        <input id="admin-d5" type="number" min="1" class="px-2 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-center">
+                    </div>
+                </div>
+
+                <!-- Promo Codes Manager -->
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
                     <div class="flex items-center justify-between">
-                        <label class="text-[11px] font-extrabold text-indigo-400">គ្រប់គ្រង Device ID សមាជិកដែលបានទិញ</label>
-                        <span id="admin-members-count" class="text-[10px] font-bold text-zinc-500">0 ឧបករណ៍</span>
+                        <span class="text-xs font-extrabold">គ្រប់គ្រងកូដបញ្ចុះតម្លៃ</span>
+                        <span id="admin-promo-count" class="text-[10px] font-bold text-purple-400">2 កូដ</span>
                     </div>
-                    <div id="admin-members-list" class="space-y-2 max-h-40 overflow-y-auto pr-0.5"></div>
+                    <div class="flex items-center gap-1.5">
+                        <input id="admin-promo-code-input" type="text" placeholder="កូដ (ឧ. SALE20)" class="flex-1 px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono uppercase">
+                        <input id="admin-promo-discount-input" type="number" min="1" max="90" placeholder="%" class="w-16 px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-center">
+                        <button type="button" onclick="addAdminPromoCode()" class="px-3 py-1.5 rounded-xl bg-purple-600 text-white text-xs font-extrabold cursor-pointer">បន្ថែម</button>
+                    </div>
+                    <div id="admin-promo-list" class="space-y-1.5 max-h-32 overflow-y-auto"></div>
                 </div>
 
-                <div class="flex gap-2 pt-1">
-                    <button onclick="resetAdminDefaults()" class="flex-1 py-2.5 rounded-xl bg-zinc-200 dark:bg-zinc-800 font-bold cursor-pointer">កំណត់ដើមវិញ</button>
-                    <button onclick="saveAdminSettings()" class="flex-1 py-2.5 rounded-xl bg-orange-500 text-black font-extrabold cursor-pointer">រក្សាទុកការផ្លាស់ប្តូរ</button>
+                <!-- Active Members List -->
+                <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-extrabold">បញ្ជីសមាជិក VIP</span>
+                        <span id="admin-members-count" class="text-[10px] font-bold text-emerald-400">0 ឧបករណ៍</span>
+                    </div>
+                    <div id="admin-members-list" class="space-y-1.5 max-h-36 overflow-y-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 pt-1">
+                    <button onclick="resetAdminDefaults()" class="py-2.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-xs font-bold cursor-pointer">កំណត់ដើម</button>
+                    <button onclick="lockAdminPanel()" class="py-2.5 rounded-2xl bg-rose-500/15 text-rose-400 text-xs font-bold cursor-pointer">ចាក់សោ</button>
+                    <button onclick="saveAdminSettings()" class="py-2.5 rounded-2xl bg-emerald-500 text-black text-xs font-extrabold cursor-pointer">រក្សាទុក</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         KHQR PAYMENT MODAL
+    ====================================================================== -->
+    <div id="emoney-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-3">
+        <div id="emoney-modal-card" class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-4 shadow-2xl space-y-3 max-h-[94vh] overflow-y-auto">
+            <!-- Top Plan & Price Bar -->
+            <div class="flex items-center justify-between gap-2 px-3 py-2 rounded-2xl bg-amber-500/10 border border-amber-500/30">
+                <div class="flex items-center gap-1.5 min-w-0">
+                    <i class="fa-solid fa-crown text-amber-400 text-xs shrink-0"></i>
+                    <span id="emoney-plan-label" class="text-xs font-extrabold text-zinc-900 dark:text-white truncate">30 ថ្ងៃ • អ្នកប្រើ VIP (1 Dev)</span>
+                </div>
+                <span id="emoney-package-price-tag" class="text-xs font-extrabold font-mono text-amber-400 shrink-0">$1.49</span>
+            </div>
+
+            <!-- Promo Code Input -->
+            <div class="flex items-center gap-1.5">
+                <input id="khqr-promo-input" type="text" placeholder="បញ្ចូលកូដបញ្ចុះតម្លៃ (ឧ. VIP10)..." class="flex-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono uppercase">
+                <button type="button" onclick="applyKhqrPromoCode()" class="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-extrabold cursor-pointer">
+                    ប្រើ
+                </button>
+            </div>
+
+            <!-- KHQR Card -->
+            <div class="rounded-3xl bg-zinc-100 text-zinc-900 overflow-hidden shadow-inner">
+                <div class="bg-[#e1232e] text-white py-2.5 px-4 text-center font-black text-base tracking-wider">
+                    KHQR
+                </div>
+                <div class="p-3.5 space-y-2.5">
+                    <div class="flex items-baseline justify-between border-b border-dashed border-zinc-300 pb-2">
+                        <div>
+                            <div id="khqr-merchant-title" class="text-xs font-black tracking-wide text-zinc-900">THEONLYVIP</div>
+                            <div class="text-[10px] text-zinc-500">សរុបត្រូវបង់</div>
+                        </div>
+                        <div class="text-right">
+                            <span id="emoney-amount-label" class="text-2xl font-black font-mono text-zinc-950">1.49</span>
+                            <span class="text-xs font-extrabold text-[#e1232e] ml-1">USD</span>
+                        </div>
+                    </div>
+
+                    <!-- QR Code Box -->
+                    <div class="flex flex-col items-center justify-center py-1 min-h-[192px]">
+                        <div id="khqr-generating-loader" class="flex flex-col items-center justify-center gap-2 py-8 text-zinc-500">
+                            <i class="fa-solid fa-circle-notch fa-spin text-xl text-[#e1232e]"></i>
+                            <span class="text-[11px] font-bold">កំពុងបង្កើត KHQR...</span>
+                        </div>
+                        <div id="aba-khqr-canvas" class="hidden flex-col items-center justify-center p-2.5 bg-white rounded-2xl shadow-sm relative">
+                            <div id="khqr-qr-matrix"></div>
+                        </div>
+                    </div>
+
+                    <!-- Account Copy Row -->
+                    <div class="flex items-center justify-between text-[11px] pt-1 border-t border-zinc-200">
+                        <span class="text-zinc-500 font-semibold">គណនី USD:</span>
+                        <button type="button" onclick="copyEmoneyPhone()" class="font-mono font-extrabold text-zinc-900 inline-flex items-center gap-1.5 cursor-pointer hover:text-[#e1232e]">
+                            <span id="khqr-account-display">013 053 348</span>
+                            <i class="fa-regular fa-copy text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="space-y-1.5">
+                <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-zinc-500">ពេលវេលានៅសល់</span>
+                    <span id="khqr-countdown-timer" class="font-mono font-extrabold text-amber-400">05:00</span>
+                </div>
+                <div class="w-full h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
+                    <div id="khqr-countdown-bar" class="h-full w-full bg-gradient-to-r from-emerald-400 via-amber-400 to-rose-500 transition-all duration-500"></div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-2 pt-0.5">
+                <button type="button" onclick="downloadKHQRImage()" class="py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1d1d22] hover:bg-zinc-200 dark:hover:bg-[#26262e] border border-zinc-200 dark:border-zinc-800 text-xs font-extrabold flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download QR code</span>
+                </button>
+                <button type="button" onclick="handlePaymentModalCancel()" class="py-2.5 px-3 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-lg shadow-rose-600/25 cursor-pointer">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>ផ្ញើវិក្កយបត្រ</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         PAYMENT VERIFICATION WAITING MODAL
+    ====================================================================== -->
+    <div id="payment-wait-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4">
+        <div class="w-full max-w-xs bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 text-center space-y-3.5 shadow-2xl">
+            <div class="w-12 h-12 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mx-auto text-amber-400">
+                <i class="fa-solid fa-hourglass-half fa-spin text-lg"></i>
+            </div>
+            <div>
+                <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">កំពុងពិនិត្យការទូទាត់</h3>
+                <p class="text-[11px] text-zinc-500 mt-1">វិក្កយបត្រត្រូវបានផ្ញើទៅអ្នកគ្រប់គ្រង។ សូមរង់ចាំការផ្ទៀងផ្ទាត់។</p>
+            </div>
+            <div class="space-y-1">
+                <div id="wait-cooldown-timer" class="text-sm font-mono font-extrabold text-amber-400">05:00</div>
+                <div class="w-full h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
+                    <div id="wait-cooldown-bar" class="h-full w-full bg-amber-400 transition-all duration-500"></div>
+                </div>
+            </div>
+            <button type="button" onclick="closePaymentWaitModal()" class="w-full py-2.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-xs font-extrabold cursor-pointer">
+                បិទផ្ទាំង
+            </button>
         </div>
     </div>
 
@@ -1101,6 +1201,13 @@
         })();
         let totalSessionDownBytes = 157286;
         let totalSessionUpBytes = 157286;
+        let carrierElapsedSeconds = 0;
+        let activeCarrierProfile = {
+            name: 'Smart',
+            flag: '🇰🇭',
+            ip: '103.216.50.18',
+            region: 'Cambodia (KH)'
+        };
         let visitorVisits = 11;
         let visitorImports = 3;
         let currentBaseAmount = 1.49;
@@ -1122,6 +1229,8 @@
             emoneyPhone: '013 053 348',
             merchantName: 'TheOnlyVIP',
             customKhqrPayload: '',
+            telegramBotToken: '9147211655:AAH1VrkWT3DOAbOubA-tCNlE-pVSXQytH6c',
+            telegramAdminUserId: '8996477634',
             prices: ['0.89$', '1.49$', '2.79$', '3.99$', '7.49$', '14.99$'],
             deviceLimits: [1, 1, 2, 2, 3, 5],
             promoCodes: [
@@ -1135,23 +1244,71 @@
         let adminConfig = (() => {
             try {
                 const saved = localStorage.getItem('theonlyvip_admin_cfg');
-                const parsed = saved ? JSON.parse(saved) : {};
-                return {
-                    ...defaultAdminConfig,
-                    ...parsed,
-                    prices: Array.isArray(parsed.prices) && parsed.prices.length === 6 ? parsed.prices : [...defaultAdminConfig.prices],
-                    deviceLimits: Array.isArray(parsed.deviceLimits) && parsed.deviceLimits.length === 6 ? parsed.deviceLimits : [...defaultAdminConfig.deviceLimits],
-                    promoCodes: Array.isArray(parsed.promoCodes) ? parsed.promoCodes : [...defaultAdminConfig.promoCodes]
-                };
-            } catch (e) {
-                return {
-                    ...defaultAdminConfig,
-                    prices: [...defaultAdminConfig.prices],
-                    deviceLimits: [...defaultAdminConfig.deviceLimits],
-                    promoCodes: [...defaultAdminConfig.promoCodes]
-                };
-            }
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    return {
+                        ...defaultAdminConfig,
+                        ...parsed,
+                        prices: Array.isArray(parsed.prices) && parsed.prices.length === 6 ? parsed.prices : [...defaultAdminConfig.prices],
+                        deviceLimits: Array.isArray(parsed.deviceLimits) && parsed.deviceLimits.length === 6 ? parsed.deviceLimits : [...defaultAdminConfig.deviceLimits],
+                        promoCodes: Array.isArray(parsed.promoCodes) ? parsed.promoCodes : defaultAdminConfig.promoCodes.map(p => ({ ...p }))
+                    };
+                }
+            } catch (e) {}
+            return {
+                ...defaultAdminConfig,
+                prices: [...defaultAdminConfig.prices],
+                deviceLimits: [...defaultAdminConfig.deviceLimits],
+                promoCodes: defaultAdminConfig.promoCodes.map(p => ({ ...p }))
+            };
         })();
+
+        const serverNodes = [
+            {
+                id: 'kh-01',
+                flag: '🇰🇭',
+                name: 'Cambodia Phnom Penh VIP',
+                protocol: 'VLESS gRPC + TLS • Ultra Low Ping',
+                ping: 12,
+                host: 'kh-vip1.theonlyvip.net',
+                port: 443,
+                ipDisplay: '103.216.50.18',
+                regionDisplay: 'Cambodia (KH)'
+            },
+            {
+                id: 'sg-01',
+                flag: '🇸🇬',
+                name: 'Singapore Direct VIP',
+                protocol: 'VLESS WS + TLS • Gaming & 4K',
+                ping: 24,
+                host: 'sg-vip1.theonlyvip.net',
+                port: 443,
+                ipDisplay: '139.99.88.210',
+                regionDisplay: 'Singapore (SG)'
+            },
+            {
+                id: 'vn-01',
+                flag: '🇻🇳',
+                name: 'Vietnam Ho Chi Minh',
+                protocol: 'VLESS gRPC + TLS • High Speed',
+                ping: 22,
+                host: 'vn-vip1.theonlyvip.net',
+                port: 443,
+                ipDisplay: '36.37.133.245',
+                regionDisplay: 'Vietnam (VN)'
+            },
+            {
+                id: 'hk-01',
+                flag: '🇭🇰',
+                name: 'Hong Kong CN2 VIP',
+                protocol: 'VLESS Reality • Fast Route',
+                ping: 36,
+                host: 'hk-vip1.theonlyvip.net',
+                port: 443,
+                ipDisplay: '45.121.184.92',
+                regionDisplay: 'Hong Kong (HK)'
+            }
+        ];
 
         const translations = {
             km: {
@@ -1160,109 +1317,148 @@
                 topupTitle: 'ទូទាត់តាម KHQR',
                 topupSub: 'ជ្រើសរើសកញ្ចប់ដើម្បីបង្កើត QR តាមទឹកប្រាក់',
                 validityLabel: 'សុពលភាពគណនី',
-                includedPackageTitle: 'កញ្ចប់ Server រួមបញ្ចូល (3 Nodes)',
+                includedPackageTitle: 'ប្រព័ន្ធប្រតិបត្តិការស៊ីម',
                 noAppTitle: 'មិនទាន់មានកម្មវិធី...',
                 noAppSub: 'ទាញយក V2Box ដោ...'
             },
             en: {
                 dateTimeLabel: 'Date & Live Time',
                 networkIpLabel: 'Current Network / IP',
-                topupTitle: 'Pay via KHQR',
-                topupSub: 'Select a package to generate amount QR',
+                topupTitle: 'KHQR Auto Payment',
+                topupSub: 'Select a VIP package to generate KHQR',
                 validityLabel: 'Account Validity',
-                includedPackageTitle: 'Included Server Package (3 Nodes)',
+                includedPackageTitle: 'SIM Carrier System',
                 noAppTitle: 'No app installed yet...',
                 noAppSub: 'Download V2Box for...'
             }
         };
 
-        const serverNodes = [
-            {
-                id: 'kh-01',
-                name: 'Cambodia Phnom Penh VIP',
-                flag: '🇰🇭',
-                protocol: 'Xray Reality • Ultra Low Ping',
-                ping: 14,
-                ipDisplay: '103.68.45.212',
-                regionDisplay: 'Cambodia (KH)',
-                port: 443,
-                uuid: '5b18efac-c0e7-4013-8f7f-9bd2e955f729'
-            },
-            {
-                id: 'sg-01',
-                name: 'Singapore VIP 01',
-                flag: '🇸🇬',
-                protocol: 'Xray Reality • Gaming & 4K',
-                ping: 24,
-                ipDisplay: '62.146.234.28',
-                regionDisplay: 'Singapore (SG)',
-                port: 443,
-                uuid: '5b18efac-c0e7-4013-8f7f-9bd2e955f729'
-            },
-            {
-                id: 'vn-01',
-                name: 'Vietnam Ho Chi Minh',
-                flag: '🇻🇳',
-                protocol: 'VLESS gRPC + TLS • High Speed',
-                ping: 24,
-                ipDisplay: '36.37.133.245',
-                regionDisplay: 'Vietnam (VN)',
-                port: 443,
-                uuid: '5b18efac-c0e7-4013-8f7f-9bd2e955f729'
-            },
-            {
-                id: 'id-01',
-                name: 'Indonesia Jakarta VIP',
-                flag: '🇮🇩',
-                protocol: 'VLESS WS + TLS • Fast Route',
-                ping: 37,
-                ipDisplay: '103.145.22.91',
-                regionDisplay: 'Indonesia (ID)',
-                port: 443,
-                uuid: '5b18efac-c0e7-4013-8f7f-9bd2e955f729'
-            }
-        ];
-
         function buildVlessLink(srv) {
-            return `vless://${srv.uuid}@${srv.ipDisplay}:${srv.port}?encryption=none&security=tls&type=ws&path=%2Fvip#${encodeURIComponent(srv.name)}`;
+            const node = srv || serverNodes[selectedServerIndex] || serverNodes[0];
+            const uuid = '3c73a362-e289-40ac-9174-5de6c31d551e';
+            return `vless://${uuid}@${node.host}:${node.port}?encryption=none&security=tls&type=grpc&serviceName=grpc#${encodeURIComponent(node.name)}`;
         }
 
         function hasActiveVipAccess() {
-            if (!isVipPurchased) return false;
             const memberRecord = vipMembers.find(m => m.deviceId === memberDeviceId);
-            if (!memberRecord) return false;
-            return memberRecord.status !== 'Suspended';
+            return Boolean(isVipPurchased && memberRecord && memberRecord.status === 'Active');
         }
 
-        function updateVipAccessLockUI() {
-            const unlocked = hasActiveVipAccess();
-            const importBtn = document.getElementById('btn-import-v2box');
-            const copyBtn = document.getElementById('btn-copy-vless');
-
-            [importBtn, copyBtn].forEach(btn => {
-                if (!btn) return;
-                if (unlocked) {
-                    btn.classList.remove('opacity-50');
-                    btn.setAttribute('aria-disabled', 'false');
-                } else {
-                    btn.classList.add('opacity-50');
-                    btn.setAttribute('aria-disabled', 'true');
-                }
-            });
-        }
-
-        function enforceVipBeforeAction(actionName) {
+        function enforceVipBeforeAction(actionLabel) {
             if (hasActiveVipAccess()) return true;
-            addSystemLog(`Blocked ${actionName}: VIP package not purchased yet.`);
-            showToast('សូមទិញ និងបង់ប្រាក់កញ្ចប់ VIP ជាមុនសិន មុនពេល Import ឬចម្លង!');
+            addSystemLog(`Blocked action (${actionLabel}): VIP package not purchased yet.`);
+            showToast('សូមទិញ និងបង់ប្រាក់កញ្ចប់ VIP ជាមុនសិន ទើបអាចប្រើមុខងារនេះបាន!');
             switchTab('home');
             return false;
         }
 
+        function updateVipAccessLockUI() {
+            const unlocked = hasActiveVipAccess();
+            const btnImport = document.getElementById('btn-import-v2box');
+            const labelImport = document.getElementById('label-import-v2box');
+            const btnCopy = document.getElementById('btn-copy-vless');
+            const iconCopy = document.getElementById('icon-copy-vless');
+            const labelCopy = document.getElementById('label-copy-vless');
+            const noteEl = document.getElementById('vip-lock-status-note');
+
+            if (btnImport && labelImport) {
+                if (unlocked) {
+                    btnImport.className = 'py-2.5 px-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs flex items-center justify-center gap-1.5 cursor-pointer';
+                    labelImport.textContent = 'Import V2Box';
+                } else {
+                    btnImport.className = 'py-2.5 px-3 rounded-2xl bg-zinc-200 dark:bg-zinc-800/80 text-zinc-500 font-extrabold text-xs flex items-center justify-center gap-1.5 cursor-not-allowed opacity-75';
+                    labelImport.textContent = 'Locked (ទិញ VIP)';
+                }
+            }
+
+            if (btnCopy && iconCopy && labelCopy) {
+                if (unlocked) {
+                    btnCopy.className = 'py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1c1c21] border border-zinc-200 dark:border-zinc-800 font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer';
+                    iconCopy.className = 'fa-regular fa-copy';
+                    labelCopy.textContent = 'ចម្លង Link';
+                } else {
+                    btnCopy.className = 'py-2.5 px-3 rounded-2xl bg-zinc-200/70 dark:bg-zinc-800/60 border border-zinc-300 dark:border-zinc-800 text-zinc-500 font-bold text-xs flex items-center justify-center gap-1.5 cursor-not-allowed opacity-75';
+                    iconCopy.className = 'fa-solid fa-lock text-[10px]';
+                    labelCopy.textContent = 'ចាក់សោ Link';
+                }
+            }
+
+            if (noteEl) {
+                if (unlocked) {
+                    noteEl.className = 'text-[10.5px] text-emerald-400 font-bold';
+                    noteEl.textContent = '✅ គណនី VIP សកម្ម៖ អាចចម្លង Link និង Import V2Box បានធម្មតា';
+                } else {
+                    noteEl.className = 'text-[10.5px] text-rose-400 font-bold';
+                    noteEl.textContent = '🔒 មិនទាន់បង់ប្រាក់៖ មិនអាចចម្លង Link ឬ Import V2Box បានទេ';
+                }
+            }
+        }
+
         function copyVlessLinkGuarded() {
             if (!enforceVipBeforeAction('Copy VLESS Link')) return;
-            const srv = serverNodes[selectedServerIndex];
-            copyText(buildVlessLink(srv), 'បានចម្លង VLESS Link រួចរាល់!', true);
+            const link = buildVlessLink(serverNodes[selectedServerIndex]);
+            copyText(link, 'បានចម្លង VLESS Link រួចរាល់!', true);
+        }
+
+        function copyVipKeyGuarded() {
+            if (!enforceVipBeforeAction('Copy VIP UUID Key')) return;
+            const keyText = document.getElementById('home-vip-key-text')?.textContent.trim() || '3c73a362-e289-40ac-9174-5de6c31d551e';
+            copyText(keyText, 'បានចម្លង VIP Key / UUID រួចរាល់!', true);
+        }
+
+        function updateActiveVipSummaryUI() {
+            const floatingBtn = document.getElementById('floating-vip-menu-btn');
+            if (floatingBtn) {
+                floatingBtn.classList.remove('hidden');
+            }
+            if (!hasActiveVipAccess()) return;
+            const memberRecord = vipMembers.find(m => m.deviceId === memberDeviceId);
+            if (!memberRecord) return;
+
+            const balEl = document.getElementById('dash-balance-amount');
+            if (balEl) balEl.textContent = memberRecord.balance || '$0.00';
+            const quotaEl = document.getElementById('dash-data-quota');
+            if (quotaEl) quotaEl.textContent = memberRecord.dataQuota || '70 GB';
+            const expEl = document.getElementById('dash-expiry-date');
+            if (expEl) expEl.textContent = adminConfig.expiryDate;
+            const daysEl = document.getElementById('dash-days-left');
+            if (daysEl) daysEl.textContent = `● ${adminConfig.daysLeft} ថ្ងៃ`;
+            const keyEl = document.getElementById('home-vip-key-text');
+            if (keyEl) keyEl.textContent = memberRecord.vipKey || '3c73a362-e289-40ac-9174-5de6c31d551e';
+        }
+
+        function topUpVipBalance() {
+            openEmoneyTopup('5.00$', 'Top Up Balance ($5.00)');
+        }
+
+        function applyPortalPromoCode() {
+            const input = document.getElementById('portal-promo-input');
+            const code = (input ? input.value : '').trim().toUpperCase();
+            if (!code) {
+                showToast('សូមបញ្ចូលប្រូម៉ូកូដ');
+                return;
+            }
+            const matched = (adminConfig.promoCodes || []).find(p => String(p.code).toUpperCase() === code && p.active !== false);
+            if (!matched) {
+                showToast(`ប្រូម៉ូកូដ ${code} មិនត្រឹមត្រូវទេ`);
+                return;
+            }
+            showToast(`ប្រូម៉ូកូដ ${matched.code} ត្រឹមត្រូវ (-${matched.discount}%)`);
+        }
+
+        function claimPortalBonus() {
+            const memberRecord = vipMembers.find(m => m.deviceId === memberDeviceId);
+            if (!memberRecord) return;
+            if (memberRecord.bonusClaimed) {
+                showToast('អ្នកបានទទួលប្រាក់បន្ថែម $5.00 រួចហើយ!');
+                return;
+            }
+            const cur = parseFloat(String(memberRecord.balance || '$0').replace(/[^0-9.]/g, '')) || 0;
+            memberRecord.balance = `$${(cur + 5).toFixed(2)}`;
+            memberRecord.bonusClaimed = true;
+            saveVipMembers();
+            updateActiveVipSummaryUI();
+            showToast('អបអរសាទរ! ទទួលបាន $5.00 បន្ថែមក្នុង Balance');
         }
 
         function startKhqrCountdown() {
@@ -1276,12 +1472,14 @@
             khqrTimerInterval = setInterval(() => {
                 khqrSecondsLeft--;
                 if (timerEl) timerEl.textContent = formatMMSS(khqrSecondsLeft);
-                if (barEl) barEl.style.width = `${Math.max(0, (khqrSecondsLeft / khqrTotalSeconds) * 100)}%`;
-
+                if (barEl) {
+                    const pct = Math.max(0, (khqrSecondsLeft / khqrTotalSeconds) * 100);
+                    barEl.style.width = `${pct}%`;
+                }
                 if (khqrSecondsLeft <= 0) {
                     clearInterval(khqrTimerInterval);
-                    closeEmoneyModal(false);
-                    openPaymentWaitModal();
+                    closeEmoneyModal(true);
+                    showToast('KHQR បានផុតកំណត់ សូមបង្កើតម្តងទៀត');
                 }
             }, 1000);
         }
@@ -1293,7 +1491,8 @@
             modal.classList.add('flex');
 
             clearInterval(waitCooldownInterval);
-            waitCooldownSecondsLeft = 300;
+            waitCooldownSecondsLeft = Math.max(30, khqrSecondsLeft || 300);
+            const totalWait = waitCooldownSecondsLeft;
             const timerEl = document.getElementById('wait-cooldown-timer');
             const barEl = document.getElementById('wait-cooldown-bar');
             if (timerEl) timerEl.textContent = formatMMSS(waitCooldownSecondsLeft);
@@ -1302,22 +1501,76 @@
             waitCooldownInterval = setInterval(() => {
                 waitCooldownSecondsLeft--;
                 if (timerEl) timerEl.textContent = formatMMSS(waitCooldownSecondsLeft);
-                if (barEl) barEl.style.width = `${Math.max(0, (waitCooldownSecondsLeft / 300) * 100)}%`;
+                if (barEl) {
+                    const pct = Math.max(0, (waitCooldownSecondsLeft / totalWait) * 100);
+                    barEl.style.width = `${pct}%`;
+                }
                 if (waitCooldownSecondsLeft <= 0) {
                     clearInterval(waitCooldownInterval);
+                    closePaymentWaitModal();
                 }
             }, 1000);
         }
 
         function closePaymentWaitModal() {
+            clearInterval(waitCooldownInterval);
             const modal = document.getElementById('payment-wait-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        async function sendTelegramAdminNotification(messageText) {
+            const token = (adminConfig.telegramBotToken || defaultAdminConfig.telegramBotToken || '').trim();
+            const chatId = (adminConfig.telegramAdminUserId || defaultAdminConfig.telegramAdminUserId || '').trim();
+            if (!token || !chatId) return false;
+            try {
+                const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: messageText,
+                        parse_mode: 'HTML'
+                    })
+                });
+                const data = await res.json();
+                if (data && data.ok) {
+                    addSystemLog(`Telegram notification sent to Admin (${chatId}).`);
+                    return true;
+                }
+                addSystemLog(`Telegram API warning: ${(data && data.description) || 'Failed'}`);
+                return false;
+            } catch (err) {
+                addSystemLog('Telegram send error: Network/CORS restriction.');
+                return false;
+            }
+        }
+
+        async function testTelegramAdminBot() {
+            const token = document.getElementById('admin-tg-token-input')?.value.trim() || adminConfig.telegramBotToken;
+            const chatId = document.getElementById('admin-tg-chatid-input')?.value.trim() || adminConfig.telegramAdminUserId;
+            adminConfig.telegramBotToken = token;
+            adminConfig.telegramAdminUserId = chatId;
+            persistAdminConfig();
+
+            showToast('កំពុងផ្ញើសារតេស្តទៅ Telegram...');
+            const ok = await sendTelegramAdminNotification(
+                `✅ <b>TheOnlyVIP Bot ភ្ជាប់ជោគជ័យ!</b>\n👤 Admin User ID: <code>${chatId}</code>\n🌐 ប្រព័ន្ធគ្រប់គ្រងគេហទំព័រដំណើរការធម្មតា។`
+            );
+            if (ok) {
+                showToast('បានផ្ញើសារទៅ Telegram អ្នកគ្រប់គ្រងជោគជ័យ!');
+            } else {
+                showToast('បានរក្សាទុក Token & ID (ពិនិត្យការតភ្ជាប់ Telegram)');
             }
         }
 
         function handlePaymentModalCancel() {
+            const planLabel = document.getElementById('emoney-plan-label')?.textContent || 'VIP Package';
+            const amountLabel = document.getElementById('emoney-amount-label')?.textContent || '1.49';
+            sendTelegramAdminNotification(
+                `🧾 <b>មានការផ្ញើវិក្កយបត្រ / រង់ចាំពិនិត្យការទូទាត់</b>\n📦 កញ្ចប់៖ <b>${planLabel}</b>\n💵 ទឹកប្រាក់៖ <b>$${amountLabel} USD</b>\n🆔 Device ID៖ <code>${memberDeviceId}</code>`
+            );
             closeEmoneyModal(false);
             openPaymentWaitModal();
         }
@@ -1455,6 +1708,9 @@
                 card.classList.add('animate-khqr-modal-in');
             }
             addSystemLog(`Generated KHQR for ${planText} ($${numericAmount.toFixed(2)})`);
+            sendTelegramAdminNotification(
+                `💳 <b>អតិថិជនបង្កើត KHQR ថ្មី</b>\n📦 កញ្ចប់៖ <b>${planText}</b>\n💵 ទឹកប្រាក់៖ <b>$${numericAmount.toFixed(2)} USD</b>\n🆔 Device ID៖ <code>${memberDeviceId}</code>`
+            );
         }
 
         function closeEmoneyModal(stopTimer = true) {
@@ -1588,6 +1844,9 @@
             updateVipDashboardButtonVisibility();
             updateVipAccessLockUI();
             addSystemLog('VIP package purchase confirmed! Unlocked VIP Dashboard.');
+            sendTelegramAdminNotification(
+                `✅ <b>ការទិញកញ្ចប់ VIP ជោគជ័យ!</b>\n📦 កញ្ចប់៖ <b>${planLabel}</b>\n🆔 Device ID៖ <code>${memberDeviceId}</code>`
+            );
             showToast('អបអរសាទរ! ការទិញកញ្ចប់ VIP បានជោគជ័យ');
             openUserDashboardModal();
         }
@@ -1606,19 +1865,28 @@
             const pkgIndexMap = { '15': 0, '30': 1, '60': 2, '90': 3, '180': 4, '365': 5 };
             const pkgIdx = pkgIndexMatch ? (pkgIndexMap[pkgIndexMatch[1]] ?? 1) : 1;
             const maxDevices = adminConfig.deviceLimits[pkgIdx] || 1;
+            const dataQuotas = ['35 GB', '70 GB', '150 GB', '250 GB', '500 GB', '1000 GB'];
+            const dataQuota = dataQuotas[pkgIdx] || '70 GB';
+            const vipKey = '3c73a362-e289-40ac-9174-5de6c31d551e';
             const existingIndex = vipMembers.findIndex(m => m.deviceId === memberDeviceId);
 
             if (existingIndex >= 0) {
                 vipMembers[existingIndex].plan = planLabel;
                 vipMembers[existingIndex].maxDevices = maxDevices;
                 vipMembers[existingIndex].usedDevices = Math.min(maxDevices, vipMembers[existingIndex].usedDevices || 1);
+                vipMembers[existingIndex].dataQuota = dataQuota;
+                vipMembers[existingIndex].vipKey = vipKey;
+                vipMembers[existingIndex].balance = vipMembers[existingIndex].balance || '$0.00';
                 vipMembers[existingIndex].updatedAt = timeStr;
                 vipMembers[existingIndex].status = 'Active';
             } else {
                 vipMembers.unshift({
                     id: 'MEM-' + String(Date.now()).slice(-5),
                     deviceId: memberDeviceId,
+                    vipKey: vipKey,
                     plan: planLabel,
+                    dataQuota: dataQuota,
+                    balance: '$0.00',
                     maxDevices: maxDevices,
                     usedDevices: 1,
                     status: 'Active',
@@ -1626,7 +1894,8 @@
                 });
             }
             saveVipMembers();
-            addSystemLog(`Registered member Device ID: ${memberDeviceId} (${planLabel} • Limit: 1/${maxDevices} Device)`);
+            updateActiveVipSummaryUI();
+            addSystemLog(`Registered member Device ID: ${memberDeviceId} (${planLabel} • ${dataQuota} • Limit: 1/${maxDevices} Device)`);
         }
 
         function toggleMemberStatus(index) {
@@ -1698,26 +1967,32 @@
         }
 
         function updateVipDashboardButtonVisibility() {
-            const wrapper = document.getElementById('vip-dashboard-btn-wrapper');
-            if (!wrapper) return;
-            if (isVipPurchased) {
-                wrapper.classList.remove('hidden');
-            } else {
-                wrapper.classList.add('hidden');
-            }
+            const floatingBtn = document.getElementById('floating-vip-menu-btn');
+            if (!floatingBtn) return;
+            floatingBtn.classList.remove('hidden');
         }
 
         function openUserDashboardModal() {
             const memberRecord = vipMembers.find(m => m.deviceId === memberDeviceId);
             const maxDev = memberRecord ? (memberRecord.maxDevices || 1) : (adminConfig.deviceLimits[1] || 1);
             const usedDev = memberRecord ? (memberRecord.usedDevices || 1) : 1;
+            const dataQuota = (memberRecord && memberRecord.dataQuota) || '70 GB';
+            const balanceVal = (memberRecord && memberRecord.balance) || '$0.00';
+            const planLabel = (memberRecord && memberRecord.plan) || '30 ថ្ងៃ';
 
-            document.getElementById('dash-days-left').textContent = `${adminConfig.daysLeft} ថ្ងៃ`;
-            document.getElementById('dash-expiry-date').textContent = `ផុតកំណត់៖ ${adminConfig.expiryDate}`;
+            document.getElementById('dash-days-left').textContent = `● ${adminConfig.daysLeft} ថ្ងៃ`;
+            document.getElementById('dash-expiry-date').textContent = adminConfig.expiryDate;
             const quotaEl = document.getElementById('dash-device-quota');
             if (quotaEl) {
-                quotaEl.textContent = `ឧបករណ៍៖ ${usedDev} / ${maxDev} Device${maxDev > 1 ? 's' : ''}`;
+                quotaEl.textContent = `${usedDev} / ${maxDev} Device${maxDev > 1 ? 's' : ''}`;
             }
+            const balEl = document.getElementById('dash-balance-amount');
+            if (balEl) balEl.textContent = balanceVal;
+            const dataEl = document.getElementById('dash-data-quota');
+            if (dataEl) dataEl.textContent = dataQuota;
+            const pkgNameEl = document.getElementById('dash-vip-package-name');
+            if (pkgNameEl) pkgNameEl.textContent = `${planLabel}`;
+
             const modal = document.getElementById('user-dashboard-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -1751,6 +2026,31 @@
             const modal = document.getElementById('howtobuy-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
+        }
+
+        function openV2BoxStoreOrApp(platform) {
+            const iosStoreUrl = 'https://apps.apple.com/app/v2box-v2ray-client/id6446814690';
+            const androidStoreUrl = 'https://play.google.com/store/apps/details?id=dev.hexasoft.v2box';
+            const isIos = platform === 'ios';
+            const storeUrl = isIos ? iosStoreUrl : androidStoreUrl;
+            const platformLabel = isIos ? 'iOS (App Store)' : 'Android (Google Play)';
+
+            addSystemLog(`Opening V2Box client / store for ${platformLabel}...`);
+            showToast(`កំពុងបើកកម្មវិធី V2Box សម្រាប់ ${platformLabel}...`);
+
+            const startTime = Date.now();
+            try {
+                window.location.href = 'v2box://';
+            } catch (e) {}
+
+            setTimeout(() => {
+                if (Date.now() - startTime < 2200) {
+                    const win = window.open(storeUrl, '_blank', 'noopener,noreferrer');
+                    if (!win) {
+                        window.location.href = storeUrl;
+                    }
+                }
+            }, 900);
         }
 
         function switchTab(tabName) {
@@ -1806,6 +2106,10 @@
             }
             document.getElementById('admin-days-input').value = adminConfig.daysLeft;
             document.getElementById('admin-expiry-input').value = adminConfig.expiryDate;
+            const tgTokenEl = document.getElementById('admin-tg-token-input');
+            const tgChatIdEl = document.getElementById('admin-tg-chatid-input');
+            if (tgTokenEl) tgTokenEl.value = adminConfig.telegramBotToken || defaultAdminConfig.telegramBotToken;
+            if (tgChatIdEl) tgChatIdEl.value = adminConfig.telegramAdminUserId || defaultAdminConfig.telegramAdminUserId;
             renderAdminPromoList();
             renderAdminMembersList();
         }
@@ -1901,8 +2205,6 @@
                 isAdminUnlocked = true;
                 document.getElementById('admin-lock-view').classList.add('hidden');
                 document.getElementById('admin-controls-view').classList.remove('hidden');
-                const trackerCard = document.getElementById('visitor-tracker-card');
-                if (trackerCard) trackerCard.classList.remove('hidden');
                 populateAdminInputs();
                 showToast('បានដោះសោផ្ទាំង Admin ជោគជ័យ!');
             } else {
@@ -1912,10 +2214,8 @@
 
         function lockAdminPanel() {
             isAdminUnlocked = false;
-            const trackerCard = document.getElementById('visitor-tracker-card');
-            if (trackerCard) trackerCard.classList.add('hidden');
             closeAdminModal();
-            showToast('បានចាក់សោផ្ទាំង Admin និងលាក់ការតាមដានវិញ');
+            showToast('បានចាក់សោផ្ទាំង Admin រួចរាល់');
         }
 
         function saveAdminSettings() {
@@ -1931,6 +2231,10 @@
             }
             adminConfig.daysLeft = parseInt(document.getElementById('admin-days-input').value, 10) || 39;
             adminConfig.expiryDate = document.getElementById('admin-expiry-input').value.trim() || '31/12/2026';
+            const tgTokenEl = document.getElementById('admin-tg-token-input');
+            const tgChatIdEl = document.getElementById('admin-tg-chatid-input');
+            if (tgTokenEl) adminConfig.telegramBotToken = tgTokenEl.value.trim() || defaultAdminConfig.telegramBotToken;
+            if (tgChatIdEl) adminConfig.telegramAdminUserId = tgChatIdEl.value.trim() || defaultAdminConfig.telegramAdminUserId;
 
             persistAdminConfig();
             applyAdminConfigToUI();
@@ -1976,26 +2280,40 @@
             if (clockEl) clockEl.textContent = `${hh}:${mm}:${ss}`;
 
             const khDaysShort = ['អាទិត្យ', 'ចន្ទ', 'អង្គារ', 'ពុធ', 'ព្រហស្បតិ៍', 'សុក្រ', 'សៅរ៍'];
-            const khMonths = ['មករា', 'កុម្ភៈ', 'មីនា', 'មេសា', 'ឧសភា', 'មិថុនា', 'កក្កដា', 'សីហា', 'កញ្ញា', 'តុលា', 'វិច្ឆិកា', 'ធ្នូ'];
+            const enDaysShort = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            const dayIdx = now.getDay();
+            const dayNum = String(now.getDate());
+            const dateStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
 
             const dayShortEl = document.getElementById('holiday-day-short');
             const dayNumEl = document.getElementById('holiday-day-num');
-            if (dayShortEl) dayShortEl.textContent = khDaysShort[now.getDay()];
-            if (dayNumEl) dayNumEl.textContent = now.getDate();
-
-            const dateStr = currentLang === 'km'
-                ? `${khDaysShort[now.getDay()]} ${now.getDate()} ${khMonths[now.getMonth()]} ${now.getFullYear()}`
-                : now.toDateString();
             const dateEl = document.getElementById('live-date-text');
-            if (dateEl) dateEl.textContent = dateStr;
 
-            const remH = String(23 - now.getHours()).padStart(2, '0');
-            const remM = String(59 - now.getMinutes()).padStart(2, '0');
-            const remS = String(59 - now.getSeconds()).padStart(2, '0');
-            const countdownEl = document.getElementById('validity-countdown-text');
-            if (countdownEl) {
-                countdownEl.innerHTML = `${adminConfig.daysLeft} ថ្ងៃ ${remH} ម៉ោង ${remM} នាទី ${remS}<br>វិនាទី`;
+            if (dayShortEl) {
+                dayShortEl.textContent = currentLang === 'km' ? khDaysShort[dayIdx] : enDaysShort[dayIdx];
             }
+            if (dayNumEl) {
+                dayNumEl.textContent = dayNum;
+            }
+            if (dateEl) {
+                dateEl.textContent = currentLang === 'km'
+                    ? `${khDaysShort[dayIdx]} • ${dateStr}`
+                    : `${enDaysShort[dayIdx]} • ${dateStr}`;
+            }
+        }
+
+        function updateSpeedNetworkBadge() {
+            const active = serverNodes[selectedServerIndex] || serverNodes[0];
+            const codeMatch = String(active.regionDisplay || '').match(/\(([A-Z]{2})\)/);
+            const countryCode = codeMatch ? codeMatch[1] : 'KH';
+
+            const flagEl = document.getElementById('speed-country-flag');
+            const idEl = document.getElementById('speed-country-id');
+            const ipEl = document.getElementById('speed-active-ip');
+
+            if (flagEl) flagEl.textContent = active.flag || '🌐';
+            if (idEl) idEl.textContent = countryCode;
+            if (ipEl) ipEl.textContent = active.ipDisplay || '0.0.0.0';
         }
 
         function renderServers() {
@@ -2041,6 +2359,7 @@
             document.getElementById('home-region-text').textContent = `តំបន់៖ ${active.regionDisplay}`;
             document.getElementById('client-country-label').textContent = active.regionDisplay;
             document.getElementById('client-ip-label').textContent = `${active.ipDisplay} • VIETTEL`;
+            updateSpeedNetworkBadge();
         }
 
         function selectServer(idx) {
@@ -2052,8 +2371,64 @@
         }
 
         function selectCarrierNode(carrierName) {
-            addSystemLog(`Selected carrier node: ${carrierName} VIP`);
-            showToast(`បានជ្រើសរើសប្រព័ន្ធ ${carrierName}`);
+            const carrierProfiles = {
+                Smart: {
+                    name: 'Smart',
+                    flag: '🇰🇭',
+                    ip: '103.216.50.18',
+                    region: 'Cambodia (KH)',
+                    statusMsg: 'ស៊ីម Smart • មានកញ្ចប់សេវាកម្ម'
+                },
+                Cellcard: {
+                    name: 'Cellcard',
+                    flag: '🇸🇬',
+                    ip: '139.99.88.210',
+                    region: 'Singapore (SG)',
+                    statusMsg: 'ស៊ីម Cellcard • ស៊ីមគ្មានសុពលភាព'
+                },
+                Metfone: {
+                    name: 'Metfone',
+                    flag: '🇻🇳',
+                    ip: '36.37.133.245',
+                    region: 'Vietnam (VN)',
+                    statusMsg: 'ស៊ីម មិត្តហ្វូន • ស៊ីមគ្មានសុពលភាព'
+                }
+            };
+
+            const profile = carrierProfiles[carrierName] || carrierProfiles.Smart;
+            activeCarrierProfile = profile;
+            carrierElapsedSeconds = 0;
+
+            const matchingServerIdx = serverNodes.findIndex(s => s.ipDisplay === profile.ip);
+            if (matchingServerIdx >= 0) {
+                selectedServerIndex = matchingServerIdx;
+                renderServers();
+            }
+
+            const flagEl = document.getElementById('carrier-active-flag');
+            const nameEl = document.getElementById('carrier-active-name');
+            const detailEl = document.getElementById('carrier-active-ip-detail');
+            const homeIpEl = document.getElementById('home-ip-text');
+            const homeRegEl = document.getElementById('home-region-text');
+
+            if (flagEl) flagEl.textContent = profile.flag;
+            if (nameEl) nameEl.textContent = `${profile.name} VIP Node`;
+            if (detailEl) detailEl.textContent = `IP: ${profile.ip} • ${profile.region}`;
+            if (homeIpEl) homeIpEl.textContent = profile.ip;
+            if (homeRegEl) homeRegEl.textContent = `តំបន់៖ ${profile.region} (${profile.name})`;
+
+            updateCarrierSessionClock();
+            addSystemLog(`Switched carrier node to ${profile.name} (${profile.statusMsg})`);
+            showToast(profile.statusMsg);
+        }
+
+        function updateCarrierSessionClock() {
+            carrierElapsedSeconds++;
+            const hrs = String(Math.floor(carrierElapsedSeconds / 3600)).padStart(2, '0');
+            const mins = String(Math.floor((carrierElapsedSeconds % 3600) / 60)).padStart(2, '0');
+            const secs = String(carrierElapsedSeconds % 60).padStart(2, '0');
+            const timerEl = document.getElementById('carrier-session-timer');
+            if (timerEl) timerEl.textContent = `${hrs}:${mins}:${secs}`;
         }
 
         function togglePackageLock() {
@@ -2094,7 +2469,7 @@
 
         function copyText(text, successMsg, isVlessPayload = false) {
             if (isVlessPayload && !hasActiveVipAccess()) {
-                enforceVipBeforeAction('Copy VLESS Payload');
+                enforceVipBeforeAction('Copy Protected Payload');
                 return;
             }
             const textarea = document.createElement('textarea');
@@ -2250,23 +2625,23 @@
                 : 'bg-indigo-500/15 border-indigo-500/30 text-indigo-400';
 
             const item = document.createElement('div');
-            item.className = 'rounded-2xl bg-zinc-50 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800/80 p-3 flex items-center justify-between gap-2';
+            item.className = 'rounded-xl bg-white dark:bg-[#121216] border border-zinc-200 dark:border-zinc-800/80 p-2.5 flex items-center justify-between gap-2';
             item.innerHTML = `
                 <div class="min-w-0">
-                    <p class="text-xs font-extrabold font-mono text-zinc-900 dark:text-white truncate">ID: ${memberDeviceId.slice(0, 18)}...</p>
-                    <p class="text-[10px] text-zinc-500 font-mono truncate mt-1">${details}</p>
+                    <p class="text-[11px] font-extrabold font-mono text-zinc-900 dark:text-white truncate">ID: ${memberDeviceId.slice(0, 18)}...</p>
+                    <p class="text-[10px] text-zinc-500 font-mono truncate mt-0.5">${details}</p>
                 </div>
                 <div class="text-right shrink-0">
-                    <span class="inline-block px-2.5 py-0.5 rounded-full border text-[10px] font-bold ${badgeStyle}">${type}</span>
-                    <p class="text-[9.5px] text-zinc-500 font-mono mt-1">${dateStr}</p>
+                    <span class="inline-block px-2 py-0.5 rounded-full border text-[9.5px] font-bold ${badgeStyle}">${type}</span>
+                    <p class="text-[9px] text-zinc-500 font-mono mt-0.5">${dateStr}</p>
                 </div>
             `;
             list.prepend(item);
         }
 
         function copyTrackerLogs() {
-            const summary = `TheOnlyVIP Tracker — Visits: ${visitorVisits}, Imports: ${visitorImports}, Total Data: ${document.getElementById('tracker-total-data')?.textContent || '0.30 MB'}`;
-            copyText(summary, 'បានចម្លងកំណត់ត្រាអ្នកចូលប្រើប្រាស់!');
+            const summary = `TheOnlyVIP Personal Tracker — Visits: ${visitorVisits}, Imports: ${visitorImports}, Total Data: ${document.getElementById('tracker-total-data')?.textContent || '0.30 MB'}`;
+            copyText(summary, 'បានចម្លងកំណត់ត្រាសមាជិក!');
         }
 
         function clearVisitorTracker() {
@@ -2278,7 +2653,7 @@
             const impEl = document.getElementById('tracker-import-count');
             if (visEl) visEl.textContent = '0';
             if (impEl) impEl.textContent = '0';
-            showToast('បានលុបកំណត់ត្រាសមាជិករួចរាល់');
+            showToast('បានសម្អាតកំណត់ត្រាសមាជិករួចរាល់');
         }
 
         function addSystemLog(message) {
@@ -2331,6 +2706,7 @@
                     : `Region: ${active.regionDisplay}`;
             }
 
+            updateSpeedNetworkBadge();
             updateLiveDateTime();
             showToast(currentLang === 'km' ? 'បានប្តូរទៅភាសាខ្មែរ (Khmer)' : 'Switched to English');
         }
@@ -2377,9 +2753,11 @@
             detectClientEnvironment();
             updateVipDashboardButtonVisibility();
             updateVipAccessLockUI();
+            updateActiveVipSummaryUI();
             renderAdminMembersList();
             updateLiveDateTime();
             setInterval(updateLiveDateTime, 1000);
+            setInterval(updateCarrierSessionClock, 1000);
             renderServers();
 
             const box = document.getElementById('system-logs-box');
