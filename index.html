@@ -386,46 +386,46 @@
 
                     <!-- 6 Package Plans Grid (3x2) -->
                     <div class="grid grid-cols-3 gap-2">
-                        <button onclick="openEmoneyTopup(adminConfig.prices[0], '15 ថ្ងៃ (អ្នកប្រើ VIP)')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
+                        <button onclick="openEmoneyTopup(adminConfig.prices[0], '15 ថ្ងៃ (' + (adminConfig.dataLimits[0] || '40 GB') + ')')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">15 ថ្ងៃ</div>
                             <div id="pkg-price-0" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">0.89$</div>
-                            <div class="text-[10px] text-zinc-500">អ្នកប្រើ VIP</div>
+                            <div id="pkg-gb-0" class="text-[10px] font-bold text-sky-400">40 GB</div>
                         </button>
 
-                        <button onclick="openEmoneyTopup(adminConfig.prices[1], '30 ថ្ងៃ (ពេញនិយម)')" class="relative rounded-2xl bg-zinc-50 dark:bg-[#1a1612] border-2 border-amber-500 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer animate-hot-burn">
+                        <button onclick="openEmoneyTopup(adminConfig.prices[1], '30 ថ្ងៃ (' + (adminConfig.dataLimits[1] || '80 GB') + ')')" class="relative rounded-2xl bg-zinc-50 dark:bg-[#1a1612] border-2 border-amber-500 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer animate-hot-burn">
                             <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500 text-black text-[9px] font-black uppercase tracking-wide mb-0.5 animate-badge-move">
                                 <i class="fa-solid fa-fire text-[8px]"></i> HOT
                             </span>
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">30 ថ្ងៃ</div>
                             <div id="pkg-price-1" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">1.49$</div>
-                            <div class="text-[10px] font-bold text-amber-400">ពេញនិយម</div>
+                            <div id="pkg-gb-1" class="text-[10px] font-bold text-amber-400">80 GB</div>
                         </button>
 
-                        <button onclick="openEmoneyTopup(adminConfig.prices[2], '60 ថ្ងៃ (អ្នកប្រើ VIP)')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
+                        <button onclick="openEmoneyTopup(adminConfig.prices[2], '60 ថ្ងៃ (' + (adminConfig.dataLimits[2] || '160 GB') + ')')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">60 ថ្ងៃ</div>
                             <div id="pkg-price-2" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">2.79$</div>
-                            <div class="text-[10px] text-zinc-500">អ្នកប្រើ VIP</div>
+                            <div id="pkg-gb-2" class="text-[10px] font-bold text-sky-400">160 GB</div>
                         </button>
 
-                        <button onclick="openEmoneyTopup(adminConfig.prices[3], '90 ថ្ងៃ (អ្នកប្រើ VIP)')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
+                        <button onclick="openEmoneyTopup(adminConfig.prices[3], '90 ថ្ងៃ (' + (adminConfig.dataLimits[3] || '250 GB') + ')')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">90 ថ្ងៃ</div>
                             <div id="pkg-price-3" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">3.99$</div>
-                            <div class="text-[10px] text-zinc-500">អ្នកប្រើ VIP</div>
+                            <div id="pkg-gb-3" class="text-[10px] font-bold text-sky-400">250 GB</div>
                         </button>
 
-                        <button onclick="openEmoneyTopup(adminConfig.prices[4], '180 ថ្ងៃ (អ្នកប្រើ VIP)')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
+                        <button onclick="openEmoneyTopup(adminConfig.prices[4], '180 ថ្ងៃ (' + (adminConfig.dataLimits[4] || '500 GB') + ')')" class="rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-zinc-200 dark:border-zinc-800 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer">
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">180 ថ្ងៃ</div>
                             <div id="pkg-price-4" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">7.49$</div>
-                            <div class="text-[10px] text-zinc-500">អ្នកប្រើ VIP</div>
+                            <div id="pkg-gb-4" class="text-[10px] font-bold text-sky-400">500 GB</div>
                         </button>
 
-                        <button onclick="openEmoneyTopup(adminConfig.prices[5], '365 ថ្ងៃ (សន្សំសំចៃ)')" class="relative rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-amber-500/50 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer overflow-hidden">
+                        <button onclick="openEmoneyTopup(adminConfig.prices[5], '365 ថ្ងៃ (' + (adminConfig.dataLimits[5] || '1000 GB') + ')')" class="relative rounded-2xl bg-zinc-50 dark:bg-[#18181c] hover:bg-zinc-100 dark:hover:bg-[#202026] border border-amber-500/50 p-2.5 text-center transition-all active:scale-[0.98] cursor-pointer overflow-hidden">
                             <span class="inline-block px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-[8.5px] font-black uppercase tracking-wide mb-0.5 animate-corner-ribbon">
                                 SAVE 20%
                             </span>
                             <div class="text-xs font-extrabold text-zinc-900 dark:text-white">365 ថ្ងៃ</div>
                             <div id="pkg-price-5" class="text-sm font-extrabold font-mono text-amber-400 my-0.5">14.99$</div>
-                            <div class="text-[10px] text-zinc-500">សន្សំសំចៃ</div>
+                            <div id="pkg-gb-5" class="text-[10px] font-bold text-sky-400">1000 GB</div>
                         </button>
                     </div>
 
@@ -614,9 +614,57 @@
             </section>
 
             <!-- =============================================================
-                 TAB 4: TRACKER & LOGS (កំណត់ត្រា — System Logs Only)
+                 TAB 4: TRACKER & LOGS (កំណត់ត្រា — System Logs & Contact)
             ============================================================== -->
             <section id="tab-tracker" class="hidden space-y-3">
+                <!-- Telegram Channel & Support Contact Card -->
+                <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-3 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                                <i class="fa-brands fa-telegram text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-extrabold text-zinc-900 dark:text-white">Channel Telegram & ទំនាក់ទំនង</h3>
+                                <p class="text-[10px] text-zinc-500">តាមដានព័ត៌មានថ្មីៗ និងសួរនាំជំនួយបច្ចេកទេស 24/7</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-[9.5px] font-bold">
+                            Online
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <!-- Join Telegram Channel Button -->
+                        <button type="button" onclick="openTelegramChannel()" class="rounded-2xl bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 p-3 flex flex-col items-start gap-1.5 transition-all active:scale-[0.98] cursor-pointer text-left">
+                            <div class="flex items-center justify-between w-full">
+                                <span class="w-8 h-8 rounded-xl bg-sky-500 text-white flex items-center justify-center text-sm shadow-sm">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-sky-400"></i>
+                            </div>
+                            <div class="mt-0.5 min-w-0 w-full">
+                                <div class="text-xs font-extrabold text-zinc-900 dark:text-white truncate">Channel Telegram</div>
+                                <div id="ui-tg-channel-handle" class="text-[10px] font-mono text-sky-400 truncate">@TheOnlyVIP_Channel</div>
+                            </div>
+                        </button>
+
+                        <!-- Contact Admin Support Button -->
+                        <button type="button" onclick="openTelegramContact()" class="rounded-2xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 p-3 flex flex-col items-start gap-1.5 transition-all active:scale-[0.98] cursor-pointer text-left">
+                            <div class="flex items-center justify-between w-full">
+                                <span class="w-8 h-8 rounded-xl bg-amber-500 text-black flex items-center justify-center text-sm shadow-sm">
+                                    <i class="fa-solid fa-headset"></i>
+                                </span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-amber-400"></i>
+                            </div>
+                            <div class="mt-0.5 min-w-0 w-full">
+                                <div class="text-xs font-extrabold text-zinc-900 dark:text-white truncate">ទំនាក់ទំនង Admin</div>
+                                <div id="ui-tg-contact-handle" class="text-[10px] font-mono text-amber-400 truncate">@TheOnlyVIP_Support</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
                 <!-- System Logs Card -->
                 <div class="rounded-[24px] bg-white dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800/80 p-4 space-y-2.5 shadow-sm">
                     <div class="flex items-center justify-between">
@@ -695,15 +743,22 @@
         ====================================================================== -->
         <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 px-3 pb-3 pt-1 bg-gradient-to-t from-zinc-100 via-zinc-100/95 to-transparent dark:from-[#09090b] dark:via-[#09090b]/95 dark:to-transparent pointer-events-none">
             <!-- Floating Quick Menu Pill (Bottom-Left above Nav Bar) -->
-            <div class="pointer-events-auto flex items-center gap-2 mb-2 px-0.5">
-                <button id="floating-vip-menu-btn" type="button" onclick="openUserDashboardModal()" class="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-extrabold text-xs shadow-lg shadow-amber-500/30 active:scale-95 transition-all cursor-pointer">
+            <div class="pointer-events-auto flex items-center gap-1.5 mb-2 px-0.5 overflow-x-auto no-scrollbar">
+                <button id="floating-vip-menu-btn" type="button" onclick="openUserDashboardModal()" class="inline-flex items-center gap-1.5 pl-2 pr-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-extrabold text-[11px] shadow-lg shadow-amber-500/30 active:scale-95 transition-all shrink-0 cursor-pointer">
                     <span class="w-5 h-5 rounded-full bg-black text-amber-400 flex items-center justify-center text-[10px]">
                         <i class="fa-solid fa-crown"></i>
                     </span>
                     <span>គណនី VIP</span>
                 </button>
 
-                <button type="button" onclick="openHowToBuyModal()" class="inline-flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs shadow-lg shadow-blue-600/30 active:scale-95 transition-all cursor-pointer">
+                <button type="button" onclick="openTelegramBotModal()" class="inline-flex items-center gap-1.5 pl-2 pr-3 py-1.5 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-white font-extrabold text-[11px] shadow-lg shadow-sky-500/30 active:scale-95 transition-all shrink-0 cursor-pointer">
+                    <span class="w-5 h-5 rounded-full bg-white text-sky-600 flex items-center justify-center text-[11px]">
+                        <i class="fa-brands fa-telegram"></i>
+                    </span>
+                    <span>Bot ទិញ GB</span>
+                </button>
+
+                <button type="button" onclick="openHowToBuyModal()" class="inline-flex items-center gap-1.5 pl-2 pr-3 py-1.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-[11px] shadow-lg shadow-blue-600/30 active:scale-95 transition-all shrink-0 cursor-pointer">
                     <span class="w-5 h-5 rounded-full bg-amber-400 text-black flex items-center justify-center text-[11px] font-black">?</span>
                     <span>របៀបទិញ</span>
                 </button>
@@ -872,29 +927,141 @@
                     <div id="vip-usage-donut" class="w-24 h-24 rounded-full flex items-center justify-center" style="background: conic-gradient(#ffffff 0% 32%, #2e2e36 32% 100%);">
                         <div class="w-16 h-16 rounded-full bg-zinc-50 dark:bg-[#1b1b20] flex flex-col items-center justify-center">
                             <span id="vip-usage-donut-pct" class="text-sm font-extrabold font-mono text-zinc-900 dark:text-white leading-none">32%</span>
-                            <span class="text-[9px] text-zinc-500 mt-0.5">បានប្រើ</span>
-                        </div>
-                    </div>
+                    <span class="text-[9px] text-zinc-500 mt-0.5">បានប្រើ</span>
                 </div>
-                <div class="space-y-1 text-[11px]">
-                    <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1.5 text-zinc-600 dark:text-zinc-300">
-                            <span class="w-2 h-2 rounded-full bg-zinc-900 dark:bg-white"></span> បានប្រើ
-                        </span>
-                        <span id="vip-used-data-text" class="font-extrabold font-mono text-zinc-900 dark:text-white">64.7 GB</span>
+            </div>
+        </div>
+        <div class="space-y-1 text-[11px]">
+            <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-1.5 text-zinc-600 dark:text-zinc-300">
+                    <span class="w-2 h-2 rounded-full bg-zinc-900 dark:bg-white"></span> បានប្រើ
+                </span>
+                <span id="vip-used-data-text" class="font-extrabold font-mono text-zinc-900 dark:text-white">64.7 GB</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-1.5 text-zinc-500">
+                    <span class="w-2 h-2 rounded-full bg-zinc-500"></span> នៅសល់
+                </span>
+                <span id="vip-rem-data-text" class="font-extrabold font-mono text-zinc-900 dark:text-white">140.3 GB</span>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="closeUserDashboardModal(); importToV2Box();" class="w-full py-2.5 px-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs flex items-center justify-center gap-1.5 cursor-pointer">
+        <i class="fa-solid fa-download"></i>
+        <span>Import Sub ចូល V2Box</span>
+    </button>
+    </div>
+    </div>
+
+    <!-- =====================================================================
+         KHQR PAYMENT MODAL (EMONEY / ABA / BAKONG)
+    ====================================================================== -->
+    <div id="emoney-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm items-center justify-center p-3">
+        <div id="emoney-modal-card" class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-4 space-y-3 shadow-2xl max-h-[92vh] overflow-y-auto">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">ស្កេនទូទាត់ KHQR</h3>
+                    <p id="emoney-plan-label" class="text-[11px] font-bold text-amber-400">30 ថ្ងៃ • អ្នកប្រើ VIP</p>
+                </div>
+                <button type="button" onclick="closeEmoneyModal(true)" class="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-xs cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Countdown Bar -->
+            <div class="space-y-1">
+                <div class="flex items-center justify-between text-[10.5px]">
+                    <span class="text-zinc-500">សុពលភាព QR Code</span>
+                    <span id="khqr-countdown-timer" class="font-mono font-extrabold text-rose-400">05:00</span>
+                </div>
+                <div class="w-full h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
+                    <div id="khqr-countdown-bar" class="h-full bg-rose-500 rounded-full transition-all duration-1000" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Official KHQR Card -->
+            <div class="rounded-3xl bg-white text-black overflow-hidden shadow-xl border border-zinc-200">
+                <div class="bg-[#e1232e] py-2.5 px-4 flex items-center justify-between text-white">
+                    <span class="font-black tracking-wider text-base">KHQR</span>
+                    <span id="emoney-package-price-tag" class="text-xs font-extrabold font-mono bg-black/20 px-2.5 py-0.5 rounded-full">$1.49</span>
+                </div>
+                <div class="p-4 space-y-3">
+                    <div class="flex items-end justify-between border-b border-dashed border-zinc-300 pb-3">
+                        <div>
+                            <p id="khqr-merchant-title" class="text-xs font-extrabold text-zinc-800">THEONLYVIP</p>
+                            <div class="flex items-baseline gap-1 mt-0.5">
+                                <span id="emoney-amount-label" class="text-2xl font-black font-mono text-black">1.49</span>
+                                <span class="text-xs font-extrabold text-[#e1232e]">USD</span>
+                            </div>
+                        </div>
+                        <button type="button" onclick="copyEmoneyPhone()" class="px-2.5 py-1 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-[10.5px] font-mono font-bold text-zinc-700 cursor-pointer">
+                            <span id="khqr-account-display">013 053 348</span> <i class="fa-regular fa-copy ml-1"></i>
+                        </button>
                     </div>
-                    <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1.5 text-zinc-500">
-                            <span class="w-2 h-2 rounded-full bg-zinc-500"></span> នៅសល់
-                        </span>
-                        <span id="vip-rem-data-text" class="font-extrabold font-mono text-zinc-900 dark:text-white">140.3 GB</span>
+
+                    <!-- QR Code Box -->
+                    <div class="flex flex-col items-center justify-center py-1 min-h-[192px]">
+                        <div id="khqr-generating-loader" class="flex flex-col items-center justify-center gap-2 py-8 text-zinc-500">
+                            <i class="fa-solid fa-spinner fa-spin text-2xl text-[#e1232e]"></i>
+                            <span class="text-[11px] font-bold">កំពុងបង្កើត KHQR...</span>
+                        </div>
+                        <div id="aba-khqr-canvas" class="hidden relative items-center justify-center p-2 bg-white rounded-2xl">
+                            <div id="khqr-qr-matrix"></div>
+                            <div class="w-9 h-9 rounded-full bg-white p-1 flex items-center justify-center absolute shadow-md">
+                                <div class="w-full h-full rounded-full bg-[#e1232e] text-white font-black text-[8px] flex items-center justify-center">
+                                    KHQR
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <button onclick="closeUserDashboardModal(); importToV2Box();" class="w-full py-2.5 px-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs flex items-center justify-center gap-1.5 cursor-pointer">
-                <i class="fa-solid fa-download"></i>
-                <span>Import Sub ចូល V2Box</span>
+            <!-- Promo Code Input -->
+            <div class="flex items-center gap-1.5">
+                <input id="khqr-promo-input" type="text" placeholder="កូដបញ្ចុះតម្លៃ (ឧ. VIP10)" class="flex-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono uppercase">
+                <button type="button" onclick="applyKhqrPromoCode()" class="px-3 py-2 rounded-xl bg-zinc-200 dark:bg-zinc-800 text-xs font-extrabold cursor-pointer">
+                    ប្រើកូដ
+                </button>
+            </div>
+
+            <!-- Save QR & Confirm Receipt Buttons -->
+            <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="downloadKHQRImage()" class="py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1e1e24] border border-zinc-200 dark:border-zinc-800 text-xs font-extrabold flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-download text-sky-400"></i>
+                    <span>រក្សាទុក QR</span>
+                </button>
+                <button type="button" onclick="handlePaymentModalCancel()" class="py-2.5 px-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20 cursor-pointer">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>ផ្ញើវិក្កយបត្រ</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         PAYMENT VERIFICATION WAITING MODAL
+    ====================================================================== -->
+    <div id="payment-wait-modal" class="fixed inset-0 z-[65] hidden bg-black/85 backdrop-blur-sm items-center justify-center p-4">
+        <div class="w-full max-w-xs bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 text-center space-y-3.5 shadow-2xl">
+            <div class="w-14 h-14 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center mx-auto animate-pulse">
+                <i class="fa-solid fa-hourglass-half text-2xl"></i>
+            </div>
+            <div>
+                <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">កំពុងរង់ចាំ Admin ពិនិត្យ</h3>
+                <p class="text-[11px] text-zinc-500 mt-1 leading-relaxed">
+                    វិក្កយបត្ររបស់អ្នកត្រូវបានបញ្ជូនទៅកាន់អ្នកគ្រប់គ្រងរួចហើយ។ ប្រព័ន្ធនឹងបើកសោ VIP ដោយស្វ័យប្រវត្តិភ្លាមៗពេលអនុម័ត!
+                </p>
+            </div>
+            <div class="space-y-1">
+                <span id="wait-cooldown-timer" class="text-lg font-mono font-black text-amber-400">05:00</span>
+                <div class="w-full h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
+                    <div id="wait-cooldown-bar" class="h-full bg-amber-500 rounded-full transition-all duration-1000" style="width: 100%;"></div>
+                </div>
+            </div>
+            <button type="button" onclick="closePaymentWaitModal()" class="w-full py-2.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-xs font-extrabold cursor-pointer">
+                បិទផ្ទាំងរង់ចាំ
             </button>
         </div>
     </div>
@@ -1061,47 +1228,15 @@
                         </div>
                     </div>
 
-                    <!-- Promo Codes Manager -->
-                    <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-extrabold">គ្រប់គ្រងកូដបញ្ចុះតម្លៃ</span>
-                            <span id="admin-promo-count" class="text-[10px] font-bold text-purple-400">2 កូដ</span>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <input id="admin-promo-code-input" type="text" placeholder="កូដ (ឧ. SALE20)" class="flex-1 px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono uppercase">
-                            <input id="admin-promo-discount-input" type="number" min="1" max="90" placeholder="%" class="w-16 px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-center">
-                            <button type="button" onclick="addAdminPromoCode()" class="px-3 py-1.5 rounded-xl bg-purple-600 text-white text-xs font-extrabold cursor-pointer">បន្ថែម</button>
-                        </div>
-                        <div id="admin-promo-list" class="space-y-1.5 max-h-28 overflow-y-auto"></div>
-                    </div>
-                </div>
-
-                <!-- =========================================================
-                     SUB-TAB 2: PENDING ORDERS & ACTIVE VIP MEMBERS
-                ========================================================== -->
-                <div id="admin-subtab-orders" class="hidden space-y-3">
-                    <!-- Pending Receipts / Orders Approval Queue -->
-                    <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-amber-500/30 p-3 space-y-2">
-                        <div class="flex items-center justify-between gap-2">
-                            <span class="text-xs font-extrabold text-amber-400"><i class="fa-solid fa-receipt mr-1.5"></i>ការបញ្ជាទិញរង់ចាំអនុម័ត</span>
-                            <div class="flex items-center gap-1.5">
-                                <button type="button" onclick="collectAndSendOrdersSummary()" class="px-2 py-0.5 rounded-lg bg-sky-500/15 text-sky-400 border border-sky-500/30 text-[9.5px] font-bold cursor-pointer" title="ប្រមូលទិន្នន័យបញ្ជាទិញ & ផ្ញើទៅ Telegram">
-                                    <i class="fa-brands fa-telegram mr-1"></i>ប្រមូល & ផ្ញើ
-                                </button>
-                                <span id="admin-pending-orders-count" class="text-[10px] font-bold text-rose-400">0 វិក្កយបត្រ</span>
-                            </div>
-                        </div>
-                        <div id="admin-pending-orders-list" class="space-y-2 max-h-44 overflow-y-auto"></div>
-                    </div>
-
-                    <!-- Manual Grant VIP Device ID -->
-                    <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
-                        <span class="text-xs font-extrabold block">បើកសិទ្ធិ VIP ដោយផ្ទាល់ (Manual Grant)</span>
-                        <div class="flex items-center gap-1.5">
-                            <input id="admin-manual-devid-input" type="text" placeholder="បញ្ចូល Device ID ឬទុកទទេសម្រាប់ឧបករណ៍នេះ..." class="flex-1 px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-[11px] font-mono">
-                            <button type="button" onclick="adminManualGrantVip()" class="px-3 py-1.5 rounded-xl bg-emerald-500 text-black text-xs font-extrabold shrink-0 cursor-pointer">
-                                + បើក VIP
-                            </button>
+                    <div>
+                        <label class="text-[10.5px] font-bold text-zinc-500 block mb-1">កំណត់ទិន្នន័យ GB តាមកញ្ចប់ (15d ដល់ 365d)</label>
+                        <div class="grid grid-cols-3 gap-1.5">
+                            <input id="admin-gb0" type="text" placeholder="40 GB" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            <input id="admin-gb1" type="text" placeholder="80 GB" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            <input id="admin-gb2" type="text" placeholder="160 GB" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            <input id="admin-gb3" type="text" placeholder="250 GB" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            <input id="admin-gb4" type="text" placeholder="500 GB" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            <input id="admin-gb5" type="text" placeholder="1000 GB" class="px-2.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
                         </div>
                     </div>
 
@@ -1112,6 +1247,47 @@
                             <span id="admin-members-count" class="text-[10px] font-bold text-emerald-400">0 ឧបករណ៍</span>
                         </div>
                         <div id="admin-members-list" class="space-y-1.5 max-h-44 overflow-y-auto"></div>
+                    </div>
+                </div>
+
+                <!-- =========================================================
+                     SUB-TAB 2: PENDING ORDERS & MANUAL VIP GRANT
+                ========================================================== -->
+                <div id="admin-subtab-orders" class="hidden space-y-3">
+                    <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-extrabold">វិក្កយបត្ររង់ចាំអនុម័ត</span>
+                            <div class="flex items-center gap-1.5">
+                                <span id="admin-pending-orders-count" class="text-[10px] font-bold text-amber-400">0 វិក្កយបត្រ</span>
+                                <button type="button" onclick="collectAndSendOrdersSummary()" class="px-2 py-0.5 rounded-lg bg-sky-500/15 text-sky-400 text-[10px] font-bold cursor-pointer">
+                                    សរុបរបាយការណ៍
+                                </button>
+                            </div>
+                        </div>
+                        <div id="admin-pending-orders-list" class="space-y-1.5 max-h-48 overflow-y-auto"></div>
+                    </div>
+
+                    <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
+                        <span class="text-xs font-extrabold block">បើកសិទ្ធិ VIP ដោយផ្ទាល់ (Manual Grant)</span>
+                        <div class="flex items-center gap-1.5">
+                            <input id="admin-manual-devid-input" type="text" placeholder="Device ID (ទុកទទេ = ឧបករណ៍នេះ)" class="flex-1 px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            <button type="button" onclick="adminManualGrantVip()" class="px-3 py-1.5 rounded-xl bg-emerald-500 text-black text-xs font-extrabold shrink-0 cursor-pointer">
+                                បើក VIP
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-zinc-200 dark:border-zinc-800 p-3 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-extrabold">គ្រប់គ្រងកូដបញ្ចុះតម្លៃ (Promo Codes)</span>
+                            <span id="admin-promo-count" class="text-[10px] font-bold text-purple-400">0 កូដ</span>
+                        </div>
+                        <div class="grid grid-cols-5 gap-1.5">
+                            <input id="admin-promo-code-input" type="text" placeholder="កូដ (VIP20)" class="col-span-2 px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono uppercase">
+                            <input id="admin-promo-discount-input" type="number" min="1" max="90" placeholder="% បញ្ចុះ" class="col-span-2 px-2.5 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            <button type="button" onclick="addAdminPromoCode()" class="py-1.5 rounded-xl bg-purple-500 text-white text-xs font-extrabold cursor-pointer">បន្ថែម</button>
+                        </div>
+                        <div id="admin-promo-list" class="space-y-1 max-h-32 overflow-y-auto"></div>
                     </div>
                 </div>
 
@@ -1195,10 +1371,24 @@
                     <!-- Telegram Bot & Admin Chat ID Configuration -->
                     <div class="rounded-2xl bg-zinc-50 dark:bg-[#19191e] border border-sky-500/30 p-3 space-y-2">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-extrabold text-sky-400"><i class="fa-brands fa-telegram mr-1.5"></i>Telegram Bot អ្នកគ្រប់គ្រង</span>
+                            <span class="text-xs font-extrabold text-sky-400"><i class="fa-brands fa-telegram mr-1.5"></i>Telegram Bot អ្នកគ្រប់គ្រង & ហាង</span>
                             <button type="button" onclick="testTelegramAdminBot()" class="px-2.5 py-1 rounded-lg bg-sky-500/15 text-sky-400 border border-sky-500/30 text-[10px] font-bold cursor-pointer">
                                 តេស្តផ្ញើសារ
                             </button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-1.5">
+                            <div>
+                                <label class="text-[10px] font-bold text-zinc-500 block mb-1">Channel Username / Link</label>
+                                <input id="admin-tg-channel-input" type="text" placeholder="TheOnlyVIP_Channel" class="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-zinc-500 block mb-1">ទំនាក់ទំនង (Contact Admin)</label>
+                                <input id="admin-tg-contact-input" type="text" placeholder="TheOnlyVIP_Support" class="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold text-zinc-500 block mb-1">Bot Username (សម្រាប់បើក Bot ផ្ទាល់)</label>
+                            <input id="admin-tg-username-input" type="text" placeholder="TheOnlyVIP_Bot" class="w-full px-3 py-1.5 rounded-xl bg-white dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
                         </div>
                         <div>
                             <label class="text-[10px] font-bold text-zinc-500 block mb-1">Bot Token</label>
@@ -1234,112 +1424,59 @@
     </div>
 
     <!-- =====================================================================
-         KHQR PAYMENT MODAL
+         TELEGRAM BOT STORE & GB PACKAGE MENU MODAL (FOR BUYERS)
     ====================================================================== -->
-    <div id="emoney-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-3">
-        <div id="emoney-modal-card" class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-4 shadow-2xl space-y-3 max-h-[94vh] overflow-y-auto">
-            <!-- Top Plan & Price Bar -->
-            <div class="flex items-center justify-between gap-2 px-3 py-2 rounded-2xl bg-amber-500/10 border border-amber-500/30">
-                <div class="flex items-center gap-1.5 min-w-0">
-                    <i class="fa-solid fa-crown text-amber-400 text-xs shrink-0"></i>
-                    <span id="emoney-plan-label" class="text-xs font-extrabold text-zinc-900 dark:text-white truncate">30 ថ្ងៃ • អ្នកប្រើ VIP (1 Dev)</span>
+    <div id="telegram-bot-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-3">
+        <div class="w-full max-w-sm bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-4 space-y-3 shadow-2xl max-h-[92vh] overflow-y-auto">
+            <!-- Header -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-2xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                        <i class="fa-brands fa-telegram text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white leading-tight">Telegram Bot • ទិញកញ្ចប់ GB</h3>
+                        <p id="tg-bot-username-label" class="text-[10.5px] font-mono text-sky-400">@TheOnlyVIP_Bot • ស្វ័យប្រវត្តិ 24/7</p>
+                    </div>
                 </div>
-                <span id="emoney-package-price-tag" class="text-xs font-extrabold font-mono text-amber-400 shrink-0">$1.49</span>
-            </div>
-
-            <!-- Promo Code Input -->
-            <div class="flex items-center gap-1.5">
-                <input id="khqr-promo-input" type="text" placeholder="បញ្ចូលកូដបញ្ចុះតម្លៃ (ឧ. VIP10)..." class="flex-1 px-3 py-2 rounded-xl bg-zinc-100 dark:bg-[#0d0d10] border border-zinc-200 dark:border-zinc-800 text-xs font-mono uppercase">
-                <button type="button" onclick="applyKhqrPromoCode()" class="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-extrabold cursor-pointer">
-                    ប្រើ
+                <button type="button" onclick="closeTelegramBotModal()" class="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-xs cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <!-- KHQR Card -->
-            <div class="rounded-3xl bg-zinc-100 text-zinc-900 overflow-hidden shadow-inner">
-                <div class="bg-[#e1232e] text-white py-2.5 px-4 text-center font-black text-base tracking-wider">
-                    KHQR
+            <!-- Buyer Telegram ID Input -->
+            <div class="rounded-2xl bg-zinc-50 dark:bg-[#1b1b20] border border-zinc-200 dark:border-zinc-800 p-3 space-y-1.5">
+                <div class="flex items-center justify-between">
+                    <label class="text-[10.5px] font-extrabold text-zinc-700 dark:text-zinc-300">
+                        <i class="fa-solid fa-id-badge text-sky-400 mr-1"></i>Telegram User ID របស់អ្នកទិញ
+                    </label>
+                    <a href="https://t.me/userinfobot" target="_blank" rel="noopener noreferrer" class="text-[10px] font-bold text-sky-400 hover:underline">
+                        មើល ID របស់ខ្ញុំ
+                    </a>
                 </div>
-                <div class="p-3.5 space-y-2.5">
-                    <div class="flex items-baseline justify-between border-b border-dashed border-zinc-300 pb-2">
-                        <div>
-                            <div id="khqr-merchant-title" class="text-xs font-black tracking-wide text-zinc-900">THEONLYVIP</div>
-                            <div class="text-[10px] text-zinc-500">សរុបត្រូវបង់</div>
-                        </div>
-                        <div class="text-right">
-                            <span id="emoney-amount-label" class="text-2xl font-black font-mono text-zinc-950">1.49</span>
-                            <span class="text-xs font-extrabold text-[#e1232e] ml-1">USD</span>
-                        </div>
-                    </div>
-
-                    <!-- QR Code Box -->
-                    <div class="flex flex-col items-center justify-center py-1 min-h-[192px]">
-                        <div id="khqr-generating-loader" class="flex flex-col items-center justify-center gap-2 py-8 text-zinc-500">
-                            <i class="fa-solid fa-circle-notch fa-spin text-xl text-[#e1232e]"></i>
-                            <span class="text-[11px] font-bold">កំពុងបង្កើត KHQR...</span>
-                        </div>
-                        <div id="aba-khqr-canvas" class="hidden flex-col items-center justify-center p-2.5 bg-white rounded-2xl shadow-sm relative">
-                            <div id="khqr-qr-matrix"></div>
-                        </div>
-                    </div>
-
-                    <!-- Account Copy Row -->
-                    <div class="flex items-center justify-between text-[11px] pt-1 border-t border-zinc-200">
-                        <span class="text-zinc-500 font-semibold">គណនី USD:</span>
-                        <button type="button" onclick="copyEmoneyPhone()" class="font-mono font-extrabold text-zinc-900 inline-flex items-center gap-1.5 cursor-pointer hover:text-[#e1232e]">
-                            <span id="khqr-account-display">013 053 348</span>
-                            <i class="fa-regular fa-copy text-xs"></i>
-                        </button>
-                    </div>
-                </div>
+                <input id="buyer-tg-chatid-input" type="text" inputmode="numeric" placeholder="បញ្ចូលលេខ ID (ឧ. 8996477634) ដើម្បីទទួល Key ក្នុង Bot..." class="w-full px-3 py-2 rounded-xl bg-white dark:bg-[#0f0f13] border border-zinc-200 dark:border-zinc-800 text-xs font-mono">
             </div>
 
-            <!-- Countdown Timer -->
+            <!-- Package Menu with GB Quotas (Main Plans + Extra GB Topup) -->
             <div class="space-y-1.5">
-                <div class="flex items-center justify-between text-[11px]">
-                    <span class="text-zinc-500">ពេលវេលានៅសល់</span>
-                    <span id="khqr-countdown-timer" class="font-mono font-extrabold text-amber-400">05:00</span>
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-extrabold text-zinc-900 dark:text-white">ម៉ឺនុយកញ្ចប់ GB ក្នុង Bot</span>
+                    <span class="text-[10px] text-zinc-500">ចុចជ្រើសរើសកញ្ចប់</span>
                 </div>
-                <div class="w-full h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
-                    <div id="khqr-countdown-bar" class="h-full w-full bg-gradient-to-r from-emerald-400 via-amber-400 to-rose-500 transition-all duration-500"></div>
-                </div>
+                <div id="tg-bot-packages-grid" class="grid grid-cols-2 gap-2"></div>
             </div>
 
             <!-- Action Buttons -->
-            <div class="grid grid-cols-2 gap-2 pt-0.5">
-                <button type="button" onclick="downloadKHQRImage()" class="py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1d1d22] hover:bg-zinc-200 dark:hover:bg-[#26262e] border border-zinc-200 dark:border-zinc-800 text-xs font-extrabold flex items-center justify-center gap-1.5 cursor-pointer">
-                    <i class="fa-solid fa-download"></i>
-                    <span>Download QR code</span>
+            <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="openDirectTelegramBotApp()" class="py-2.5 px-3 rounded-2xl bg-zinc-100 dark:bg-[#1e1e24] hover:bg-zinc-200 dark:hover:bg-[#27272f] border border-zinc-200 dark:border-zinc-800 text-xs font-extrabold flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-brands fa-telegram text-sky-400"></i>
+                    <span>បើកក្នុង Telegram</span>
                 </button>
-                <button type="button" onclick="handlePaymentModalCancel()" class="py-2.5 px-3 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-lg shadow-rose-600/25 cursor-pointer">
-                    <i class="fa-solid fa-receipt"></i>
-                    <span>ផ្ញើវិក្កយបត្រ</span>
+                <button type="button" onclick="proceedTelegramBotPackagePurchase()" class="py-2.5 px-3 rounded-2xl bg-sky-500 hover:bg-sky-400 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-lg shadow-sky-500/25 cursor-pointer">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>ទូទាត់ & ផ្ញើ Key</span>
                 </button>
             </div>
-        </div>
-    </div>
-
-    <!-- =====================================================================
-         PAYMENT VERIFICATION WAITING MODAL
-    ====================================================================== -->
-    <div id="payment-wait-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4">
-        <div class="w-full max-w-xs bg-white dark:bg-[#141418] border border-zinc-200 dark:border-zinc-800 rounded-[28px] p-5 text-center space-y-3.5 shadow-2xl">
-            <div class="w-12 h-12 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mx-auto text-amber-400">
-                <i class="fa-solid fa-hourglass-half fa-spin text-lg"></i>
-            </div>
-            <div>
-                <h3 class="text-sm font-extrabold text-zinc-900 dark:text-white">កំពុងពិនិត្យការទូទាត់</h3>
-                <p class="text-[11px] text-zinc-500 mt-1">វិក្កយបត្រត្រូវបានផ្ញើទៅអ្នកគ្រប់គ្រង។ សូមរង់ចាំការផ្ទៀងផ្ទាត់។</p>
-            </div>
-            <div class="space-y-1">
-                <div id="wait-cooldown-timer" class="text-sm font-mono font-extrabold text-amber-400">05:00</div>
-                <div class="w-full h-1.5 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
-                    <div id="wait-cooldown-bar" class="h-full w-full bg-amber-400 transition-all duration-500"></div>
-                </div>
-            </div>
-            <button type="button" onclick="closePaymentWaitModal()" class="w-full py-2.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-xs font-extrabold cursor-pointer">
-                បិទផ្ទាំង
-            </button>
         </div>
     </div>
 
@@ -1556,6 +1693,100 @@
         let waitCooldownInterval = null;
         let waitCooldownSecondsLeft = 300;
         let lastReceiptSubmittedAt = 0;
+        let isAdminUnlocked = false;
+        let testingSpeed = false;
+        let toastTimeout = null;
+
+        function showToast(msg) {
+            const box = document.getElementById('toast-box');
+            const label = document.getElementById('toast-message');
+            if (!box || !label) return;
+            label.textContent = msg;
+            box.classList.remove('opacity-0', '-translate-y-2');
+            box.classList.add('opacity-100', 'translate-y-0');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                box.classList.add('opacity-0', '-translate-y-2');
+                box.classList.remove('opacity-100', 'translate-y-0');
+            }, 2600);
+        }
+
+        function addSystemLog(text) {
+            const box = document.getElementById('system-logs-box');
+            if (!box) return;
+            const now = new Date();
+            const timeStr = now.toTimeString().split(' ')[0];
+            const line = document.createElement('div');
+            line.className = 'leading-relaxed text-zinc-300';
+            line.innerHTML = `<span class="text-zinc-500">[${timeStr}]</span> ${text}`;
+            box.appendChild(line);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function clearSystemLogs() {
+            const box = document.getElementById('system-logs-box');
+            if (box) {
+                box.innerHTML = `<div class="leading-relaxed text-emerald-400">[SYSTEM] Logs cleared.</div>`;
+            }
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.classList.toggle('dark');
+            const icon = document.getElementById('theme-sun-icon');
+            const label = document.getElementById('theme-short-label');
+            if (icon) {
+                icon.className = isDark
+                    ? 'fa-solid fa-sun text-amber-400 text-[10.5px]'
+                    : 'fa-solid fa-moon text-indigo-500 text-[10.5px]';
+            }
+            if (label) {
+                label.textContent = isDark ? 'ស' : 'ខ្មៅ';
+            }
+        }
+
+        function toggleLangHint() {
+            currentLang = currentLang === 'km' ? 'en' : 'km';
+            const pill = document.getElementById('btn-lang-pill');
+            if (pill) pill.textContent = currentLang === 'km' ? 'EN' : 'KM';
+            const dict = translations[currentLang] || translations.km;
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.textContent = dict[key];
+            });
+            updateLiveDateTime();
+            showToast(currentLang === 'km' ? 'បានប្តូរទៅភាសាខ្មែរ' : 'Switched to English');
+        }
+
+        function detectClientEnvironment() {
+            const ua = navigator.userAgent || '';
+            let osName = 'Android';
+            if (/iPhone|iPad|iPod/i.test(ua)) osName = 'iOS';
+            else if (/Windows/i.test(ua)) osName = 'Windows';
+            else if (/Mac/i.test(ua)) osName = 'macOS';
+
+            const w = window.innerWidth || 393;
+            const h = window.innerHeight || 895;
+            const dpr = (window.devicePixelRatio || 2).toFixed(2);
+            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Phnom_Penh';
+
+            const metaEl = document.getElementById('settings-device-meta');
+            if (metaEl) metaEl.textContent = `V2Box UUID • ${osName} • ${w}x${h}@${dpr}x • ${tz}`;
+            const osEl = document.getElementById('client-os-label');
+            if (osEl) osEl.textContent = `ប្រព័ន្ធ៖ ${osName}`;
+        }
+
+        function clearVisitorTracker() {
+            const list = document.getElementById('visitor-tracker-list');
+            if (list) list.innerHTML = '';
+            showToast('បានសម្អាតកំណត់ត្រាសកម្មភាព');
+        }
+
+        function copyTrackerLogs() {
+            const list = document.getElementById('visitor-tracker-list');
+            const text = list ? list.innerText : memberDeviceId;
+            copyText(text, 'បានចម្លងកំណត់ត្រាសកម្មភាព!');
+        }
 
         function formatMMSS(totalSec) {
             const safeSec = Math.max(0, totalSec);
@@ -1622,8 +1853,12 @@
             marqueeText: '🇰🇭 សួស្តី! រីករាយប្រើប្រាស់សេវាកម្ម V2Box VIP ល្បឿនលឿន និងមានស្ថិរភាពខ្ពស់ • ⚡ ជំនួយបច្ចេកទេស 24/7 • សូមគោរពលក្ខខណ្ឌប្រើប្រាស់គណនី',
             telegramBotToken: '9147211655:AAH1VrkWT3DOAbOubA-tCNlE-pVSXQytH6c',
             telegramAdminUserId: '8996477634',
+            telegramBotUsername: 'TheOnlyVIP_Bot',
+            telegramChannelUsername: 'TheOnlyVIP_Channel',
+            telegramContactUsername: 'TheOnlyVIP_Support',
             prices: ['0.89$', '1.49$', '2.79$', '3.99$', '7.49$', '14.99$'],
             deviceLimits: [1, 1, 2, 2, 3, 5],
+            dataLimits: ['40 GB', '80 GB', '160 GB', '250 GB', '500 GB', '1000 GB'],
             promoCodes: [
                 { code: 'VIP10', discount: 10, active: true },
                 { code: 'THEONLYVIP', discount: 15, active: true }
@@ -1642,6 +1877,7 @@
                         ...parsed,
                         prices: Array.isArray(parsed.prices) && parsed.prices.length === 6 ? parsed.prices : [...defaultAdminConfig.prices],
                         deviceLimits: Array.isArray(parsed.deviceLimits) && parsed.deviceLimits.length === 6 ? parsed.deviceLimits : [...defaultAdminConfig.deviceLimits],
+                        dataLimits: Array.isArray(parsed.dataLimits) && parsed.dataLimits.length === 6 ? parsed.dataLimits : [...defaultAdminConfig.dataLimits],
                         promoCodes: Array.isArray(parsed.promoCodes) ? parsed.promoCodes : defaultAdminConfig.promoCodes.map(p => ({ ...p }))
                     };
                 }
@@ -1650,6 +1886,7 @@
                 ...defaultAdminConfig,
                 prices: [...defaultAdminConfig.prices],
                 deviceLimits: [...defaultAdminConfig.deviceLimits],
+                dataLimits: [...defaultAdminConfig.dataLimits],
                 promoCodes: defaultAdminConfig.promoCodes.map(p => ({ ...p }))
             };
         })();
@@ -1883,7 +2120,7 @@
             const modal = document.getElementById('payment-wait-modal');
             if (!modal) return;
             modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            if (closePaymentWaitModalEl) closePaymentWaitModal();
         }
 
         async function sendTelegramAdminNotification(messageText) {
@@ -2030,6 +2267,7 @@
             const newOrder = {
                 orderId: orderId,
                 deviceId: memberDeviceId,
+                buyerTelegramId: (document.getElementById('buyer-tg-chatid-input')?.value || localStorage.getItem('theonlyvip_buyer_tg_id') || '').trim(),
                 plan: planLabel,
                 amount: `$${amountLabel}`,
                 createdAt: timeStr,
@@ -2044,7 +2282,7 @@
             }
 
             sendTelegramAdminNotification(
-                `⚠️ <b>មានការផ្ញើវិក្កយបត្រ (មិនទាន់ផ្ទៀងផ្ទាត់ធនាគារ) — ${orderId}</b>\n📦 កញ្ចប់៖ <b>${planLabel}</b>\n💵 ទឹកប្រាក់៖ <b>$${amountLabel} USD</b>\n🆔 Device ID៖ <code>${memberDeviceId}</code>\n⏰ ម៉ោង៖ ${timeStr}\n\n🔍 <i>សូមពិនិត្យសមតុល្យ/វិក្កយបត្រក្នុងធនាគារជាមុន មុននឹងចុចអនុម័ត!</i>`
+                `⚠️ <b>មានការផ្ញើវិក្កយបត្រ (មិនទាន់ផ្ទៀងផ្ទាត់ធនាគារ) — ${orderId}</b>\n📦 កញ្ចប់៖ <b>${planLabel}</b>\n💵 ទឹកប្រាក់៖ <b>$${amountLabel} USD</b>\n🆔 Device ID៖ <code>${memberDeviceId}</code>${newOrder.buyerTelegramId ? `\n📲 Buyer TG ID៖ <code>${newOrder.buyerTelegramId}</code>` : ''}\n⏰ ម៉ោង៖ ${timeStr}\n\n🔍 <i>សូមពិនិត្យសមតុល្យ/វិក្កយបត្រក្នុងធនាគារជាមុន មុននឹងចុចអនុម័ត!</i>`
             );
             closeEmoneyModal(false);
             openPaymentWaitModal();
@@ -2097,6 +2335,23 @@
             sendTelegramAdminNotification(
                 `✅ <b>Admin បានអនុម័តការបញ្ជាទិញ ${approvedOrderId}</b>\n📦 កញ្ចប់៖ <b>${order.plan}</b>\n💵 ទឹកប្រាក់៖ <b>${order.amount}</b>\n🆔 Device ID៖ <code>${order.deviceId}</code>`
             );
+
+            // ផ្ញើសារបញ្ជាក់ការទិញ + VIP Key ទៅកាន់ Telegram Bot របស់អ្នកទិញផ្ទាល់ (ដូចក្នុងរូបភាពគំរូ)
+            if (order.buyerTelegramId) {
+                const isExtraData = String(order.plan).includes('ទិញទិន្ន្ន័យបន្ថែម') || String(order.plan).startsWith('+');
+                const serviceTypeLabel = isExtraData ? 'ទិញទិន្នន័យបន្ថែម' : 'បន្តសេវា';
+                const cleanPlanSummary = String(order.plan).replace(/\s*\(ទិញទិន្នន័យបន្ថែម\)/, '').replace('(', '· ').replace(')', '');
+                const vipUuid = adminConfig.globalUuid || defaultAdminConfig.globalUuid;
+                const buyerReceiptMsg =
+                    `✅ <b>ការទិញរបស់អ្នកជោគជ័យ</b>\n` +
+                    `📦 ${cleanPlanSummary} — ${order.amount}\n` +
+                    `🏷 ${serviceTypeLabel}\n` +
+                    `🔑\n` +
+                    `<code>${vipUuid}</code>\n\n` +
+                    `អរគុណដែលជឿទុកចិត្តយើង 🙏`;
+                sendTelegramMessageToChat(order.buyerTelegramId, buyerReceiptMsg);
+            }
+
             addSystemLog(`Admin approved order ${approvedOrderId} (${order.plan})`);
             showToast(`បានអនុម័ត និងបើក VIP សម្រាប់ ${approvedOrderId} ជោគជ័យ!`);
         }
@@ -2437,8 +2692,8 @@
             const pkgIndexMap = { '15': 0, '30': 1, '60': 2, '90': 3, '180': 4, '365': 5 };
             const pkgIdx = pkgIndexMatch ? (pkgIndexMap[pkgIndexMatch[1]] ?? 1) : 1;
             const maxDevices = adminConfig.deviceLimits[pkgIdx] || 1;
-            const dataQuotas = ['35 GB', '70 GB', '150 GB', '250 GB', '500 GB', '1000 GB'];
-            const dataQuota = dataQuotas[pkgIdx] || '70 GB';
+            const gbMatch = String(planLabel).match(/(\+?\d+\s*GB)/i);
+            const dataQuota = gbMatch ? gbMatch[1].toUpperCase() : ((adminConfig.dataLimits && adminConfig.dataLimits[pkgIdx]) || '80 GB');
             const vipKey = adminConfig.globalUuid || '3c73a362-e289-40ac-9174-5de6c31d551e';
             const existingIndex = vipMembers.findIndex(m => m.deviceId === targetDeviceId);
 
@@ -2639,6 +2894,50 @@
             }, 900);
         }
 
+        function updateAdminOverviewStats() {
+            const pendingEl = document.getElementById('admin-stat-pending');
+            const membersEl = document.getElementById('admin-stat-members');
+            const serversEl = document.getElementById('admin-stat-servers');
+            const dotEl = document.getElementById('admin-pending-dot');
+            const badgeEl = document.getElementById('admin-tab-orders-badge');
+
+            if (pendingEl) pendingEl.textContent = String(pendingOrders.length);
+            if (membersEl) membersEl.textContent = String(vipMembers.length);
+            if (serversEl) serversEl.textContent = String(serverNodes.length);
+
+            if (dotEl) {
+                if (pendingOrders.length > 0) dotEl.classList.remove('hidden');
+                else dotEl.classList.add('hidden');
+            }
+            if (badgeEl) {
+                if (pendingOrders.length > 0) {
+                    badgeEl.textContent = String(pendingOrders.length);
+                    badgeEl.classList.remove('hidden');
+                } else {
+                    badgeEl.classList.add('hidden');
+                }
+            }
+        }
+
+        function switchAdminSubTab(subTab) {
+            const subTabs = ['general', 'orders', 'servers', 'system'];
+            subTabs.forEach((name) => {
+                const pane = document.getElementById(`admin-subtab-${name}`);
+                const btn = document.getElementById(`admin-tab-btn-${name}`);
+                if (pane) {
+                    if (name === subTab) pane.classList.remove('hidden');
+                    else pane.classList.add('hidden');
+                }
+                if (btn) {
+                    if (name === subTab) {
+                        btn.className = 'relative py-1.5 px-1 rounded-xl bg-amber-500 text-black text-[10px] font-extrabold transition-all cursor-pointer';
+                    } else {
+                        btn.className = 'relative py-1.5 px-1 rounded-xl text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-[10px] font-bold transition-all cursor-pointer';
+                    }
+                }
+            });
+        }
+
         function switchTab(tabName) {
             const tabs = ['home', 'servers', 'speed', 'tracker', 'settings'];
             tabs.forEach(t => {
@@ -2659,47 +2958,30 @@
             });
         }
 
-        /* =====================================================================
-           ADMIN PANEL SUB-TABS & ADVANCED MANAGEMENT FUNCTIONS
-        ===================================================================== */
-        function switchAdminSubTab(tabName) {
-            const tabs = ['general', 'orders', 'servers', 'system'];
-            tabs.forEach(t => {
-                const panel = document.getElementById(`admin-subtab-${t}`);
-                const btn = document.getElementById(`admin-tab-btn-${t}`);
-                if (!panel || !btn) return;
-                if (t === tabName) {
-                    panel.classList.remove('hidden');
-                    btn.className = 'relative py-1.5 px-1 rounded-xl bg-amber-500 text-black text-[10px] font-extrabold transition-all cursor-pointer';
-                } else {
-                    panel.classList.add('hidden');
-                    btn.className = 'relative py-1.5 px-1 rounded-xl text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-[10px] font-bold transition-all cursor-pointer';
+        async function sendTelegramMessageToChat(targetChatId, messageText) {
+            const token = (adminConfig.telegramBotToken || defaultAdminConfig.telegramBotToken || '').trim();
+            const chatId = String(targetChatId || '').trim();
+            if (!token || !chatId) return false;
+            try {
+                const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: messageText,
+                        parse_mode: 'HTML'
+                    })
+                });
+                const data = await res.json();
+                if (data && data.ok) {
+                    addSystemLog(`Telegram message sent to Chat ID (${chatId}).`);
+                    return true;
                 }
-            });
-        }
-
-        function updateAdminOverviewStats() {
-            const pStat = document.getElementById('admin-stat-pending');
-            const mStat = document.getElementById('admin-stat-members');
-            const sStat = document.getElementById('admin-stat-servers');
-            const gearDot = document.getElementById('admin-pending-dot');
-            const tabBadge = document.getElementById('admin-tab-orders-badge');
-
-            if (pStat) pStat.textContent = pendingOrders.length;
-            if (mStat) mStat.textContent = vipMembers.length;
-            if (sStat) sStat.textContent = serverNodes.length;
-
-            if (gearDot) {
-                if (pendingOrders.length > 0) gearDot.classList.remove('hidden');
-                else gearDot.classList.add('hidden');
-            }
-            if (tabBadge) {
-                if (pendingOrders.length > 0) {
-                    tabBadge.textContent = pendingOrders.length;
-                    tabBadge.classList.remove('hidden');
-                } else {
-                    tabBadge.classList.add('hidden');
-                }
+                addSystemLog(`Telegram buyer send warning: ${(data && data.description) || 'Failed'}`);
+                return false;
+            } catch (err) {
+                addSystemLog('Telegram buyer send error: Network/CORS restriction.');
+                return false;
             }
         }
 
@@ -2821,6 +3103,8 @@
                 document.getElementById(`admin-p${i}`).value = adminConfig.prices[i];
                 const devInput = document.getElementById(`admin-d${i}`);
                 if (devInput) devInput.value = adminConfig.deviceLimits[i] ?? 1;
+                const gbInput = document.getElementById(`admin-gb${i}`);
+                if (gbInput) gbInput.value = (adminConfig.dataLimits && adminConfig.dataLimits[i]) || defaultAdminConfig.dataLimits[i];
             }
             document.getElementById('admin-days-input').value = adminConfig.daysLeft;
             document.getElementById('admin-expiry-input').value = adminConfig.expiryDate;
@@ -2837,10 +3121,16 @@
             const marqueeEl = document.getElementById('admin-marquee-text-input');
             if (marqueeEl) marqueeEl.value = adminConfig.marqueeText || defaultAdminConfig.marqueeText;
 
+            const tgUserEl = document.getElementById('admin-tg-username-input');
             const tgTokenEl = document.getElementById('admin-tg-token-input');
             const tgChatIdEl = document.getElementById('admin-tg-chatid-input');
+            const tgChannelEl = document.getElementById('admin-tg-channel-input');
+            const tgContactEl = document.getElementById('admin-tg-contact-input');
+            if (tgUserEl) tgUserEl.value = adminConfig.telegramBotUsername || defaultAdminConfig.telegramBotUsername;
             if (tgTokenEl) tgTokenEl.value = adminConfig.telegramBotToken || defaultAdminConfig.telegramBotToken;
             if (tgChatIdEl) tgChatIdEl.value = adminConfig.telegramAdminUserId || defaultAdminConfig.telegramAdminUserId;
+            if (tgChannelEl) tgChannelEl.value = adminConfig.telegramChannelUsername || defaultAdminConfig.telegramChannelUsername;
+            if (tgContactEl) tgContactEl.value = adminConfig.telegramContactUsername || defaultAdminConfig.telegramContactUsername;
 
             renderAdminPromoList();
             renderAdminPendingOrders();
@@ -2967,6 +3257,9 @@
                 const devInput = document.getElementById(`admin-d${i}`);
                 const parsedDev = devInput ? parseInt(devInput.value, 10) : NaN;
                 adminConfig.deviceLimits[i] = (!isNaN(parsedDev) && parsedDev > 0) ? parsedDev : (defaultAdminConfig.deviceLimits[i] || 1);
+                const gbInput = document.getElementById(`admin-gb${i}`);
+                if (!Array.isArray(adminConfig.dataLimits)) adminConfig.dataLimits = [...defaultAdminConfig.dataLimits];
+                adminConfig.dataLimits[i] = (gbInput && gbInput.value.trim()) ? gbInput.value.trim() : defaultAdminConfig.dataLimits[i];
             }
             adminConfig.daysLeft = parseInt(document.getElementById('admin-days-input').value, 10) || 39;
             adminConfig.expiryDate = document.getElementById('admin-expiry-input').value.trim() || '31/12/2026';
@@ -2983,10 +3276,16 @@
             const marqueeEl = document.getElementById('admin-marquee-text-input');
             if (marqueeEl && marqueeEl.value.trim()) adminConfig.marqueeText = marqueeEl.value.trim();
 
+            const tgUserEl = document.getElementById('admin-tg-username-input');
             const tgTokenEl = document.getElementById('admin-tg-token-input');
             const tgChatIdEl = document.getElementById('admin-tg-chatid-input');
+            const tgChannelEl = document.getElementById('admin-tg-channel-input');
+            const tgContactEl = document.getElementById('admin-tg-contact-input');
+            if (tgUserEl) adminConfig.telegramBotUsername = tgUserEl.value.trim().replace(/^@/, '') || defaultAdminConfig.telegramBotUsername;
             if (tgTokenEl) adminConfig.telegramBotToken = tgTokenEl.value.trim() || defaultAdminConfig.telegramBotToken;
             if (tgChatIdEl) adminConfig.telegramAdminUserId = tgChatIdEl.value.trim() || defaultAdminConfig.telegramAdminUserId;
+            if (tgChannelEl) adminConfig.telegramChannelUsername = tgChannelEl.value.trim() || defaultAdminConfig.telegramChannelUsername;
+            if (tgContactEl) adminConfig.telegramContactUsername = tgContactEl.value.trim() || defaultAdminConfig.telegramContactUsername;
 
             persistAdminConfig();
             applyAdminConfigToUI();
@@ -3001,6 +3300,7 @@
                 ...defaultAdminConfig,
                 prices: [...defaultAdminConfig.prices],
                 deviceLimits: [...defaultAdminConfig.deviceLimits],
+                dataLimits: [...defaultAdminConfig.dataLimits],
                 promoCodes: defaultAdminConfig.promoCodes.map(p => ({ ...p }))
             };
             serverNodes = defaultServerNodes.map(s => ({ ...s }));
@@ -3018,6 +3318,23 @@
             for (let i = 0; i < 6; i++) {
                 const el = document.getElementById(`pkg-price-${i}`);
                 if (el) el.textContent = adminConfig.prices[i];
+                const gbEl = document.getElementById(`pkg-gb-${i}`);
+                if (gbEl) gbEl.textContent = (adminConfig.dataLimits && adminConfig.dataLimits[i]) || defaultAdminConfig.dataLimits[i];
+            }
+            const botUserEl = document.getElementById('tg-bot-username-label');
+            if (botUserEl) {
+                const uname = (adminConfig.telegramBotUsername || defaultAdminConfig.telegramBotUsername).replace(/^@/, '');
+                botUserEl.textContent = `@${uname} • ស្វ័យប្រវត្តិ 24/7`;
+            }
+            const chHandleEl = document.getElementById('ui-tg-channel-handle');
+            if (chHandleEl) {
+                const rawCh = (adminConfig.telegramChannelUsername || defaultAdminConfig.telegramChannelUsername).trim();
+                chHandleEl.textContent = rawCh.startsWith('http') ? rawCh : `@${rawCh.replace(/^@/, '')}`;
+            }
+            const ctHandleEl = document.getElementById('ui-tg-contact-handle');
+            if (ctHandleEl) {
+                const rawCt = (adminConfig.telegramContactUsername || defaultAdminConfig.telegramContactUsername).trim();
+                ctHandleEl.textContent = rawCt.startsWith('http') ? rawCt : `@${rawCt.replace(/^@/, '')}`;
             }
             const daysPill = document.getElementById('days-left-pill');
             if (daysPill) daysPill.textContent = `នៅសល់ ${adminConfig.daysLeft} ថ្ងៃ`;
@@ -3452,135 +3769,136 @@
                 if (visEl) visEl.textContent = visitorVisits;
             }
             if (!list) return;
-
-            const now = new Date();
-            const dateStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} ${now.toTimeString().split(' ')[0]}`;
-            const badgeStyle = type === 'Import V2Box'
-                ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-400'
-                : 'bg-indigo-500/15 border-indigo-500/30 text-indigo-400';
-
-            const item = document.createElement('div');
-            item.className = 'rounded-xl bg-white dark:bg-[#121216] border border-zinc-200 dark:border-zinc-800/80 p-2.5 flex items-center justify-between gap-2';
-            item.innerHTML = `
+            const row = document.createElement('div');
+            row.className = 'rounded-xl bg-white dark:bg-[#121216] border border-zinc-200 dark:border-zinc-800/80 p-2.5 flex items-center justify-between gap-2';
+            row.innerHTML = `
                 <div class="min-w-0">
-                    <p class="text-[11px] font-extrabold font-mono text-zinc-900 dark:text-white truncate">ID: ${memberDeviceId.slice(0, 18)}...</p>
+                    <p class="text-[11px] font-extrabold font-mono text-zinc-900 dark:text-white truncate">${type}: ${memberDeviceId.slice(0, 18)}...</p>
                     <p class="text-[10px] text-zinc-500 font-mono truncate mt-0.5">${details}</p>
                 </div>
-                <div class="text-right shrink-0">
-                    <span class="inline-block px-2 py-0.5 rounded-full border text-[9.5px] font-bold ${badgeStyle}">${type}</span>
-                    <p class="text-[9px] text-zinc-500 font-mono mt-0.5">${dateStr}</p>
-                </div>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[9.5px] font-bold shrink-0">Logged</span>
             `;
-            list.prepend(item);
+            list.prepend(row);
         }
 
-        function copyTrackerLogs() {
-            const summary = `TheOnlyVIP Personal Tracker — Visits: ${visitorVisits}, Imports: ${visitorImports}, Total Data: ${document.getElementById('tracker-total-data')?.textContent || '0.30 MB'}`;
-            copyText(summary, 'បានចម្លងកំណត់ត្រាសមាជិក!');
+        /* =====================================================================
+           TELEGRAM BOT STORE & GB PACKAGE MENU LOGIC
+        ===================================================================== */
+        let selectedBotPackageIndex = 1;
+
+        function getTelegramBotCatalog() {
+            const p = adminConfig.prices || defaultAdminConfig.prices;
+            const g = adminConfig.dataLimits || defaultAdminConfig.dataLimits;
+            return [
+                { days: '15 ថ្ងៃ', gb: g[0] || '40 GB', price: p[0] || '0.89$', type: 'បន្តសេវា', badge: 'VIP 15D' },
+                { days: '30 ថ្ងៃ', gb: g[1] || '80 GB', price: p[1] || '1.49$', type: 'បន្តសេវា', badge: 'HOT 🔥' },
+                { days: '60 ថ្ងៃ', gb: g[2] || '160 GB', price: p[2] || '2.79$', type: 'បន្តសេវា', badge: 'VIP 60D' },
+                { days: '90 ថ្ងៃ', gb: g[3] || '250 GB', price: p[3] || '3.99$', type: 'បន្តសេវា', badge: 'VIP 90D' },
+                { days: '180 ថ្ងៃ', gb: g[4] || '500 GB', price: p[4] || '7.49$', type: 'បន្តសេវា', badge: 'PRO 180D' },
+                { days: 'ទិន្នន័យបន្ថែម', gb: '+30 GB', price: '0.30$', type: 'ទិញទិន្នន័យបន្ថែម', badge: '+GB' }
+            ];
         }
 
-        function clearVisitorTracker() {
-            const list = document.getElementById('visitor-tracker-list');
-            if (list) list.innerHTML = '';
-            visitorVisits = 0;
-            visitorImports = 0;
-            const visEl = document.getElementById('tracker-visit-count');
-            const impEl = document.getElementById('tracker-import-count');
-            if (visEl) visEl.textContent = '0';
-            if (impEl) impEl.textContent = '0';
-            showToast('បានសម្អាតកំណត់ត្រាសមាជិករួចរាល់');
-        }
+        function renderTelegramBotPackages() {
+            const grid = document.getElementById('tg-bot-packages-grid');
+            const catalog = getTelegramBotCatalog();
 
-        function addSystemLog(message) {
-            const box = document.getElementById('system-logs-box');
-            if (!box) return;
-            const now = new Date();
-            const timeStr = now.toTimeString().split(' ')[0];
-            const line = document.createElement('div');
-            line.className = 'leading-relaxed';
-            line.innerHTML = `<span class="text-emerald-500">[${timeStr}]</span> <span class="text-emerald-400">${message}</span>`;
-            box.prepend(line);
-        }
-
-        function clearSystemLogs() {
-            const box = document.getElementById('system-logs-box');
-            if (box) box.innerHTML = `<div class="leading-relaxed text-emerald-400">[SYSTEM] Portal ready.</div>`;
-        }
-
-        function toggleTheme() {
-            const html = document.documentElement;
-            html.classList.toggle('dark');
-            const isDark = html.classList.contains('dark');
-            const sunIcon = document.getElementById('theme-sun-icon');
-            const shortLabel = document.getElementById('theme-short-label');
-            if (sunIcon && shortLabel) {
-                sunIcon.className = isDark ? 'fa-solid fa-sun text-amber-400 text-xs' : 'fa-solid fa-moon text-indigo-500 text-xs';
-                shortLabel.textContent = isDark ? 'ស' : 'ងងឹត';
+            if (grid) {
+                grid.innerHTML = catalog.map((item, idx) => {
+                    const selected = idx === selectedBotPackageIndex;
+                    const borderStyle = selected
+                        ? 'border-2 border-sky-400 bg-sky-500/10'
+                        : 'border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-[#1b1b20] hover:border-sky-500/40';
+                    const titleLine = item.type === 'ទិញទិន្នន័យបន្ថែម'
+                        ? `${item.gb}`
+                        : `${item.days} • ${item.gb}`;
+                    return `
+                        <button type="button" onclick="selectTelegramBotPackage(${idx})" class="rounded-2xl ${borderStyle} p-2.5 text-left transition-all active:scale-[0.98] cursor-pointer">
+                            <div class="flex items-center justify-between gap-1 mb-0.5">
+                                <span class="text-[9.5px] font-black px-1.5 py-0.5 rounded-full bg-sky-500/20 text-sky-400">${item.badge}</span>
+                                <span class="text-xs font-extrabold font-mono text-amber-400">${item.price}</span>
+                            </div>
+                            <div class="text-xs font-extrabold text-zinc-900 dark:text-white truncate">${titleLine}</div>
+                            <div class="text-[10px] text-zinc-500 truncate">${item.type}</div>
+                        </button>
+                    `;
+                }).join('');
             }
-            showToast(isDark ? 'បានបើកផ្ទៃងងឹត (Dark Mode)' : 'បានបើកផ្ទៃភ្លឺ (Light Mode)');
         }
 
-        function toggleLangHint() {
-            currentLang = currentLang === 'km' ? 'en' : 'km';
-            const pill = document.getElementById('btn-lang-pill');
-            if (pill) pill.textContent = currentLang === 'km' ? 'EN' : 'KM';
+        function selectTelegramBotPackage(idx) {
+            selectedBotPackageIndex = idx;
+            renderTelegramBotPackages();
+        }
 
-            const dict = translations[currentLang];
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (dict && dict[key]) {
-                    el.innerHTML = dict[key];
-                }
-            });
+        function openTelegramBotModal() {
+            const modal = document.getElementById('telegram-bot-modal');
+            if (!modal) return;
+            const savedBuyerId = localStorage.getItem('theonlyvip_buyer_tg_id') || '';
+            const inputEl = document.getElementById('buyer-tg-chatid-input');
+            if (inputEl && !inputEl.value) inputEl.value = savedBuyerId;
+            renderTelegramBotPackages();
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
 
-            const active = serverNodes[selectedServerIndex];
-            const regEl = document.getElementById('home-region-text');
-            if (regEl && active) {
-                regEl.textContent = currentLang === 'km'
-                    ? `តំបន់៖ ${active.regionDisplay}`
-                    : `Region: ${active.regionDisplay}`;
+        function closeTelegramBotModal() {
+            const modal = document.getElementById('telegram-bot-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openDirectTelegramBotApp() {
+            const uname = (adminConfig.telegramBotUsername || defaultAdminConfig.telegramBotUsername).replace(/^@/, '');
+            const catalog = getTelegramBotCatalog();
+            const activePkg = catalog[selectedBotPackageIndex] || catalog[1];
+            const startParam = encodeURIComponent(`buy_${activePkg.gb.replace(/\s+/g, '')}`);
+            const tgUrl = `https://t.me/${uname}?start=${startParam}`;
+            addSystemLog(`Opening Telegram Bot @${uname}...`);
+            const win = window.open(tgUrl, '_blank', 'noopener,noreferrer');
+            if (!win) window.location.href = tgUrl;
+        }
+
+        function resolveTelegramTargetUrl(rawVal, fallbackUsername) {
+            const cleaned = String(rawVal || fallbackUsername || '').trim();
+            if (!cleaned) return 'https://t.me/';
+            if (cleaned.startsWith('http://') || cleaned.startsWith('https://')) return cleaned;
+            return `https://t.me/${cleaned.replace(/^@/, '')}`;
+        }
+
+        function openTelegramChannel() {
+            const url = resolveTelegramTargetUrl(adminConfig.telegramChannelUsername, defaultAdminConfig.telegramChannelUsername);
+            addSystemLog(`Opening Telegram Channel: ${url}`);
+            showToast('កំពុងបើក Channel Telegram...');
+            const win = window.open(url, '_blank', 'noopener,noreferrer');
+            if (!win) window.location.href = url;
+        }
+
+        function openTelegramContact() {
+            const url = resolveTelegramTargetUrl(adminConfig.telegramContactUsername, defaultAdminConfig.telegramContactUsername);
+            addSystemLog(`Opening Telegram Support Contact: ${url}`);
+            showToast('កំពុងបើក Telegram ទំនាក់ទំនង Admin...');
+            const win = window.open(url, '_blank', 'noopener,noreferrer');
+            if (!win) window.location.href = url;
+        }
+
+        function proceedTelegramBotPackagePurchase() {
+            const inputEl = document.getElementById('buyer-tg-chatid-input');
+            const buyerChatId = (inputEl ? inputEl.value : '').trim();
+            if (buyerChatId) {
+                try {
+                    localStorage.setItem('theonlyvip_buyer_tg_id', buyerChatId);
+                } catch (e) {}
             }
+            const catalog = getTelegramBotCatalog();
+            const activePkg = catalog[selectedBotPackageIndex] || catalog[1];
+            const planLabel = activePkg.type === 'ទិញទិន្នន័យបន្ថែម'
+                ? `${activePkg.gb} (ទិញទិន្នន័យបន្ថែម)`
+                : `${activePkg.days} (${activePkg.gb})`;
 
-            updateSpeedNetworkBadge();
-            updateLiveDateTime();
-            showToast(currentLang === 'km' ? 'បានប្តូរទៅភាសាខ្មែរ (Khmer)' : 'Switched to English');
-        }
-
-        let toastTimeout = null;
-        function showToast(msg) {
-            const box = document.getElementById('toast-box');
-            const label = document.getElementById('toast-message');
-            if (!box || !label) return;
-
-            label.textContent = msg;
-            box.classList.remove('opacity-0', '-translate-y-2');
-            box.classList.add('opacity-100', 'translate-y-0');
-
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                box.classList.add('opacity-0', '-translate-y-2');
-                box.classList.remove('opacity-100', 'translate-y-0');
-            }, 2200);
-        }
-
-        function detectClientEnvironment() {
-            const ua = navigator.userAgent || '';
-            let os = 'Desktop';
-            if (/Android/i.test(ua)) os = 'Android';
-            else if (/iPhone|iPad|iPod/i.test(ua)) os = 'iOS';
-            else if (/Windows/i.test(ua)) os = 'Windows';
-            else if (/Mac/i.test(ua)) os = 'macOS';
-
-            const osEl = document.getElementById('client-os-label');
-            if (osEl) osEl.textContent = `ប្រព័ន្ធ៖ ${os}`;
-
-            const metaEl = document.getElementById('settings-device-meta');
-            if (metaEl) {
-                const w = window.screen ? window.screen.width : 393;
-                const h = window.screen ? window.screen.height : 895;
-                const dpr = window.devicePixelRatio ? window.devicePixelRatio.toFixed(2) : '2.75';
-                metaEl.textContent = `V2Box UUID • ${os} • ${w}x${h}@${dpr}x • Asia/Phnom_Penh`;
-            }
+            closeTelegramBotModal();
+            openEmoneyTopup(activePkg.price, planLabel);
         }
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -3605,6 +3923,22 @@
             addSystemLog('Selected server region: 🇻🇳 Vietnam (VN)');
             addSystemLog('TheOnlyVIP Portal initialized.');
             addSystemLog('Connected IP detected: 36.37.133.245 (KH • Cambodia)');
+        });
+
+        window.addEventListener('error', (event) => {
+            try {
+                if (typeof addSystemLog === 'function') {
+                    addSystemLog(`Recovered error: ${event.message || 'Runtime issue'}`);
+                }
+            } catch (e) {}
+        });
+
+        window.addEventListener('unhandledrejection', (event) => {
+            try {
+                if (typeof addSystemLog === 'function') {
+                    addSystemLog('Recovered async promise issue safely.');
+                }
+            } catch (e) {}
         });
     </script>
 </body>
